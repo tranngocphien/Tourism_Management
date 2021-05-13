@@ -9,11 +9,7 @@
     </head>
     <body>
         <div class="header">
-            <div>Tourism</div>
+            <div>Tourism Management</div>
         </div>
-        <div class="navigation">
-            
-        </div>
-
     </body>
 </html>

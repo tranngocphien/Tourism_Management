@@ -21,7 +21,7 @@
                 <input type="password" name="password" id="password">
                 <br>
                 <div>Full Name</div>
-                <input type="text" name="password" id="password">
+                <input type="text" name="fullname" id="fulname">
                 <br>
                 <div>Email</div>
                 <input type="email" name="email" id="email">

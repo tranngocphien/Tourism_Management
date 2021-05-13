@@ -57,3 +57,66 @@ body{
     font-size: 24px;
     margin-left: 16px;
 }
+
+.content {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 60px);
+}
+
+.content_left {
+    width: 15%;
+    height: 100%;
+    border-right: 1px solid #bbbbbb;
+}
+.menu_item {
+    display: flex;
+    height: 44px;
+    align-items: center;
+    margin:auto 16px;    
+    border-bottom: 1px solid #bbbbbb;
+    border-radius: 5px;
+    padding-left: 12px;
+    
+}
+
+.menu_item:hover {
+    background-color: #bbbbbb;
+    color: white;
+}
+
+.content_right {
+    width: calc(85% - 1px);
+    height: 100%;
+}
+
+.content_right .title {
+    font-weight: bold;
+    font-size: 24px;
+    padding-left: 16px;
+    padding-top: 4px;
+    height: 40px;
+}
+
+.content_main {
+    width: 100%;
+    height: calc(100vh - 104px);
+    overflow-y: scroll;
+}
+
+.grid table {
+    width: calc(100% - 16px);
+    border-collapse: collapse;
+    margin: 8px;
+}
+
+.content_main table th, td {
+        border: 1px solid #bbbbbb;
+        padding: 5px;
+        text-align: left;
+        height: 40px;
+        overflow : hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    
