@@ -42,7 +42,7 @@
                                         <td><?php echo $user["Tour"]["price_personal"] ?></td>
                                         <td><?php echo $user["Tour"]["price_group"] ?></td>
                                         <td><?php echo $user["Tour"]["transport"] ?></td>
-                                        <td><a href="">Xem</a></td>
+                                        <td><a href="<?php echo URL; ?>/admins/tourdetail/<?php echo $user["Tour"]['tour_id']?>">Xem</a></td>
                                         <td><input type="checkbox" name="delete" value="<?php echo $user["Tour"]["tour_id"] ?>"></td>
 
                                     </tr>

@@ -62,7 +62,7 @@ body{
 .content {
     display: flex;
     width: 100%;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 76px);
 }
 
 .content_left {

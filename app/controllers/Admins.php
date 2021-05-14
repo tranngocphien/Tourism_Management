@@ -17,9 +17,10 @@ class Admins extends Controller {
         $data = $this->adminModel->getListTour();
         $this->view("admin/tour", $data);
     }
-    
+
     public function tourdetail($tour_id) {
-        
+        $data = $this->adminModel->getDetailTour($tour_id);
+        $this->view("admin/tour_detail", $data);
     }
 
     public function bookings() {
