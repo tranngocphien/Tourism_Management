@@ -154,3 +154,15 @@ body{
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+.btn-save {
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+    float: right;
+    background-color: green;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    outline: none;
+}
