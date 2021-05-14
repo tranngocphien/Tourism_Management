@@ -13,46 +13,52 @@
         </div>
         <div class="content">
             <div class="content_left">
-                <div class="menu_item"><div class="menu_icon user_icon"></div><a href="<?php echo URL;?>/admins/users">User</a></div>
-                <div class="menu_item"><div class="menu_icon tour_icon"></div><a href="<?php echo URL;?>/admins/tours">Tour</a></div>
-                <div class="menu_item"><div class="menu_icon booking-icon"></div><a href="<?php echo URL;?>/admins/bookings">Booking</a></div>
+                <div class="menu_item"><div class="menu_icon user_icon"></div><a href="<?php echo URL; ?>/admins/users">User</a></div>
+                <div class="menu_item"><div class="menu_icon tour_icon"></div><a href="<?php echo URL; ?>/admins/tours">Tour</a></div>
+                <div class="menu_item"><div class="menu_icon booking-icon"></div><a href="<?php echo URL; ?>/admins/bookings">Booking</a></div>
             </div>
             <div class="content_right">
 
                 <div class="title">Danh sách các tour</div>
-                <div class="content_main">
-                    <div class="grid"> 
-                        <table>
-                            <tr>
-                                <th>Tên tour</th>
-                                <th>Địa điểm</th>
-                                <th>Giá đơn</th>
-                                <th>Giá nhóm</th>
-                                <th>Phương tiện</th>
-
-                            </tr>
-                            <?php foreach ($data as $user): ?>
+                <form>
+                    <div class="content_main">
+                        <div><input class="btn-delete" type="submit" value="Xóa"><input class="btn-add" type="submit" value="Thêm tour"></div>
+                        <div class="grid"> 
+                            <table>
                                 <tr>
-                                    <td><?php echo $user["Tour"]["tour_name"] ?></td>
-                                    <td><?php echo $user["Place"]["places_name"] ?></td>
-                                    <td><?php echo $user["Tour"]["price_personal"] ?></td>
-                                    <td><?php echo $user["Tour"]["price_group"] ?></td>
-                                    <td><?php echo $user["Tour"]["transport"] ?></td>
+                                    <th>Tên tour</th>
+                                    <th>Địa điểm</th>
+                                    <th>Giá đơn</th>
+                                    <th>Giá nhóm</th>
+                                    <th>Phương tiện</th>
+                                    <th>Xem</th>
+                                    <th>Xóa</th>
 
                                 </tr>
-                            <?php endforeach ?>
-                            <tr>
-                                <td>tranngocphien</td>
-                                <td>tranngocphien</td>
-                                <td>tranngocphien</td>
-                                <td>tranngocphien</td>
-                                <td>tranngocphien</td>
-                            </tr>
+                                <?php foreach ($data as $user): ?>
+                                    <tr>
+                                        <td><?php echo $user["Tour"]["tour_name"] ?></td>
+                                        <td><?php echo $user["Place"]["places_name"] ?></td>
+                                        <td><?php echo $user["Tour"]["price_personal"] ?></td>
+                                        <td><?php echo $user["Tour"]["price_group"] ?></td>
+                                        <td><?php echo $user["Tour"]["transport"] ?></td>
+                                        <td><a href="">Xem</a></td>
+                                        <td><input type="checkbox" name="delete" value="<?php echo $user["Tour"]["tour_id"] ?>"></td>
 
-                        </table></div>
+                                    </tr>
+                                <?php endforeach ?>
+                                <tr>
+                                    <td>tranngocphien</td>
+                                    <td>tranngocphien</td>
+                                    <td>tranngocphien</td>
+                                    <td>tranngocphien</td>
+                                    <td>tranngocphien</td>
+                                </tr>
 
-                </div>
+                            </table></div>
 
+                    </div>
+                </form>
             </div>
 
         </div>

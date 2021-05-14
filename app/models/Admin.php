@@ -19,7 +19,7 @@ class Admin {
     }
 
     public function getListBooking() {
-        $query = "SELECT booking.booking_id, tour.tour_name,user.username,booking.number_ticket,booking.status FROM booking, tour, user WHERE tour.tour_id = booking.tour_id and booking.user_id = user.user_id";
+        $query = "SELECT booking.booking_id, tour.tour_name,user.username,booking.number_ticket,booking.status, booking.date_start FROM booking, tour, user WHERE tour.tour_id = booking.tour_id and booking.user_id = user.user_id";
         return $this->db->query($query);
     }
     

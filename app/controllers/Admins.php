@@ -17,15 +17,19 @@ class Admins extends Controller {
         $data = $this->adminModel->getListTour();
         $this->view("admin/tour", $data);
     }
+    
+    public function tourdetail($tour_id) {
+        
+    }
 
     public function bookings() {
         if (isset($_POST['confirm'])) {
             $confirm = $_POST['confirm'];
-            $this->adminModel->setBookingStatus($confirm, "1");
+            $this->adminModel->setBookingStatus($confirm, "Đã xác nhận");
         }
         if (isset($_POST['notconfirm'])) {
             $notconfirm = $_POST['notconfirm'];
-            $this->adminModel->setBookingStatus($notconfirm, "0");
+            $this->adminModel->setBookingStatus($notconfirm, "Chưa xác nhận");
         }
         $data = $this->adminModel->getListBooking();
         $this->view("admin/booking", $data);

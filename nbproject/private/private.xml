@@ -14,8 +14,11 @@
             <file>file:/C:/xampp/htdocs/Tourism_Management/app/views/admin/tour.php</file>
             <file>file:/C:/xampp/htdocs/Tourism_Management/public/css/index.css</file>
             <file>file:/C:/xampp/htdocs/Tourism_Management/app/models/Admin.php</file>
+            <file>file:/C:/xampp/htdocs/Tourism_Management/app/views/admin/tour_detail.php</file>
             <file>file:/C:/xampp/htdocs/Tourism_Management/app/views/pages/index.php</file>
             <file>file:/C:/xampp/htdocs/Tourism_Management/app/views/admin/booking.php</file>
+            <file>file:/C:/xampp/htdocs/Tourism_Management/app/views/users/login.php</file>
+            <file>file:/C:/xampp/htdocs/Tourism_Management/app/views/users/index.php</file>
             <file>file:/C:/xampp/htdocs/Tourism_Management/app/controllers/Users.php</file>
             <file>file:/C:/xampp/htdocs/Tourism_Management/app/config/config.php</file>
         </group>

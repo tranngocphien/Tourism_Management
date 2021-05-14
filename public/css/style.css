@@ -166,3 +166,25 @@ body{
     border-radius: 5px;
     outline: none;
 }
+
+.btn-add {
+    height: 40px;
+    margin-right: 8px;
+    float: right;
+    background-color: green;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    outline: none;
+}
+
+.btn-delete {
+    height: 40px;
+    margin-right: 8px;
+    float: right;
+    background-color: red;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    outline: none;
+}
