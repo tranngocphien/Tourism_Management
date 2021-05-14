@@ -1,5 +1,6 @@
 body{
     margin: 0px;
+    font-family:  Arial, Helvetica, sans-serif ;
 }
 .login_form {
     width: 50%;
@@ -128,14 +129,17 @@ body{
 .content_right .title {
     font-weight: bold;
     font-size: 24px;
-    padding-left: 16px;
-    padding-top: 4px;
-    height: 40px;
+    padding:8px 16px;
+    text-align: center;
+    color: white;
+    background-color: green;
+    margin: 8px;
+    border-radius: 5px;
 }
 
 .content_main {
     width: 100%;
-    height: calc(100vh - 104px);
+    height: calc(100vh - 120px);
     overflow-y: scroll;
 }
 
@@ -187,4 +191,62 @@ body{
     color: white;
     border-radius: 5px;
     outline: none;
+}
+
+.m-search {
+    border: 1px solid #bbbbbb;
+    border-radius: 4px;
+    outline: none;
+    height: 36px;
+    margin-left: 8px;
+    width: 200px;
+    box-sizing: border-box;
+    padding: 10px 16px;
+}
+
+.m-flex {
+    display: flex;
+}
+
+.m-flex-1 {
+    flex: 1;
+}
+
+.m-center {
+    align-items: center;
+}
+
+.detail-left {
+    margin: 0 8px;
+}
+
+.detail-left .m-input {
+    border: 1px solid #bbbbbb;
+    border-radius: 4px;
+    outline: none;
+    height : 36px;
+    margin : 8px;
+    width : calc(100% - 80px);
+    box-sizing: border-box;
+    padding : 10px 16px;
+
+}
+
+.label {
+    width: 60px;
+}
+
+.detail-right {
+    margin: 0 8px;
+    padding-top: 8px;
+
+}
+.detail-right .m-input__description {
+    border: 1px solid #bbbbbb;
+    border-radius: 4px;
+    outline: none;
+    height : calc(100% - 44px);
+    width : calc(100% - 8px );
+    box-sizing: border-box;
+    padding : 10px 16px;
 }

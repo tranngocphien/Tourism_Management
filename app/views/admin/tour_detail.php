@@ -21,8 +21,27 @@
 
                 <div class="title">Chi tiết tour</div>
                 <form>
-                    <div class="content_main">
-                        <?php echo $data[0]["Tour"]["tour_name"]; ?>    
+                    <div class="content_main m-flex">
+                        <div class="m-flex-1 detail-left">
+                            <div class="m-flex m-center"><div class="label">Tên tour</div><input class="m-input" type="text"></div>
+                            <div class="m-flex m-center">
+                                <div class="m-flex-1 m-flex m-center"><div class="label">Số ngày</div><input class="m-input" type="text"></div>
+                                <div class="m-flex-1 m-flex m-center"><div class="label">Số đêm</div><input class="m-input" type="text"></div>
+
+                            </div>
+                            <div class="m-flex m-center"><div class="label">Phương tiện</div><input class="m-input" type="text"></div>
+                            <div class="m-flex m-center">
+                                <div class="m-flex-1 m-flex m-center"><div class="label">Giá đơn</div><input class="m-input" type="text"></div>
+                                <div class="m-flex-1 m-flex m-center"><div class="label">Giá nhóm</div><input class="m-input" type="text"></div>
+
+                            </div>
+                            <div class="m-flex m-center"><div class="label">Tỉnh</div><input class="m-input" type="text"></div>
+
+                        </div>
+                        <div class="m-flex-1 detail-right">
+                            <div>Mô tả chi tiết</div>
+                            <input class="m-input__description"type="text">
+                        </div>
 
                     </div>
                 </form>
@@ -32,3 +51,4 @@
 
     </body>
 </html>
+<?php $data[0]["Tour"]["tour_name"]; ?>

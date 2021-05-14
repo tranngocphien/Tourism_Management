@@ -22,7 +22,7 @@
                 <div class="title">Danh sách đặt vé</div>
                 <form action="<?php echo URL ?>/admins/bookings" method="post">
                     <div class="content_main">
-                        <div><input class="btn-save" type="submit" value="Lưu"></div>
+                        <div><input type="text" class="m-search"><input class="btn-save" type="submit" value="Lưu"></div>
                         <div class="grid"> 
                             <table>
                                 <tr>
