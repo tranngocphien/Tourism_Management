@@ -5,14 +5,19 @@
         <group>
             <file>file:/C:/xampp/htdocs/Tourism_Management/app/controllers/Pages.php</file>
             <file>file:/C:/xampp/htdocs/Tourism_Management/public/css/style.css</file>
-            <file>file:/C:/xampp/htdocs/Tourism_Management/app/models/Admin.php</file>
             <file>file:/C:/xampp/htdocs/Tourism_Management/app/views/users/register.php</file>
-            <file>file:/C:/xampp/htdocs/Tourism_Management/app/views/pages/index.php</file>
             <file>file:/C:/xampp/htdocs/Tourism_Management/app/libraries/Database.php</file>
             <file>file:/C:/xampp/htdocs/Tourism_Management/app/models/User.php</file>
             <file>file:/C:/xampp/htdocs/Tourism_Management/app/controllers/Admins.php</file>
             <file>file:/C:/xampp/htdocs/Tourism_Management/app/views/admin/user.php</file>
+            <file>file:/C:/xampp/htdocs/Tourism_Management/app/libraries/Core.php</file>
+            <file>file:/C:/xampp/htdocs/Tourism_Management/app/views/admin/tour.php</file>
+            <file>file:/C:/xampp/htdocs/Tourism_Management/public/css/index.css</file>
+            <file>file:/C:/xampp/htdocs/Tourism_Management/app/models/Admin.php</file>
+            <file>file:/C:/xampp/htdocs/Tourism_Management/app/views/pages/index.php</file>
+            <file>file:/C:/xampp/htdocs/Tourism_Management/app/views/admin/booking.php</file>
             <file>file:/C:/xampp/htdocs/Tourism_Management/app/controllers/Users.php</file>
+            <file>file:/C:/xampp/htdocs/Tourism_Management/app/config/config.php</file>
         </group>
     </open-files>
 </project-private>
