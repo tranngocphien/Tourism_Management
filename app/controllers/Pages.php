@@ -10,6 +10,10 @@
         public function about() {
             $this->view('pages/about');
         }
+
+        public function tours(){
+            $this->view('pages/tours');
+        }
     }
 
 

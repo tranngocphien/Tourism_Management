@@ -17,7 +17,7 @@
         <div class="top">0204668833</div>
         <div class="bot">
             <div class="left">
-                <div class="logo"> 
+                <div class="logo">
                     <img src="<?php echo URL ?>/public/img/sunlogo.png" class="logo">
                 </div>
                 <div class="name">
@@ -36,9 +36,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="content">
-        <h1>this is title</h1>
     </div>
 
 </body>
