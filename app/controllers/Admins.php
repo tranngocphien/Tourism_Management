@@ -9,7 +9,13 @@ class Admins extends Controller {
     }
 
     public function users() {
-        $data = $this->adminModel->getListUser();
+        if (isset($_POST['search'])) {
+            $key = $_POST['key'];
+            $title = $_POST['search_title'];
+            $data = $this->adminModel->searchUser($title, $key);
+        } else {
+            $data = $this->adminModel->getListUser();
+        }
         $this->view("admin/user", $data);
     }
 
@@ -21,7 +27,19 @@ class Admins extends Controller {
                 $this->adminModel->deleteTour($item);
             }
         }
-        $data = $this->adminModel->getListTour();
+        if (isset($_POST['search'])) {
+            $key = $_POST["key"];
+            $title = $_POST['search_title'];
+            if ($title == "tour_name") {
+                $data = $this->adminModel->getListTourByTourName($key);
+            } elseif ($title == "places_name") {
+                $data = $this->adminModel->getListTourFromPlacesName($key);
+            } else {
+                $data = $this->adminModel->searchTour($title, $key);
+            }
+        } else {
+            $data = $this->adminModel->getListTour();
+        }
         $this->view("admin/tour", $data);
     }
 
@@ -49,7 +67,7 @@ class Admins extends Controller {
                 'prices' => $pricegroup,
                 'placesid' => $placesid["Place"]["places_id"]
             ];
-            
+
             $this->adminModel->insertTour($data);
 
             header("Location:" . URL . "/admins/tours");
@@ -61,7 +79,6 @@ class Admins extends Controller {
         $placesid = $this->adminModel->getMaxID();
         echo $placesid;
     }
-    
 
     public function tourdetail($tour_id, $places_id) {
         if (isset($_POST['tour_name'])) {
@@ -95,6 +112,7 @@ class Admins extends Controller {
     }
 
     public function bookings() {
+
         if (isset($_POST['confirm'])) {
             $confirm = $_POST['confirm'];
             foreach ($confirm as $item) {
@@ -107,8 +125,25 @@ class Admins extends Controller {
                 $this->adminModel->setBookingStatus($item, "Chưa xác nhận");
             }
         }
-        $data = $this->adminModel->getListBooking();
+        if (isset($_POST['search'])) {
+            $key = $_POST["key"];
+            $title = $_POST['search_title'];
+            if ($title == "tour_name") {
+                $data = $this->adminModel->getListBookingByTourName($key);
+            } elseif ($title == "username") {
+                $data = $this->adminModel->getListBookingByUserName($key);
+            } else {
+                $data = $this->adminModel->searchBooking($title, $key);
+            }
+        } else {
+            $data = $this->adminModel->getListBooking();
+        }
         $this->view("admin/booking", $data);
+    }
+    
+    public function bookingbyuser($id) {
+        $data = $this->adminModel->geListBookingByUserId($id);
+        $this->view("admin/bookingbyuser",$data);
     }
 
 }

@@ -190,6 +190,16 @@ body{
     color: #fff;
 }
 
+.btn-search {
+    height: 40px;
+    margin-left: 8px; ;
+    background-color: green;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    outline: none;
+}
+
 .btn-delete {
     height: 40px;
     margin-right: 8px;
@@ -201,11 +211,24 @@ body{
     outline: none;
 }
 
+.select-search {
+    border: 1px solid #bbbbbb;
+    border-radius: 4px;
+    outline: none;
+    height: 40px;
+    margin-left: 8px;
+    width: 200px;
+    box-sizing: border-box;
+    padding: 10px 16px;
+    background-color: green;
+    color: #fff;
+}
+
 .m-search {
     border: 1px solid #bbbbbb;
     border-radius: 4px;
     outline: none;
-    height: 36px;
+    height: 40px;
     margin-left: 8px;
     width: 200px;
     box-sizing: border-box;

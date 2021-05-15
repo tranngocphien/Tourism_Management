@@ -19,7 +19,7 @@
             </div>
             <div class="content_right">
 
-                <div class="title">Danh sách đặt vé</div>
+                <div class="title">Danh sách đặt vé của <?php echo $data[0]["User"]["username"] ?> </div>
                 <form action="<?php echo URL ?>/admins/bookings" method="post">
                     <div class="content_main">
                         <div>
@@ -37,7 +37,6 @@
                             <table>
                                 <tr>
                                     <th>Tên tour</th>
-                                    <th>Người dùng</th>
                                     <th>Số lượng</th>
                                     <th>Ngày khởi hành</th>
                                     <th>Trạng thái</th>
@@ -47,7 +46,6 @@
                                 <?php foreach ($data as $user): ?>
                                     <tr>
                                         <td><?php echo $user["Tour"]["tour_name"] ?></td>
-                                        <td><?php echo $user["User"]["username"] ?></td>
                                         <td><?php echo $user["Booking"]["number_ticket"] ?></td>
                                         <td><?php echo $user["Booking"]["date_start"] ?></td>
                                         <td><?php echo $user["Booking"]["status"] ?></td>

@@ -13,14 +13,27 @@
         </div>
         <div class="content">
             <div class="content_left">
-                <div class="menu_item"><div class="menu_icon user_icon"></div><a href="<?php echo URL;?>/admins/users">User</a></div>
-                <div class="menu_item"><div class="menu_icon tour_icon"></div><a href="<?php echo URL;?>/admins/tours">Tour</a></div>
-                <div class="menu_item"><div class="menu_icon booking-icon"></div><a href="<?php echo URL;?>/admins/bookings">Booking</a></div>
+                <div class="menu_item"><div class="menu_icon user_icon"></div><a href="<?php echo URL; ?>/admins/users">User</a></div>
+                <div class="menu_item"><div class="menu_icon tour_icon"></div><a href="<?php echo URL; ?>/admins/tours">Tour</a></div>
+                <div class="menu_item"><div class="menu_icon booking-icon"></div><a href="<?php echo URL; ?>/admins/bookings">Booking</a></div>
             </div>
             <div class="content_right">
 
                 <div class="title">Danh sách người dùng</div>
                 <div class="content_main">
+                    <form method="post" action="<?php echo URL; ?>/admins/users">
+                        <input type="text" name="key" class="m-search">
+                        <select class="select-search" name="search_title">
+                            <option value="username">Username</option>
+                            <option value="email">Email</option>
+                            <option value="tel">Số điện thoại</option>
+                            <option value="fullname">Họ và tên</option>
+
+                        </select>
+                        <input type="submit" class="btn-search" value="Search" name="search">
+                    </form>
+                    <div>
+                    </div>
                     <div class="grid"> 
                         <table>
                             <tr>
@@ -28,6 +41,7 @@
                                 <th>Họ và tên</th>
                                 <th>Email</th>
                                 <th>Số điện thoại</th>
+                                <th></th>
                             </tr>
                             <?php foreach ($data as $user): ?>
                                 <tr>
@@ -35,6 +49,8 @@
                                     <td><?php echo $user["User"]["fullname"] ?></td>
                                     <td><?php echo $user["User"]["email"] ?></td>
                                     <td><?php echo $user["User"]["tel"] ?></td>
+                                    <td><a href="<?php echo URL; ?>/admins/bookingbyuser/<?php echo $user["User"]['user_id'] ?>">Xem</a></td>
+
                                 </tr>
                             <?php endforeach ?>
                             <tr>
@@ -42,6 +58,7 @@
                                 <td>tranngocphien</td>
                                 <td>tranngocphien</td>
                                 <td>tranngocphien</td>
+
                             </tr>
 
                         </table></div>

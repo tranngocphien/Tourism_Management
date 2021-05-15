@@ -37,6 +37,15 @@
                     <div class="content_main">
                         <div id="notice_delete" style="display: none; color: #f40a0a; margin-left: 8px;">Xóa tour sẽ xóa cả thông tin đã đặt đối với tour đó.</div>
                         <div>
+                            <input type="text" name="key" class="m-search">
+                            <select class="select-search" name="search_title">
+                                <option value="tour_name">Tên tour</option>
+                                <option value="places_name">Địa điểm</option>
+                                <option value="transport">Phương tiện</option>
+                                <option value="price_personal">Giá đơn</option>
+                                <option value="price_group">Giá nhóm</option>
+                            </select>
+                            <input type="submit" class="btn-search" value="Search" name="search"> 
                             <input class="btn-delete" type="submit" value="Xóa"><div class="btn-add"><a href="<?php echo URL; ?>/admins/tournew">Thêm tour</a></div>
                         </div>
                         <div class="grid"> 
