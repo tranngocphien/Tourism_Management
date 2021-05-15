@@ -180,6 +180,14 @@ body{
     color: white;
     border-radius: 5px;
     outline: none;
+    margin: auto 8px;
+    display: flex;
+    align-items: center;
+}
+
+.btn-add a {
+    text-decoration: none;
+    color: #fff;
 }
 
 .btn-delete {
@@ -245,7 +253,7 @@ body{
     border: 1px solid #bbbbbb;
     border-radius: 4px;
     outline: none;
-    height : calc(100% - 44px);
+    height : calc(100% - 84px);
     width : calc(100% - 8px );
     box-sizing: border-box;
     padding : 10px 16px;

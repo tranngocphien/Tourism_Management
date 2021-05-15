@@ -14,9 +14,54 @@ class Admins extends Controller {
     }
 
     public function tours() {
+        if (isset($_POST['delete'])) {
+            $delete = $_POST['delete'];
+            foreach ($delete as $item) {
+                $this->adminModel->deleteBooking($item);
+                $this->adminModel->deleteTour($item);
+            }
+        }
         $data = $this->adminModel->getListTour();
         $this->view("admin/tour", $data);
     }
+
+    public function tournew() {
+        if (isset($_POST['tour_name'])) {
+            $tourname = $_POST["tour_name"];
+            $tourday = $_POST["tour_day"];
+            $tournight = $_POST["tour_night"];
+            $transport = $_POST["transport"];
+            $pricepersonal = $_POST["price_personal"];
+            $pricegroup = $_POST["price_group"];
+            $placesname = $_POST["places_name"];
+            $placedescription = $_POST["places_description"];
+
+            $this->adminModel->insertPlaces($placesname, $placedescription);
+
+            $placesid = $this->adminModel->getMaxID();
+
+            $data = [
+                'tourname' => $tourname,
+                'tourday' => $tourday,
+                'tournight' => $tournight,
+                'transport' => $transport,
+                'price' => $pricepersonal,
+                'prices' => $pricegroup,
+                'placesid' => $placesid["Place"]["places_id"]
+            ];
+            
+            $this->adminModel->insertTour($data);
+
+            header("Location:" . URL . "/admins/tours");
+        }
+        $this->view("admin/tour_new");
+    }
+
+    public function test() {
+        $placesid = $this->adminModel->getMaxID();
+        echo $placesid;
+    }
+    
 
     public function tourdetail($tour_id) {
         $data = $this->adminModel->getDetailTour($tour_id);
@@ -26,11 +71,15 @@ class Admins extends Controller {
     public function bookings() {
         if (isset($_POST['confirm'])) {
             $confirm = $_POST['confirm'];
-            $this->adminModel->setBookingStatus($confirm, "Đã xác nhận");
+            foreach ($confirm as $item) {
+                $this->adminModel->setBookingStatus($item, "Đã xác nhận");
+            }
         }
         if (isset($_POST['notconfirm'])) {
             $notconfirm = $_POST['notconfirm'];
-            $this->adminModel->setBookingStatus($notconfirm, "Chưa xác nhận");
+            foreach ($notconfirm as $item) {
+                $this->adminModel->setBookingStatus($item, "Chưa xác nhận");
+            }
         }
         $data = $this->adminModel->getListBooking();
         $this->view("admin/booking", $data);

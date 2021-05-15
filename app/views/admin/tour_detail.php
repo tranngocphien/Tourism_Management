@@ -23,24 +23,25 @@
                 <form>
                     <div class="content_main m-flex">
                         <div class="m-flex-1 detail-left">
-                            <div class="m-flex m-center"><div class="label">Tên tour</div><input class="m-input" type="text"></div>
+                            <div class="m-flex m-center"><div class="label">Tên tour</div><input class="m-input" type="text" value="<?php echo $data[0]["Tour"]["tour_name"]; ?>"></div>
                             <div class="m-flex m-center">
-                                <div class="m-flex-1 m-flex m-center"><div class="label">Số ngày</div><input class="m-input" type="text"></div>
-                                <div class="m-flex-1 m-flex m-center"><div class="label">Số đêm</div><input class="m-input" type="text"></div>
+                                <div class="m-flex-1 m-flex m-center"><div class="label">Số ngày</div><input class="m-input" type="text" value="<?php echo $data[0]["Tour"]["tour_day"]; ?>""></div>
+                                <div class="m-flex-1 m-flex m-center"><div class="label">Số đêm</div><input class="m-input" type="text" value="<?php echo $data[0]["Tour"]["tour_night"]; ?>"></div>
 
                             </div>
-                            <div class="m-flex m-center"><div class="label">Phương tiện</div><input class="m-input" type="text"></div>
+                            <div class="m-flex m-center"><div class="label">Phương tiện</div><input class="m-input" type="text" value="<?php echo $data[0]["Tour"]["transport"]; ?>""></div>
                             <div class="m-flex m-center">
-                                <div class="m-flex-1 m-flex m-center"><div class="label">Giá đơn</div><input class="m-input" type="text"></div>
-                                <div class="m-flex-1 m-flex m-center"><div class="label">Giá nhóm</div><input class="m-input" type="text"></div>
+                                <div class="m-flex-1 m-flex m-center"><div class="label">Giá đơn</div><input class="m-input" type="text" value="<?php echo $data[0]["Tour"]["price_personal"]; ?>"></div>
+                                <div class="m-flex-1 m-flex m-center"><div class="label">Giá nhóm</div><input class="m-input" type="text" value="<?php echo $data[0]["Tour"]["price_group"]; ?>"></div>
 
                             </div>
-                            <div class="m-flex m-center"><div class="label">Tỉnh</div><input class="m-input" type="text"></div>
+                            <div class="m-flex m-center"><div class="label">Tỉnh</div><input class="m-input" type="text" value="<?php echo $data[0]["Place"]["places_name"]; ?>"></div>
+                            <input class="btn"type="file" multiple>
 
                         </div>
                         <div class="m-flex-1 detail-right">
                             <div>Mô tả chi tiết</div>
-                            <input class="m-input__description"type="text">
+                            <textarea class="m-input__description"type="text"><?php echo $data[0]["Place"]["places_description"]; ?></textarea>
                         </div>
 
                     </div>

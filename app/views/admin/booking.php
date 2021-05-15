@@ -41,8 +41,8 @@
                                         <td><?php echo $user["Booking"]["number_ticket"] ?></td>
                                         <td><?php echo $user["Booking"]["date_start"] ?></td>
                                         <td><?php echo $user["Booking"]["status"] ?></td>
-                                        <td><input type="checkbox" name="confirm" value="<?php echo $user["Booking"]["booking_id"] ?>"></td>
-                                        <td><input type="checkbox" name="notconfirm" value="<?php echo $user["Booking"]["booking_id"] ?>"></td>
+                                        <td><input type="checkbox" name="confirm[]" value="<?php echo $user["Booking"]["booking_id"] ?>"></td>
+                                        <td><input type="checkbox" name="notconfirm[]" value="<?php echo $user["Booking"]["booking_id"] ?>"></td>
 
                                     </tr>
                                 <?php endforeach ?>

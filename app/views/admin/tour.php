@@ -6,6 +6,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="http://localhost/Tourism_Management/public/css/style.css">
 
+        <script type="text/javascript">
+            function clickDelete() {
+                var checkbox = document.getElementById("delete");
+                var notice = document.getElementById("notice_delete");
+                if (checkbox.checked == true) {
+                    notice.style.display = "block";
+                } else {
+                    notice.style.display = "none";
+                }
+            }
+
+        </script>
+
     </head>
     <body>
         <div class="header">
@@ -20,9 +33,12 @@
             <div class="content_right">
 
                 <div class="title">Danh sách các tour</div>
-                <form>
+                <form action="<?php echo URL; ?>/admins/tours" method="post">
                     <div class="content_main">
-                        <div><input class="btn-delete" type="submit" value="Xóa"><input class="btn-add" type="submit" value="Thêm tour"></div>
+                        <div id="notice_delete" style="display: none; color: #f40a0a; margin-left: 8px;">Xóa tour sẽ xóa cả thông tin đã đặt đối với tour đó.</div>
+                        <div>
+                            <input class="btn-delete" type="submit" value="Xóa"><div class="btn-add"><a href="<?php echo URL; ?>/admins/tournew">Thêm tour</a></div>
+                        </div>
                         <div class="grid"> 
                             <table>
                                 <tr>
@@ -42,8 +58,8 @@
                                         <td><?php echo $user["Tour"]["price_personal"] ?></td>
                                         <td><?php echo $user["Tour"]["price_group"] ?></td>
                                         <td><?php echo $user["Tour"]["transport"] ?></td>
-                                        <td><a href="<?php echo URL; ?>/admins/tourdetail/<?php echo $user["Tour"]['tour_id']?>">Xem</a></td>
-                                        <td><input type="checkbox" name="delete" value="<?php echo $user["Tour"]["tour_id"] ?>"></td>
+                                        <td><a href="<?php echo URL; ?>/admins/tourdetail/<?php echo $user["Tour"]['tour_id'] ?>">Xem</a></td>
+                                        <td><input id="delete" onclick="clickDelete()" type="checkbox" name="delete[]" value="<?php echo $user["Tour"]["tour_id"] ?>"></td>
 
                                     </tr>
                                 <?php endforeach ?>
