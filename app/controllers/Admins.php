@@ -63,7 +63,33 @@ class Admins extends Controller {
     }
     
 
-    public function tourdetail($tour_id) {
+    public function tourdetail($tour_id, $places_id) {
+        if (isset($_POST['tour_name'])) {
+            $tourname = $_POST["tour_name"];
+            $tourday = $_POST["tour_day"];
+            $tournight = $_POST["tour_night"];
+            $transport = $_POST["transport"];
+            $pricepersonal = $_POST["price_personal"];
+            $pricegroup = $_POST["price_group"];
+            $placesname = $_POST["places_name"];
+            $placedescription = $_POST["places_description"];
+
+            $this->adminModel->updatePlaces($places_id, $placesname, $placedescription);
+
+            $data = [
+                'tourid' => $tour_id,
+                'tourname' => $tourname,
+                'tourday' => $tourday,
+                'tournight' => $tournight,
+                'transport' => $transport,
+                'price' => $pricepersonal,
+                'prices' => $pricegroup,
+                'placesid' => $places_id
+            ];
+            $this->adminModel->updateTour($data);
+
+            header("Location:" . URL . "/admins/tours");
+        }
         $data = $this->adminModel->getDetailTour($tour_id);
         $this->view("admin/tour_detail", $data);
     }

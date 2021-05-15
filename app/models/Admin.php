@@ -23,6 +23,12 @@ class Admin {
         return $this->db->query($query);
     }
     
+    public function updatePlaces($places_id, $places_name, $places_description) {
+        $query = "UPDATE places SET places.places_name = '$places_name', places_description = '$places_description' WHERE places.places_id = $places_id  ";
+        return $this->db->query($query);
+    }
+
+
     public function getMaxID() {
         $query = "SELECT places.places_id FROM places ORDER BY places.places_id DESC LIMIT 1";
         return $this->db->query($query, 1);
@@ -40,6 +46,19 @@ class Admin {
         $query = "INSERT INTO `tour`(`tour_id`, `tour_name`, `tour_day`, `tour_night`, `transport`, `price_personal`, `price_group`, `places_id`) VALUES (0,'$tourname','$tourday','$tournight','$transport','$pricepersonal','$pricegroup','$placesid')";
         return $this->db->query($query);
         
+    }
+    
+    public function updateTour($data) {
+        $tourid = $data["tourid"];
+        $tourname = $data["tourname"];
+        $tourday = $data["tourday"];
+        $tournight = $data["tournight"];
+        $transport = $data["transport"];
+        $pricepersonal = $data["price"];
+        $pricegroup = $data["prices"];
+        $placesid = $data["placesid"];
+        $query = "UPDATE tour SET tour.tour_name = '$tourname', tour.tour_day =$tourday , tour.tour_night = $tournight, tour.transport = '$transport', tour.price_personal = '$pricepersonal', tour.price_group = '$pricegroup' WHERE tour.tour_id = '$tourid'";
+        return $this->db->query($query);
     }
 
     public function deleteTour($tour_id) {
