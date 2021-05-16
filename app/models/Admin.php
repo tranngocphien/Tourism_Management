@@ -123,5 +123,9 @@ class Admin {
         $query = "UPDATE booking SET status='$status' WHERE booking_id = '$booking_id'";
         return $this->db->query($query);
     }
-
+    
+    public function statistic(){
+        $query = "SELECT COUNT(username), COUNT(tour_name), COUNT(number_ticket), SUM(booking.number_ticket*tour.price-group) FROM booking, tour, user WHERE tour.tour_id = booking.tour_id and booking.user_id = user.user_id";
+        return $this->db->query($query);
+    }
 }

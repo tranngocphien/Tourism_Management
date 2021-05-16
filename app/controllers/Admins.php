@@ -146,7 +146,8 @@ class Admins extends Controller {
         $this->view("admin/bookingbyuser",$data);
     }
     public function statistic() {
-        $this->view("admin/statistic");
+        $data = $this->adminModel->statistic();
+        $this->view("admin/statistic", $data);
     }
     public function index() {
         $this->users();
