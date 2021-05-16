@@ -125,7 +125,11 @@ class Admin {
     }
     
     public function statistic(){
-        $query = "SELECT COUNT(username), COUNT(tour_name), COUNT(number_ticket), SUM(booking.number_ticket*tour.price-group) FROM booking, tour, user WHERE tour.tour_id = booking.tour_id and booking.user_id = user.user_id";
+        //$query = "SELECT COUNT(username), COUNT(tour_name), COUNT(number_ticket), SUM(booking.number_ticket*tour.price-group) FROM booking, tour, user WHERE tour.tour_id = booking.tour_id and booking.user_id = user.user_id";
+        $query = "SELECT COUNT(username) FROM user";
+        $query .= "SELECT COUNT(tour_name) FROM tour";
+        $query .= "SELECT COUNT(number_ticket) FROM booking";
+        $query .= "SELECT SUM(booking.numer_ticket*tour.price_group) FROM booking, tour WHERE booking.tour_id = tour.tour_id";
         return $this->db->query($query);
     }
 }

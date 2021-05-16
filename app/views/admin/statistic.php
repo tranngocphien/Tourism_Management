@@ -40,7 +40,7 @@
                         <div class="m-flex statistic_row">
                             <div class="m-flex-1 statistic_item">
                                 <div class="item-title">User</div>
-                                <div class="m-flex m-center"><div class="item-value"><b>1 Người dùng</b></div></div>
+                                <div class="m-flex m-center"><div class="item-value"><b> <?php echo $data["user"]["user_name"];?></b></div></div>
 
                             </div>
                             <div class="m-flex-1 statistic_item">
