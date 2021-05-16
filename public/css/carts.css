@@ -1,0 +1,189 @@
+body {
+    background-color: #f5f5f5;
+}
+
+.content-cart {
+    width: 90%;
+    height: 50em;
+    margin-left: 5%;
+    top: 15%;
+    position: absolute;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.content-cart .blog {
+    top : 5em;
+    width: 100%;
+    height: 30em;
+    position: relative;
+}
+
+.content-cart .blog .col-1{
+    width: 70%;
+    height: 40em;
+    left: 15%;
+    position: relative;
+    background: #fff;
+}
+
+.content-cart .blog .col-1 .heading {
+    width: 100%;
+    position: relative;
+    height: 3em;
+    background: darkgreen;
+}
+
+.content-cart .blog .col-1 .heading .logo {
+    width: 5%;
+    height: 60%;
+    position: relative;
+    left: 5%;
+    top: 15%;
+}
+
+.content-cart .blog .col-1 .heading .title {
+    color: white;
+    width: 80%;
+    height: 100%;
+    font-weight: 600;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: -69%;
+    left: 12%;
+
+}
+
+.content-cart .blog .col-1 .thuoc-tinh {
+    color: #003e71;
+    position: relative;
+    font-size: 20px;
+    font-weight: 500;
+    width: 40%;
+    left: 60%;
+    top: 1em;
+}
+
+.content-cart .blog .col-1 .thuoc-tinh .so-luong {
+    width: 50%;
+    height: 3em;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.content-cart .blog .col-1 .thuoc-tinh .trang-thai {
+    width: 50%;
+    height: 3em;
+    position: relative;
+    left: 50%;
+    top: -3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-cart .blog .col-1 .panel {
+    width: 100%;
+    height: 15em;
+    top: -2em;
+    position: relative;
+    margin-bottom: 3em;
+}
+
+.content-cart .blog .col-1 .panel .tour {
+    width: 60%;
+    height: 15em;
+    background: azure;
+    position: relative;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 1px 1px 5px 0 #999;
+}
+
+.content-cart .blog .col-1 .panel .tour .image {
+    width: 50%;
+    height: 100%;
+    background-position: center;
+    background-size: contain;
+}
+
+.content-cart .blog .col-1 .panel .tour .ct {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    left: 50%;
+    top: -101%;
+}
+
+.content-cart .blog .col-1 .panel .tour .ct .title {
+    height: 45%;
+    width: 95%;
+    position: relative;
+    color: #003e71;
+    font-size: 20px;
+    font-weight: 600;
+    padding-left: 5%;
+    padding-top: 3%;
+}
+
+.content-cart .blog .col-1 .panel .tour .ct .info {
+    height: 50%;
+    width: 100%;
+    position: relative;
+    color: #003e71;
+    top: -6%;
+}
+
+.content-cart .blog .col-1 .panel .tour .ct .info li {
+    margin-bottom: 5px;
+}
+
+.content-cart .blog .col-1 .panel .number {
+    width: 20%;
+    left: 60%;
+    top: -100%;
+    height: 100%;
+    position: relative;
+    color: #003e71;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.content-cart .blog .col-1 .panel .number li {
+    margin-left: -2px;
+    margin-bottom: 5px;
+}
+
+.content-cart .blog .col-1 .panel .status {
+    width: 20%;
+    left: 80%;
+    top: -200%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.content-cart .blog .col-1 .panel .status .xacnhan {
+    background: green;
+    border: 10px;
+    width: 75%;
+    height: 30%;
+    color: #fff;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 1px 1px 5px 0 #999;
+}
+

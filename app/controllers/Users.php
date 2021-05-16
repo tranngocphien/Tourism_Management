@@ -42,4 +42,8 @@ class Users extends Controller {
             $this->view('users/book');
     }
 
+    public function carts(){
+        $this->view('users/carts');
+    }
+
 }
