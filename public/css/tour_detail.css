@@ -1,0 +1,531 @@
+body {
+    background-color: #f5f5f5;
+}
+
+.main-content {
+    width: 100%;
+    top: 15%;
+    position: absolute;
+    left: 0%;
+    font-family: roboto,sans-serif;
+}
+
+.main-content .blog-heading {
+    left: 0%;
+    width: 100%;
+    height: 19em;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-content .blog-heading .image {
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.main-content .blog-heading .blog-title {
+    color: white;
+    font-size: 19px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    position: absolute;
+}
+
+.main-content .product-page {
+    position: absolute;
+    margin-top: 23em;
+    height: 100em;
+    width: 100%;
+}
+
+.main-content .product-page .row {
+    width: 80%;
+    background: #fff;
+    height: 100%;
+    left: 10%;
+    position: absolute;
+}
+
+.main-content .product-page .row .col1 {
+    width: 66.6666666667%;
+    float: left;
+    height: 100%;
+    position: relative;
+}
+
+.main-content .product-page .row .col1 .buynow-ontop{
+    position: relative;
+    width: calc(100% - 30px);
+    background: green;
+    display: block;
+}
+
+.main-content .product-page .row .col1 .buynow-ontop .left {
+    background: darkgreen;
+    color: #fff;
+    display: flex;
+    padding: 10x 12px;
+    align-items: center;
+}
+
+.main-content .product-page .row .col1 .buynow-ontop .left .logo {
+    width: 3%;
+    display: flex;
+    background-size: contain;
+    background-position: center;
+    float: left;
+    margin-left: 10%;
+}
+
+.main-content .product-page .row .col1 .buynow-ontop .left .price {
+    display: inline-block;
+    width: 30%;
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 60px;
+    padding: 5px;
+}
+
+.main-content .product-page .row .col1 .buynow-ontop .left .day{
+    float: right;
+    width: 36%;
+    font-size: 15px;
+}
+
+.main-content .product-page .row .col1 .buynow-ontop .right {
+    background: #ffc10e;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.main-content .product-page .row .col1 .buynow-ontop .right:hover {
+    color: black;
+}
+
+
+.main-content .product-page .row .col1 .panel {
+    position: relative;
+    width: 100%;
+    height: 42%;
+    margin-top: 2%;
+    top: 0%;
+}
+
+.main-content .product-page .row .col1 .panel .panel-heading {
+    width: 100%;
+    height: 3em;
+    background: green;
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+}
+
+.main-content .product-page .row .col1 .panel .panel-heading .logo {
+    width: 3%;
+    display: flex;
+    background-position: center;
+    background-size: contain;
+    background: #fff;
+    margin-left: 2em;
+}
+
+.main-content .product-page .row .col1 .panel .panel-heading .title {
+    width: 50%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    color: #fff;
+    margin-left: 1%;
+    font-weight: 600;
+}
+
+.main-content .product-page .row .col1 .panel .image-blog {
+    width: 92%;
+    height: 35em;
+    background: white;
+    margin: 30px;
+    border-radius: 3px;
+}
+
+.main-content .product-page .row .col1 .panel .image-blog .main-image {
+    background: #fff;
+    width: 100%;
+    height: 80%;
+    position: relative;
+}
+
+.main-content .product-page .row .col1 .panel .image-blog .list-image {
+    width: 90%;
+    height: 15%;
+    margin-left: 5%;
+    margin-right: 5%;
+    position: relative;
+    margin-top: 3%;
+    display: flex;
+    flex-direction: row;
+    border-radius: 3px;
+    border: solid 2px whitesmoke;
+    background: whitesmoke;
+
+}
+
+.main-content .product-page .row .col1 .panel .image-blog .list-image .image {
+    background-size: contain;
+    background-position: center;
+    height: 98%;
+    margin-bottom: 2%;
+    margin-left: 0.5%;
+    width: 20%;
+    position: relative;
+}
+
+
+.main-content .product-page .row .col1 .tour-plan {
+    width: 100%;
+    height: 100%;
+    margin-top: 2%;
+    position: relative;
+}
+
+.main-content .product-page .row .col1 .tour-plan .panel-heading{
+    width: 100%;
+    height: 3em;
+    background: green;
+    border-radius: 3px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.main-content .product-page .row .col1 .tour-plan .panel-heading .logo {
+    width: 3%;
+    display: flex;
+    background-position: center;
+    background-size: contain;
+    background: #fff;
+    margin-left: 2em;
+}
+
+.main-content .product-page .row .col1 .tour-plan .panel-heading .title {
+    width: 50%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    color: #fff;
+    margin-left: 1%;
+    font-weight: 600;
+}
+
+
+.main-content .product-page .row .col1 .tour-plan .panel-footer {
+    position: relative;
+    width: 90%;
+    margin: 2% 5% ;
+    
+}
+
+.main-content .product-page .row .col1 .tour-plan .panel-footer .tour-detail {
+    position: relative;
+    width: 70%;
+    height: 2em;
+    background: white;
+    justify-content: space-between;
+    display: flex;
+    font-size: 100%;
+    margin: 2% 11%;
+    align-items: center;
+}
+
+.main-content .product-page .row .col1 .tour-plan .panel-footer .tour-detail span {
+    color: red;
+}
+
+.main-content .product-page .row .col1 .tour-plan .panel-footer .step-heading {
+    color: #003e71;
+    border-bottom: 2px solid #ccc;
+    font-weight: 700;
+    margin-bottom: 5px;
+    padding: 5px 0;
+    height: 1em;
+    font-size: 20px;
+    width: 100%;
+    position: relative;
+}
+
+.main-content .product-page .row .col1 .tour-plan .note{
+    width: 90%;
+    position: relative;
+    margin: 5% 5%;
+
+}
+
+
+.main-content .product-page .row .col1 .tour-plan .note .panel-heading{
+    width: 100%;
+    height: 3em;
+    background: green;
+    border-radius: 3px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.main-content .product-page .row .col1 .tour-plan .note .panel-heading .logo {
+    width: 4%;
+    display: flex;
+    background-position: center;
+    background-size: contain;
+    background: #fff;
+    margin-left: 2em;
+}
+
+.main-content .product-page .row .col1 .tour-plan .note .panel-heading .title {
+    width: 50%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+    color: #fff;
+    margin-left: 1%;
+    font-weight: 600;
+}
+
+.main-content .product-page .row .col1 .tour-plan .note .content {
+    top: 100%;
+    width: 90%;
+    position: relative;
+    margin-left: 5%;
+}
+
+
+.main-content .product-page .row .col2 {
+    width: 31.3333333333%;
+    float: left;
+    height: 100%;
+    top: 6%;
+    position: relative;
+    right: -2%;
+}
+
+.main-content .product-page .row .col2 .tour-info {
+    width: 100%;
+    height: 22em;
+    position: relative;
+    background-color: antiquewhite;
+    color: white;
+    border-radius: 3px;
+}
+
+.main-content .product-page .row .col2 .tour-info .panel-heading {
+    background-color: green;
+    width: 100%;
+    height: 3em;
+    position: relative;
+}
+
+.main-content .product-page .row .col2 .tour-info .panel-heading .logo {
+    position: relative;
+    width: 7%;
+    height: 50%;
+    top: 25%;
+    left: 6%;
+}
+
+.main-content .product-page .row .col2 .tour-info .panel-heading .title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 60%;
+    height: 100%;
+    color: #fff;
+    font-size: 130%;
+    font-weight: 600;
+    top: -60%;
+    left: 15%;
+}
+
+.main-content .product-page .row .col2 .tour-info .panel-body {
+    background-color: darkgreen;
+    width: 100%;
+    height: 15em;
+    position: relative;
+
+}
+
+.main-content .product-page .row .col2 .tour-info .panel-body .content {
+    width: 85%;
+    height: 90%;
+    left: -7%;
+    top: 5%;
+    color: #fff;
+}
+
+.main-content .product-page .row .col2 .tour-info .panel-body .content li {
+    margin-bottom: 5%;
+}
+
+.main-content .product-page .row .col2 .tour-info .panel-footer {
+    background: #ffc10e;
+    color: #fff;
+    font-size: 32px;
+    font-weight: bold;
+    width: 100%;
+    height: 18%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-content .product-page .row .col2 .tour-info .panel-footer:hover{
+    color: #333;
+}
+
+.main-content .product-page .row .col2 .panel {
+    position: relative;
+    width: 100%;
+    height: 100em;
+    top: 2em;
+}
+
+.main-content .product-page .row .col2 .panel .panel-heading {
+    width: 100%;
+    position: relative;
+    height: 3em;
+    background: darkgreen;
+    border-radius: 3px;
+}
+
+.main-content .product-page .row .col2 .panel .panel-heading .logo {
+    position: relative;
+    width: 7%;
+    height: 50%;
+    top: 25%;
+    left: 6%;
+}
+
+.main-content .product-page .row .col2 .panel .panel-heading .title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 60%;
+    height: 100%;
+    color: #fff;
+    font-size: 130%;
+    font-weight: 600;
+    top: -60%;
+    left: 15%;
+
+}
+
+.main-content .product-page .row .col2 .panel .panel-footer {
+    position: relative;
+    width: 90%;
+    left: 5%;
+    height: 77em;
+    top: 1em;
+}
+
+
+.main-content .product-page .row .col2 .panel .panel-footer .tour {
+    position: relative;
+    width: 100%;
+    height: 28em;
+    background: #fff;
+    margin-bottom: 20px;
+    border-radius:6px;
+    box-shadow: 1px 1px 5px 0 #999;
+    border: none;
+}
+
+.main-content .product-page .row .col2 .panel .panel-footer .tour .image {
+    position: relative;
+    width: 100%;
+    height: 50%;
+    background: #003e71;
+    background-position: center;
+    background-size: contain;
+}
+
+.main-content .product-page .row .col2 .panel .panel-footer .tour .title {
+    position: relative;
+    width: 90%;
+    height: 25%;
+    margin-left: 5%;
+    text-align: left;
+    color: #003e71;
+    font-size: 20px;
+
+    background: #fff;
+
+}
+
+.main-content .product-page .row .col2 .panel .panel-footer .tour .bottom {
+    position: relative;
+    width: 100%;
+    height: 15%;
+    background: #f5f5f5;
+    top: 9%;
+}
+
+.main-content .product-page .row .col2 .panel .panel-footer .tour .bottom .ic-money {
+    position: relative;
+    width: 5%;
+    height: 20%;
+    top: 40%;
+    left: 5%;
+
+}
+
+.main-content .product-page .row .col2 .panel .panel-footer .tour .bottom .price {
+    position: relative;
+    width: 50%;
+    top: -15%;
+    height: 70%;
+    left: 15%;
+    align-items: center;
+    display: flex;
+    font-size: 20px;
+    color: #003e71;
+    font-weight: 800;
+}
+
+.main-content .product-page .row .col2 .panel .panel-footer .tour .bottom .button {
+    position: relative;
+    background: #ffc10e;
+    width: 35%;
+    height: 100%;
+    left: 65%;
+    top: -97%;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.main-content .product-page .row .col2 .panel .panel-footer .tour .bottom .button:hover {
+    color: black;
+}
