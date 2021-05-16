@@ -38,4 +38,8 @@ class Users extends Controller {
         $this->view("users/index");
     }
 
+    public function book(){
+            $this->view('users/book');
+    }
+
 }
