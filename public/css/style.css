@@ -54,6 +54,17 @@ body{
     color: white;
 }
 
+.header-logo {
+    height: 40px;
+    margin: auto 8px;
+    background-color: red;
+    background-image: url("../img/logo_web.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 40px;
+}
+
 .header div {
     font-weight: 600;
     font-size: 24px;
@@ -281,3 +292,41 @@ body{
     box-sizing: border-box;
     padding : 10px 16px;
 }
+
+.statistic-left {
+    margin: 8px;
+}
+
+.statistic-right {
+    margin: 8px;
+    border-left: 10px solid green;
+}
+
+.statistic-right .statistic_row {
+    height: 50%;
+}
+
+.statistic-right .statistic_row .statistic_item {
+    margin: 8px;
+}
+
+.item-title {
+    height: 24px;
+    font-size: 24px;
+    padding: 8px;
+}
+
+.item-value {
+    text-align: center;
+    margin : 0 20px;
+    height: 150px;  
+    width: 150px;
+    border: 10px solid green;
+    border-radius: 50%;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    
+}
+
+

@@ -22,6 +22,7 @@
     </head>
     <body>
         <div class="header">
+            <div class="header-logo"></div>
             <div>Tourism Management</div>
         </div>
         <div class="content">

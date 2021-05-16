@@ -9,6 +9,7 @@
     </head>
     <body>
         <div class="header">
+            <div class="header-logo"></div>
             <div>Tourism Management</div>
         </div>
         <div class="content">
@@ -16,6 +17,8 @@
                 <div class="menu_item"><div class="menu_icon user_icon"></div><a href="<?php echo URL; ?>/admins/users">User</a></div>
                 <div class="menu_item"><div class="menu_icon tour_icon"></div><a href="<?php echo URL; ?>/admins/tours">Tour</a></div>
                 <div class="menu_item"><div class="menu_icon booking-icon"></div><a href="<?php echo URL; ?>/admins/bookings">Booking</a></div>
+                <div class="menu_item"><div class="menu_icon booking-icon"></div><a href="<?php echo URL; ?>/admins/bookings">Thống kê</a></div>
+
             </div>
             <div class="content_right">
 

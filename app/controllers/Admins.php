@@ -145,5 +145,11 @@ class Admins extends Controller {
         $data = $this->adminModel->geListBookingByUserId($id);
         $this->view("admin/bookingbyuser",$data);
     }
+    public function statistic() {
+        $this->view("admin/statistic");
+    }
+    public function index() {
+        $this->users();
+    }
 
 }
