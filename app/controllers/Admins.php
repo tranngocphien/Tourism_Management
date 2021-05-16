@@ -140,15 +140,35 @@ class Admins extends Controller {
         }
         $this->view("admin/booking", $data);
     }
-    
+
     public function bookingbyuser($id) {
         $data = $this->adminModel->geListBookingByUserId($id);
-        $this->view("admin/bookingbyuser",$data);
+        $this->view("admin/bookingbyuser", $data);
     }
+
     public function statistic() {
-        $data = $this->adminModel->statistic();
+        $number_user = $this->adminModel->getNumberUser();
+        $number_user = $number_user[0][""]["COUNT(username)"];
+        $number_tour = $this->adminModel->getNumberTour();
+        $number_tour = $number_tour[0][""]["COUNT(tour_name)"];
+        $number_ticket = $this->adminModel->getNumberTicket();
+        $number_ticket = $number_ticket[0][""]["SUM(number_ticket)"];
+        
+        $revenue = $this->adminModel->getRevenue();
+        
+        $tourinfo = $this->adminModel->getNumberTicketAndRevenue();
+        
+        
+        $data = [
+            "number_user" => $number_user,
+            "number_tour" => $number_tour,
+            "number_ticket" => $number_ticket,
+            "revenue" => $revenue[0][""]["revenue"],
+            "tourinfo" => $tourinfo
+        ];
         $this->view("admin/statistic", $data);
     }
+
     public function index() {
         $this->users();
     }

@@ -14,10 +14,10 @@
         </div>
         <div class="content">
             <div class="content_left">
-                <div class="menu_item"><div class="menu_icon user_icon"></div><a href="<?php echo URL; ?>/admins/users">User</a></div>
+                <div class="menu_item"><div class="menu_icon user_icon"></div><a href="<?php echo URL; ?>/admins/users">Người dùng</a></div>
                 <div class="menu_item"><div class="menu_icon tour_icon"></div><a href="<?php echo URL; ?>/admins/tours">Tour</a></div>
-                <div class="menu_item"><div class="menu_icon booking-icon"></div><a href="<?php echo URL; ?>/admins/bookings">Booking</a></div>
-                <div class="menu_item"><div class="menu_icon booking-icon"></div><a href="<?php echo URL; ?>/admins/bookings">Thống kê</a></div>
+                <div class="menu_item"><div class="menu_icon booking-icon"></div><a href="<?php echo URL; ?>/admins/bookings">Đặt vé</a></div>
+                <div class="menu_item"><div class="menu_icon booking-icon"></div><a href="<?php echo URL; ?>/admins/statistic">Thống kê</a></div>
 
             </div>
             <div class="content_right">
@@ -32,7 +32,17 @@
                                     <th>Số vé</th>
                                     <th>Doanh thu</th>
                                 </tr>
-                                
+                                <?php
+                                $tbdata = $data["tourinfo"];
+                                ?>
+                                <?php foreach ($tbdata as $item): ?>
+                                    <tr>
+                                        <td><?php echo $item["Tour"]["tour_name"] ?></td>
+                                        <td><?php echo $item[""]["numberticket"] ?></td>
+                                        <td><?php echo $item[""]["money"] ?></td>
+                                    </tr>
+                                <?php endforeach ?>
+
                             </table>
                         </div>
                     </div>
@@ -40,24 +50,24 @@
                         <div class="m-flex statistic_row">
                             <div class="m-flex-1 statistic_item">
                                 <div class="item-title">User</div>
-                                <div class="m-flex m-center"><div class="item-value"><b> <?php echo $data["user"]["user_name"];?></b></div></div>
+                                <div class="m-flex m-center"><div class="item-value"><b> <?php echo $data["number_user"]; ?> người sử dụng</b></div></div>
 
                             </div>
                             <div class="m-flex-1 statistic_item">
                                 <div class="item-title">Tour</div>
-                                <div class="m-flex m-center"><div class="item-value"><b>1 Tour du lịch</b></div></div>
+                                <div class="m-flex m-center"><div class="item-value"><b><?php echo $data["number_tour"]; ?> Tour du lịch</b></div></div>
 
                             </div>
                         </div>
                         <div class="m-flex statistic_row">
                             <div class="m-flex-1 statistic_item">
                                 <div class="item-title">Đặt vé</div>
-                                <div class="m-flex m-center"><div class="item-value"><b>1 lượt đặt vé</b></div></div>
+                                <div class="m-flex m-center"><div class="item-value"><b><?php echo $data["number_ticket"]; ?> lượt đặt vé</b></div></div>
 
                             </div>
                             <div class="m-flex-1 statistic_item">
                                 <div class="item-title">Doanh thu</div>
-                                <div class="m-flex m-center"><div class="item-value"><b>100000000 đồng</b></div></div>
+                                <div class="m-flex m-center"><div class="item-value"><b><?php echo $data["revenue"]; ?> đồng</b></div></div>
                             </div>
                         </div>             
                     </div>  

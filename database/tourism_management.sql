@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 15, 2021 lúc 12:02 PM
+-- Thời gian đã tạo: Th5 16, 2021 lúc 06:33 PM
 -- Phiên bản máy phục vụ: 10.4.18-MariaDB
 -- Phiên bản PHP: 7.4.16
 
@@ -34,8 +34,17 @@ CREATE TABLE `booking` (
   `number_ticket` int(11) NOT NULL,
   `status` varchar(255) NOT NULL,
   `date_start` date NOT NULL,
-  `date_booking` date NOT NULL
+  `date_booking` date NOT NULL,
+  `money` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `booking`
+--
+
+INSERT INTO `booking` (`booking_id`, `user_id`, `tour_id`, `number_ticket`, `status`, `date_start`, `date_booking`, `money`) VALUES
+(3, 20, 2, 3, 'Đã xác nhận', '2021-05-28', '2021-05-15', 0),
+(4, 20, 1, 5, 'Đã xác nhận', '2021-05-27', '2021-05-15', 0);
 
 -- --------------------------------------------------------
 
@@ -55,7 +64,6 @@ CREATE TABLE `places` (
 
 INSERT INTO `places` (`places_id`, `places_name`, `places_description`) VALUES
 (1, 'Hà Nội, Ninh Bình, Lạng Sơn, Bắc Giang', '\r\n\r\nXem nội dung đầy đủ tại: https://travel.com.vn/tourM126-008-260521VU-D/ha-noi-bai-dinh-hoang-thanh-thang-long-lang-son-chi-lang-bac-giang.aspx\r\nNguồn: travel.com.vn'),
-(2, '990000', '1390000'),
 (3, 'Tp Hồ Chí Minh, Đà Lạt', '<h3>Ngày 1 | Thung Lũng Hoa - Chùa Linh Phước - Puppy Farm</h3>\r\n<p>06h00     Đoàn vào nhà hàng làm vệ sinh cá nhân. Quý khách dùng điểm tâm tại nhà hàng.\r\n08h00         Đoàn tham quan và chụp hình tại Thung Lũng Hoa – nơi đây được thiết kế với các khung cảnh hài hòa, những điểm nổi bật Khuôn viên gần 4ha với các tiểu cảnh vườn hoa, vườn hồng, vườn chè, con đường sắc màu với các bật thang nhiều màu sắc nơi đây sẽ cho quý khách cảm giác hòa mình vào với thiên nhiên và lưu lại với những bức ảnh thật rực rỡ  \r\n09h30          Quý khách tới thăm Chùa Linh Phước một ngôi chùa khá đặc biệt tại Đà Lạt. Đặc biệt là hình tượng con rồng được chế tác từ hơn 12.000 vỏ chai sành, gây được ấn tượng mạnh cho phật tử cùng các du khách gần xa mỗi khi tới thăm chùa. \r\n\r\n11h00     Quý khách dùng cơm trưa tại nhà hàng, sau đó về khách sạn nhận phòng nghỉ ngơi.\r\n15h00   Đoàn ghé tham quan trang trại cún Puppy Farm với khoảng 100 con cún, từ Alaska, Pug, Corgi mông tròn hay Puddle đều có mặt đầy đủ để quý khách thoải mái vui đùa. Bên cạnh đó, Quý khách còn được tham quan vườn cà chua dâu công nghệ cao, tận hưởng không khí trong lành cùng rau quả sạch chuẩn nhà trồng. Và những ngọn đồi đầy hoa thật nên thơ\r\n\r\n17h30     Quý khách tự túc khám phá ẩm thực tại Đà Lạt, tự  do dạo phố, ngắm  Hồ Xuân Hương trong tiết trời se lạnh của thành phố cao nguyên hoặc thưởng thức đặc sản: “Sữa đậu nành nóng, Mè đen, Bánh tráng trứng nướng và Chè hé tại phố núi sương mù”. \r\n</p>\r\n<h3>Ngày 2| Đà Lạt - Linh Ẩn - Tp Hồ Chí Minh</h3>\r\n<p>07h00     Quý khách trả phòng khách sạn, điểm tâm tại nhà hàng. \r\n09h00   Quý khách tham quan Chùa Linh Ẩn nằm ở chốn “hoang sơn cùng cốc” thế nhưng kiến trúc nơi đây vẫn toát lên vẻ đẹp hiện đại mà vẫn thân thiện với thiên nhiên. Đến với Linh Ẩn Tự ai cũng không khỏi trầm trồ khen ngợi với những công trình vĩ đại trong số đó phải kể đến Phật Quan Âm Lớn Nhất Việt Nam \r\n11h45 Dùng cơm trưa tại nhà hàng. Tại đây quý khách cùng nghe kể lại câu chuyện về “Tứ đại danh trà”. Ngoài ra quý khách có thể thưởng thức trà, cafe miễn phí tại tiền sảnh của nhà hàng. \r\n18h00 Quý khách về đến TP.HCM HDV Saigontours chia tay quý khách hẹn ngày gặp lại! Kết thúc chuyến tham quan! </p>'),
 (5, 'Tp Hồ Chí Minh, Đà Lạt', '<h3>Ngày 1 | Thung Lũng Hoa - Chùa Linh Phước - Puppy Farm</h3>\r\n<p>06h00     Đoàn vào nhà hàng làm vệ sinh cá nhân. Quý khách dùng điểm tâm tại nhà hàng.\r\n08h00         Đoàn tham quan và chụp hình tại Thung Lũng Hoa – nơi đây được thiết kế với các khung cảnh hài hòa, những điểm nổi bật Khuôn viên gần 4ha với các tiểu cảnh vườn hoa, vườn hồng, vườn chè, con đường sắc màu với các bật thang nhiều màu sắc nơi đây sẽ cho quý khách cảm giác hòa mình vào với thiên nhiên và lưu lại với những bức ảnh thật rực rỡ  \r\n09h30          Quý khách tới thăm Chùa Linh Phước một ngôi chùa khá đặc biệt tại Đà Lạt. Đặc biệt là hình tượng con rồng được chế tác từ hơn 12.000 vỏ chai sành, gây được ấn tượng mạnh cho phật tử cùng các du khách gần xa mỗi khi tới thăm chùa. \r\n\r\n11h00     Quý khách dùng cơm trưa tại nhà hàng, sau đó về khách sạn nhận phòng nghỉ ngơi.\r\n15h00   Đoàn ghé tham quan trang trại cún Puppy Farm với khoảng 100 con cún, từ Alaska, Pug, Corgi mông tròn hay Puddle đều có mặt đầy đủ để quý khách thoải mái vui đùa. Bên cạnh đó, Quý khách còn được tham quan vườn cà chua dâu công nghệ cao, tận hưởng không khí trong lành cùng rau quả sạch chuẩn nhà trồng. Và những ngọn đồi đầy hoa thật nên thơ\r\n\r\n17h30     Quý khách tự túc khám phá ẩm thực tại Đà Lạt, tự  do dạo phố, ngắm  Hồ Xuân Hương trong tiết trời se lạnh của thành phố cao nguyên hoặc thưởng thức đặc sản: “Sữa đậu nành nóng, Mè đen, Bánh tráng trứng nướng và Chè hé tại phố núi sương mù”. \r\n</p>\r\n<h3>Ngày 2| Đà Lạt - Linh Ẩn - Tp Hồ Chí Minh</h3>\r\n<p>07h00     Quý khách trả phòng khách sạn, điểm tâm tại nhà hàng. \r\n09h00   Quý khách tham quan Chùa Linh Ẩn nằm ở chốn “hoang sơn cùng cốc” thế nhưng kiến trúc nơi đây vẫn toát lên vẻ đẹp hiện đại mà vẫn thân thiện với thiên nhiên. Đến với Linh Ẩn Tự ai cũng không khỏi trầm trồ khen ngợi với những công trình vĩ đại trong số đó phải kể đến Phật Quan Âm Lớn Nhất Việt Nam \r\n11h45 Dùng cơm trưa tại nhà hàng. Tại đây quý khách cùng nghe kể lại câu chuyện về “Tứ đại danh trà”. Ngoài ra quý khách có thể thưởng thức trà, cafe miễn phí tại tiền sảnh của nhà hàng. \r\n18h00 Quý khách về đến TP.HCM HDV Saigontours chia tay quý khách hẹn ngày gặp lại! Kết thúc chuyến tham quan! </p>'),
 (6, 'Tp Hồ Chí Minh, Đà Lạt', '<h3>Ngày 1 | Thung Lũng Hoa - Chùa Linh Phước - Puppy Farm</h3>\r\n<p>06h00     Đoàn vào nhà hàng làm vệ sinh cá nhân. Quý khách dùng điểm tâm tại nhà hàng.\r\n08h00         Đoàn tham quan và chụp hình tại Thung Lũng Hoa – nơi đây được thiết kế với các khung cảnh hài hòa, những điểm nổi bật Khuôn viên gần 4ha với các tiểu cảnh vườn hoa, vườn hồng, vườn chè, con đường sắc màu với các bật thang nhiều màu sắc nơi đây sẽ cho quý khách cảm giác hòa mình vào với thiên nhiên và lưu lại với những bức ảnh thật rực rỡ  \r\n09h30          Quý khách tới thăm Chùa Linh Phước một ngôi chùa khá đặc biệt tại Đà Lạt. Đặc biệt là hình tượng con rồng được chế tác từ hơn 12.000 vỏ chai sành, gây được ấn tượng mạnh cho phật tử cùng các du khách gần xa mỗi khi tới thăm chùa. \r\n\r\n11h00     Quý khách dùng cơm trưa tại nhà hàng, sau đó về khách sạn nhận phòng nghỉ ngơi.\r\n15h00   Đoàn ghé tham quan trang trại cún Puppy Farm với khoảng 100 con cún, từ Alaska, Pug, Corgi mông tròn hay Puddle đều có mặt đầy đủ để quý khách thoải mái vui đùa. Bên cạnh đó, Quý khách còn được tham quan vườn cà chua dâu công nghệ cao, tận hưởng không khí trong lành cùng rau quả sạch chuẩn nhà trồng. Và những ngọn đồi đầy hoa thật nên thơ\r\n\r\n17h30     Quý khách tự túc khám phá ẩm thực tại Đà Lạt, tự  do dạo phố, ngắm  Hồ Xuân Hương trong tiết trời se lạnh của thành phố cao nguyên hoặc thưởng thức đặc sản: “Sữa đậu nành nóng, Mè đen, Bánh tráng trứng nướng và Chè hé tại phố núi sương mù”. \r\n</p>\r\n<h3>Ngày 2| Đà Lạt - Linh Ẩn - Tp Hồ Chí Minh</h3>\r\n<p>07h00     Quý khách trả phòng khách sạn, điểm tâm tại nhà hàng. \r\n09h00   Quý khách tham quan Chùa Linh Ẩn nằm ở chốn “hoang sơn cùng cốc” thế nhưng kiến trúc nơi đây vẫn toát lên vẻ đẹp hiện đại mà vẫn thân thiện với thiên nhiên. Đến với Linh Ẩn Tự ai cũng không khỏi trầm trồ khen ngợi với những công trình vĩ đại trong số đó phải kể đến Phật Quan Âm Lớn Nhất Việt Nam \r\n11h45 Dùng cơm trưa tại nhà hàng. Tại đây quý khách cùng nghe kể lại câu chuyện về “Tứ đại danh trà”. Ngoài ra quý khách có thể thưởng thức trà, cafe miễn phí tại tiền sảnh của nhà hàng. \r\n18h00 Quý khách về đến TP.HCM HDV Saigontours chia tay quý khách hẹn ngày gặp lại! Kết thúc chuyến tham quan! </p>'),
@@ -95,7 +103,7 @@ CREATE TABLE `tour` (
 --
 
 INSERT INTO `tour` (`tour_id`, `tour_name`, `tour_day`, `tour_night`, `transport`, `price_personal`, `price_group`, `places_id`) VALUES
-(1, 'Tour Đà Lạt, Siêu tiết kiệm', 2, 1, 'Ô tô', 1790, 1290, 6),
+(1, 'Tour Đà Lạt, Siêu tiết kiệm', 2, 1, 'Máy bay', 1790000, 1290000, 6),
 (2, 'Tour Phan Thiết, Siêu tiết kiệm', 2, 1, 'Ô tô', 1390000, 990000, 7);
 
 -- --------------------------------------------------------
@@ -166,7 +174,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT cho bảng `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `places`

@@ -108,7 +108,7 @@ class Admin {
         $query = "SELECT booking.booking_id, tour.tour_name,user.username,booking.number_ticket,booking.status, booking.date_start FROM booking, tour, user WHERE tour.tour_id = booking.tour_id and booking.user_id = user.user_id and user.username LIKE '%$key%'";
         return $this->db->query($query);
     }
-    
+
     public function geListBookingByUserId($key) {
         $query = "SELECT booking.booking_id, tour.tour_name,user.username,booking.number_ticket,booking.status, booking.date_start FROM booking, tour, user WHERE tour.tour_id = booking.tour_id and booking.user_id = user.user_id and user.user_id = '$key'";
         return $this->db->query($query);
@@ -123,8 +123,35 @@ class Admin {
         $query = "UPDATE booking SET status='$status' WHERE booking_id = '$booking_id'";
         return $this->db->query($query);
     }
+
+    public function getNumberUser() {
+        $query = "SELECT COUNT(username) FROM user";
+        return $this->db->query($query);
+    }
+
+    public function getNumberTour() {
+        $query = "SELECT COUNT(tour_name) FROM tour";
+        return $this->db->query($query);
+    }
+
+    public function getNumberTicket() {
+        $query = "SELECT SUM(number_ticket) FROM booking";
+        return $this->db->query($query);
+    }
     
-    public function statistic(){
+    public function getRevenue() {
+        $query = "SELECT SUM(booking.money)AS revenue FROM booking WHERE booking.status = 'Đã xác nhận'";
+        return $this->db->query($query);
+    }
+
+    
+    public function getNumberTicketAndRevenue() {
+        $query = "SELECT tour.tour_name, SUM(booking.number_ticket) AS numberticket, SUM(booking.money) as money FROM tour, booking WHERE tour.tour_id = booking.tour_id AND booking.status = 'Đã xác nhận' GROUP BY tour.tour_name";
+        return $this->db->query($query);
+    }
+
+
+    public function statistic() {
         //$query = "SELECT COUNT(username), COUNT(tour_name), COUNT(number_ticket), SUM(booking.number_ticket*tour.price-group) FROM booking, tour, user WHERE tour.tour_id = booking.tour_id and booking.user_id = user.user_id";
         $query = "SELECT COUNT(username) FROM user";
         $query .= "SELECT COUNT(tour_name) FROM tour";
@@ -132,4 +159,5 @@ class Admin {
         $query .= "SELECT SUM(booking.numer_ticket*tour.price_group) FROM booking, tour WHERE booking.tour_id = tour.tour_id";
         return $this->db->query($query);
     }
+
 }
