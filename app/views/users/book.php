@@ -8,11 +8,38 @@ require_once ROOT . '/views/includes/header.php'; ?>
         document.getElementById('div-1').style.display = 'flex';
 
     }
+
+    function addTicket(){
+        var per = parseInt(document.getElementById("per").value);
+        console.log(per);
+        var personal = document.getElementById("don").innerHTML;
+        console.log(personal);
+        var tongdon = per*personal;
+        console.log(tongdon);
+        document.getElementById("personal").innerHTML=tongdon;
+
+        var gr = parseInt(document.getElementById("gr").value);
+        console.log(gr);
+        var group = document.getElementById("nhom").innerHTML;
+        var tongnhom = gr*group;
+        document.getElementById("group").innerHTML=tongnhom;
+
+        var tongtien = tongdon + tongnhom;
+        document.getElementById("total").innerHTML=tongtien;
+   }
+
+   function validate(){
+       var date = new Date(document.getElementById("date").value);
+       var today = new Date();
+       console.log(date);
+       console.log(today.getDate);
+       document.getElementById("note").style.display="block";
+   }
 </script>
 
 
 <body>
-    <form method="GET" action="#" >
+    <form method="POST" action="<?php echo URL; ?>/Users/carts/<?php echo $data["user"]['User']['user_id'] ?>/<?php echo $data["tour"][0]["Tour"]["tour_id"]; ?>" >
     <div class="content">
 
         <div class="book">
@@ -22,17 +49,20 @@ require_once ROOT . '/views/includes/header.php'; ?>
                     <div class="title">THÔNG TIN NGƯỜI ĐẶT</div>
                 </div>
                     <div class="info">
-                        <input type="text" placeholder="Họ và tên" id="name" class="input">
-                        <input type="text" placeholder="Số điện thoại" id="name" class="input">
-                        <input type="text" placeholder="Email" id="name" class="input">
-                        <input type="text" placeholder="Địa chỉ" id="name" class="input">
+                        <input type="text" placeholder="Họ và tên" id="name" class="input" value="<?php  echo $data["user"]["User"]["fullname"];?>" readonly>
+                        <input type="text" placeholder="Số điện thoại" id="tel" class="input" value="<?php  echo $data["user"]["User"]["tel"];?>" readonly>
+                        <input type="text" placeholder="Email" id="email" class="input" value="<?php  echo $data["user"]["User"]["email"];?>" readonly>
+                        <input type="text" placeholder="Địa chỉ" id="address" class="input" value="<?php  echo $data["user"]["User"]["address"];?>" readonly>
+                        <p style="margin-top: -1em;">Hãy chọn ngày khởi hành:</p>
+                        <input type="date" placeholder="Chọn ngày khởi hành" id="date" class="input" onchange="validate()">
+                        <p id="note" style="color: red; display: none; margin-top: -2em; margin-bottom: 2em;">*Hãy chọn ngày sau ngày hiện tại!</p>
                     </div>
 
                     <div class="radio-button">
                         <div class="radio">
-                            <input type="radio" id="r1" name="thanhtoan" class="but" onclick="click('div-1')">
+                            <input type="radio" id="r1" name="thanhtoan" class="but" onkeypress="click('div-1')">
                             <label> Chuyển khoản ngân hàng </label></input>
-                            <div id="div-1" class="detail" style="display: none;">
+                            <div id="div-1" class="detail">
                                 <p><strong><span style="font-size:13px">THÔNG TIN THANH TOÁN CHUYỂN KHOẢN</span></strong></p>
                                 <p>- Ngân hàng Thương mại cổ phần Công Thương Việt Nam - CN TP.HN (VCB)</p>
                                 <p>- Tên đơn vị hưởng: CÔNG TY CỔ PHẦN DỊCH VỤ DU LỊCH TENG</p>
@@ -74,26 +104,26 @@ require_once ROOT . '/views/includes/header.php'; ?>
                     <div class="title">THÔNG TIN VỀ SẢN PHẨM DỊCH VỤ</div>
                 </div>
                 <div class="product">
-                    <img src="<?php echo URL; ?>/public/img/hoian.jpg" class="image">
+                    <img src="<?php echo $data["tour"][0]["Places_image"]["image_path"]; ?>" class="image">
                     <div class="panel">
                         <div class="title">
-                            Du Lịch Đồng Nai: Khám Phá Vườn Quốc Gia Nam Cát Tiên - KDL Suối Mơ
+                        <?php  echo $data["tour"][0]["Tour"]["tour_name"];?>
                         </div>
                         <div class="input">
-                            <div class="person">Người lớn</div>
-                            <div class="number"><input type="number"> x 2.225.000 =</div>
+                            <div class="person">ĐƠN</div>
+                            <div class="number"><input type="number" value="0" min="0" id="per" onchange="addTicket()"> x <span id="don"><?php  echo $data["tour"][0]["Tour"]["price_personal"];?></span> =</div>
 
-                            <div class="money">2220222</div>
+                            <div class="money"><p id="personal">0</p></div>
                         </div>
                         <div class="input">
-                            <div class="person">Trẻ em</div>
-                            <div class="number"><input type="number"> x 1.225.000 =</div>
+                            <div class="person">NHÓM</div>
+                            <div class="number"><input type="number" min="0" value="0" id="gr" onchange="addTicket()"> x <span id="nhom"><?php  echo $data["tour"][0]["Tour"]["price_group"];?></span> =</div>
 
-                            <div class="money">11110222</div>
+                            <div class="money"><p id="group">0</p></div>
                         </div>
                         <div class="total">
                             <div class="left">TỔNG</div>
-                            <div class="right"> 10000000</div>
+                            <div class="right"><p id="total">0</p></div>
                         </div>
                     
                     </div>

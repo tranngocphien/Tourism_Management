@@ -66,6 +66,7 @@ body {
     width: calc(100% - 30px);
     background: green;
     display: block;
+    height: 6em;
 }
 
 .main-content .product-page .row .col1 .buynow-ontop .left {
@@ -74,30 +75,42 @@ body {
     display: flex;
     padding: 10x 12px;
     align-items: center;
+    position: relative;
 }
 
-.main-content .product-page .row .col1 .buynow-ontop .left .logo {
-    width: 3%;
+.main-content .product-page .row .col1 .buynow-ontop .left .dola {
+    width: 40%;
+    height: 100%;
+    position: relative;
+    left: 2em;
+}
+
+.main-content .product-page .row .col1 .buynow-ontop .left .dola .single {
     display: flex;
-    background-size: contain;
-    background-position: center;
-    float: left;
-    margin-left: 10%;
+    align-items: center;
 }
 
-.main-content .product-page .row .col1 .buynow-ontop .left .price {
-    display: inline-block;
-    width: 30%;
-    font-size: 25px;
-    font-weight: bold;
-    line-height: 60px;
-    padding: 5px;
+.main-content .product-page .row .col1 .buynow-ontop .left .dola .single .logo {
+    background-position: center;
+    background-size: contain;
+    width: 1.5em;
+    height: 1.1em;
+    background-color: #fff;
+}
+
+.main-content .product-page .row .col1 .buynow-ontop .left .dola .single .price {
+    color: #fff;
+    left: 1em;
+    position: relative;
+    font-size: 15px;
 }
 
 .main-content .product-page .row .col1 .buynow-ontop .left .day{
     float: right;
-    width: 36%;
+    width: 30%;
     font-size: 15px;
+    position: relative;
+    left: 4%;
 }
 
 .main-content .product-page .row .col1 .buynow-ontop .right {

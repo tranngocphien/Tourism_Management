@@ -1,5 +1,5 @@
 <?php
-    class User {
+    class Page {
         protected $db;
         public function __construct() {
             $this->db = new Database;
@@ -14,19 +14,9 @@
                 return false;
             }
         }
-
-        public function getUser($user_id){
-            $query = "SELECT user.fullname, user.email, user.tel, user.address FROM user where user_id = $user_id";
-            return $this->db->query($query,1);
-        }
-
-        public function getCarts($user_id) {
-            $query = "SELECT * FROM tour, places, places_image, booking 
-            WHERE tour.places_id = places.places_id 
-            AND tour.tour_id 
-                in (SELECT tour.tour_id WHERE booking.user_id = $user_id) 
-            AND places_image.image_id = 
-                (SELECT image_id FROM places_image WHERE places_image.places_id = places.places_id ORDER by image_id LIMIT 1)";
+        
+        public function getTours(){
+            $query = "SELECT * from tour";
             return $this->db->query($query);
         }
 
@@ -35,19 +25,23 @@
             return $this->db->query($query);
         }
 
-        
-        public function getTours(){
-            $query = "SELECT * from tour";
-            return $this->db->query($query);
+        public function getTourAvt($tour_id){
+            $query = "SELECT * from places_image where places_image.tour_id = $tour_id";
+            $avt = $this->db->query($query);
+            if (isset($avt[0])){
+                return $avt[0];
+            }
         }
+
+        
 
         public function getTourById ($tour_id){
             $query = "SELECT * FROM tour, places, places_image  
-            WHERE tour.places_id = places.places_id AND tour.tour_id = $tour_id 
-            AND image_id = (
-                SELECT image_id FROM places_image 
-                WHERE places_image.places_id = places.places_id 
-                ORDER by image_id LIMIT 1)";
+                     WHERE tour.places_id = places.places_id AND tour.tour_id = $tour_id 
+                     AND image_id = (
+                         SELECT image_id FROM places_image 
+                         WHERE places_image.places_id = places.places_id 
+                         ORDER by image_id LIMIT 1)";
             return $this->db->query($query);
         }
 
@@ -58,11 +52,9 @@
 
         public function getTourByWord ($word) {
             $word_khong_dau = $this->stripunicode($word);
-            if($word->length()){
                 $query = "SELECT * FROM `tour` WHERE places_id IN 
                     (SELECT places_id FROM places WHERE places_name LIKE '%$word%' OR places_description LIKE '%$word%') 
                     OR tour_name LIKE '%$word%'";
-            }
         }
 
 
