@@ -5,6 +5,39 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="http://localhost/Tourism_Management/public/css/style.css">
+        
+        <script language="javascript" type="text/javascript">
+        window.onload = function () {
+            var fileUpload = document.getElementById("files");
+            fileUpload.onchange = function () {
+                if (typeof (FileReader) != "undefined") {
+                    var dvPreview = document.getElementById("showImage");
+                    dvPreview.innerHTML = "";
+                    var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+                    for (var i = 0; i < fileUpload.files.length; i++) {
+                        var file = fileUpload.files[i];
+                        if (regex.test(file.name.toLowerCase()) || true) {
+                            var reader = new FileReader();
+                            reader.onload = function (e) {
+                                var img = document.createElement("IMG");
+                                img.height = "150";
+                                img.width = "150";
+                                img.src = e.target.result;
+                                dvPreview.appendChild(img);
+                            }
+                            reader.readAsDataURL(file);
+                        } else {
+                            alert(file.name + " is not a valid image file.");
+                            dvPreview.innerHTML = "";
+                            return false;
+                        }
+                    }
+                } else {
+                    alert("This browser does not support HTML5 FileReader.");
+                }
+            }
+        };
+    </script>
 
     </head>
     <body>
@@ -22,7 +55,7 @@
             <div class="content_right">
 
                 <div class="title">Thêm tour</div>
-                <form action="<?php echo URL; ?>/admins/tournew" method="post">
+                <form action="<?php echo URL; ?>/admins/tournew" method="post" enctype="multipart/form-data">
                     <div class="content_main m-flex">
                         <div class="m-flex-1 detail-left">
                             <div class="m-flex m-center"><div class="label">Tên tour</div><input class="m-input" type="text" name="tour_name"></div>
@@ -38,12 +71,18 @@
 
                             </div>
                             <div class="m-flex m-center"><div class="label">Tỉnh</div><input class="m-input" type="text" name="places_name"></div>
-                            <div><input class="" type="file" name="image[]" multiple></div>
+                            <div style="margin-top: 8px">
+                                <input id="files" type="file" name="image[]" multiple hidden>
+                                <label class="btn-image" for="files" style="cursor: pointer;">Chọn ảnh</label>
+                            </div>
+                            <div class="showImage" id="showImage">
+                                
+                            </div>
                         </div>
                         <div class="m-flex-1 detail-right">
                             <div>Mô tả chi tiết</div>
                             <textarea class="m-input__description"type="text" name="places_description"></textarea>
-                            <input type="submit" class="btn-save" value="Lưu">
+                            <input type="submit" name="submit" class="btn-save" value="Lưu">
                         </div>
 
                     </div>

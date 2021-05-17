@@ -44,7 +44,7 @@ class Admins extends Controller {
     }
 
     public function tournew() {
-        if (isset($_POST['tour_name'])) {
+        if (isset($_POST['submit'])) {
             $tourname = $_POST["tour_name"];
             $tourday = $_POST["tour_day"];
             $tournight = $_POST["tour_night"];
@@ -58,6 +58,24 @@ class Admins extends Controller {
 
             $placesid = $this->adminModel->getMaxID();
 
+            $targetDir = "../public/img/";
+            $allowTypes = array('jpg', 'png', 'jpeg', 'gif');
+            $images_arr = array();
+            
+
+            foreach ($_FILES['image']['name'] as $key => $value) {
+                $fileName = basename($_FILES['image']['name'][$key]);
+                $targetFilePath = $targetDir. microtime(true) . $fileName ;
+                $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
+
+                if (in_array($fileType, $allowTypes)) {
+                    if (move_uploaded_file($_FILES["image"]["tmp_name"][$key], $targetFilePath)) {
+                        $images_arr[] = $targetFilePath;
+                        $this->adminModel->upImage($placesid["Place"]["places_id"], $targetFilePath);
+                    }
+                }
+            }
+
             $data = [
                 'tourname' => $tourname,
                 'tourday' => $tourday,
@@ -69,7 +87,6 @@ class Admins extends Controller {
             ];
 
             $this->adminModel->insertTour($data);
-
             header("Location:" . URL . "/admins/tours");
         }
         $this->view("admin/tour_new");
@@ -153,11 +170,11 @@ class Admins extends Controller {
         $number_tour = $number_tour[0][""]["COUNT(tour_name)"];
         $number_ticket = $this->adminModel->getNumberTicket();
         $number_ticket = $number_ticket[0][""]["SUM(number_ticket)"];
-        
+
         $revenue = $this->adminModel->getRevenue();
-        
+
         $tourinfo = $this->adminModel->getNumberTicketAndRevenue();
-        
+
         
         $data = [
             "number_user" => $number_user,

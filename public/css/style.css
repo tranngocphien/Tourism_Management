@@ -274,7 +274,26 @@ body{
 
 }
 
+.btn-image {
+  background-color: green;
+  color: white;
+  padding: 0.5rem;
+  font-family: sans-serif;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.showImage {
+    margin-top: 16px;
+    width: 100%;
+    height: calc(100% - 370px);
+    overflow-y: scroll;
+    padding: 8px;
+}
+
 .label {
+    
     width: 60px;
 }
 

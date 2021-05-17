@@ -149,6 +149,11 @@ class Admin {
         $query = "SELECT tour.tour_name, SUM(booking.number_ticket) AS numberticket, SUM(booking.money) as money FROM tour, booking WHERE tour.tour_id = booking.tour_id AND booking.status = 'Đã xác nhận' GROUP BY tour.tour_name";
         return $this->db->query($query);
     }
+    
+    public function upImage($places_id, $imagepath) {
+        $query = "INSERT INTO `places_image`(`image_id`, `places_id`, `image_path`) VALUES ('0','$places_id','$imagepath')";
+        return $this->db->query($query);
+    }
 
 
     public function statistic() {
