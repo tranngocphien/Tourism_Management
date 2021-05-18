@@ -138,23 +138,31 @@ class Admin {
         $query = "SELECT SUM(number_ticket) FROM booking";
         return $this->db->query($query);
     }
-    
+
     public function getRevenue() {
         $query = "SELECT SUM(booking.money)AS revenue FROM booking WHERE booking.status = 'Đã xác nhận'";
         return $this->db->query($query);
     }
 
-    
     public function getNumberTicketAndRevenue() {
         $query = "SELECT tour.tour_name, SUM(booking.number_ticket) AS numberticket, SUM(booking.money) as money FROM tour, booking WHERE tour.tour_id = booking.tour_id AND booking.status = 'Đã xác nhận' GROUP BY tour.tour_name";
         return $this->db->query($query);
     }
-    
+
     public function upImage($places_id, $imagepath) {
         $query = "INSERT INTO `places_image`(`image_id`, `places_id`, `image_path`) VALUES ('0','$places_id','$imagepath')";
         return $this->db->query($query);
     }
 
+    public function getImage($places_id) {
+        $query = "SELECT * FROM places_image WHERE places_id = $places_id";
+        return $this->db->query($query);
+    }
+    
+    public function deleteImage($places_id) {
+        $query = "DELETE FROM places_image WHERE places_id = $places_id";
+        return $this->db->query($query);
+    }
 
     public function statistic() {
         //$query = "SELECT COUNT(username), COUNT(tour_name), COUNT(number_ticket), SUM(booking.number_ticket*tour.price-group) FROM booking, tour, user WHERE tour.tour_id = booking.tour_id and booking.user_id = user.user_id";
