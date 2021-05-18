@@ -31,6 +31,7 @@ class Users extends Controller {
             $data = $this->userModel->login($username);
             //print_r($data);
             if ( $data[0]["User"]["password"] == $password) {
+                $_SESSION['username'] = $username;
                 $header = header("Location:" . URL . "/pages/index");
             } else {
                 $this->view("users/login");
