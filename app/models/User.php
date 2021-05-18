@@ -14,7 +14,13 @@
                 return false;
             }
         }
-
+        
+        public function login($username) {
+            $query = "SELECT password FROM user WHERE username = $username ";
+            return $this->db->query($query);
+        }
+               
+        
         public function getUser($user_id){
             $query = "SELECT user.fullname, user.email, user.tel, user.address FROM user where user_id = $user_id";
             return $this->db->query($query,1);

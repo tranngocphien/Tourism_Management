@@ -27,8 +27,13 @@ class Users extends Controller {
         if (isset($_POST['username'])) {
             $username = $_POST['username'];
             $password = $_POST['password'];
-
-            header("Location:" . URL . "/pages/index");
+            $data = $this->userModel->login($username);
+            print_r($data);
+            /*if ( $data[]["User"]["password"] == $password) {
+                $header = header("Location:" . URL . "/pages/index");
+            } else {
+                $this->view("users/login");
+            }*/
         } else {
             $this->view("users/login");
         }
