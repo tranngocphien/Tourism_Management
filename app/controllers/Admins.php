@@ -61,17 +61,19 @@ class Admins extends Controller {
             $targetDir = "../public/img/";
             $allowTypes = array('jpg', 'png', 'jpeg', 'gif');
             $images_arr = array();
-            
 
             foreach ($_FILES['image']['name'] as $key => $value) {
                 $fileName = basename($_FILES['image']['name'][$key]);
-                $targetFilePath = $targetDir. microtime(true) . $fileName ;
+                $fileNameN = microtime(true) . $fileName;
+                $targetFilePath = $targetDir . $fileNameN;
+                ;
                 $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
+                $fileDb = "http://localhost/Tourism_Management/public/img/" . $fileNameN;
 
                 if (in_array($fileType, $allowTypes)) {
                     if (move_uploaded_file($_FILES["image"]["tmp_name"][$key], $targetFilePath)) {
                         $images_arr[] = $targetFilePath;
-                        $this->adminModel->upImage($placesid["Place"]["places_id"], $targetFilePath);
+                        $this->adminModel->upImage($placesid["Place"]["places_id"], $fileDb);
                     }
                 }
             }
@@ -110,6 +112,30 @@ class Admins extends Controller {
 
             $this->adminModel->updatePlaces($places_id, $placesname, $placedescription);
 
+            $targetDir = "../public/img/";
+            $allowTypes = array('jpg', 'png', 'jpeg', 'gif');
+            $images_arr = array();
+            
+            if(isset($_FILES['image'])){
+                $this->adminModel->deleteImage($places_id);
+            }
+
+            foreach ($_FILES['image']['name'] as $key => $value) {
+                $fileName = basename($_FILES['image']['name'][$key]);
+                $fileNameN = microtime(true) . $fileName;
+                $targetFilePath = $targetDir . $fileNameN;
+                
+                $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
+                $fileDb = "http://localhost/Tourism_Management/public/img/" . $fileNameN;
+
+                if (in_array($fileType, $allowTypes)) {
+                    if (move_uploaded_file($_FILES["image"]["tmp_name"][$key], $targetFilePath)) {
+                        $images_arr[] = $targetFilePath;
+                        $this->adminModel->upImage($places_id, $fileDb);
+                    }
+                }
+            }
+
             $data = [
                 'tourid' => $tour_id,
                 'tourname' => $tourname,
@@ -124,7 +150,9 @@ class Admins extends Controller {
 
             header("Location:" . URL . "/admins/tours");
         }
-        $data = $this->adminModel->getDetailTour($tour_id);
+        $image = $this->adminModel->getImage($places_id);
+        $info = $this->adminModel->getDetailTour($tour_id);
+        $data = ["info" => $info, "image" => $image];
         $this->view("admin/tour_detail", $data);
     }
 
@@ -175,7 +203,6 @@ class Admins extends Controller {
 
         $tourinfo = $this->adminModel->getNumberTicketAndRevenue();
 
-        
         $data = [
             "number_user" => $number_user,
             "number_tour" => $number_tour,
