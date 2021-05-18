@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="<?php echo URL ?>/public/css/register.css">
 
     </head>
-    <body style = "background:https://banahills.sunworld.vn/wp-content/uploads/2020/02/doi-ban-tay-khong-lo-cau-vang.png no-repeat;">
+    <body background = "https://banahills.sunworld.vn/wp-content/uploads/2020/02/doi-ban-tay-khong-lo-cau-vang.png">
         <div class="header">
             <div>Tourism</div>
         </div>
