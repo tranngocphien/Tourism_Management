@@ -6,7 +6,8 @@
         }
         
         public function index(){
-            $this->view('pages/index');
+            $data = $this->pageModel->getTours();
+            $this->view('pages/index', $data);
         }
         
         public function about() {
@@ -19,10 +20,17 @@
 
         public function tour_detail($tour_id){
             $data = $this->pageModel->getTourById($tour_id);
-            $data2 = $this->pageModel->getTourByWord("Đà Lạt");
-
             
             $this->view("pages/tour_detail", $data);
+        }
+
+        public function search(){
+            
+            $this->view('pages/tours');
+        }
+
+        public function khoanh_khac_lu_hanh(){
+            $this->view('pages/images');
         }
     }
 

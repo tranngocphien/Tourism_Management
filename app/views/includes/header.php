@@ -4,9 +4,10 @@
 <head>
     <title>Register Form</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="http://localhost/Tourism_Management/public/css/index.css">
+
     <link rel="stylesheet" href="http://localhost/Tourism_Management/public/css/book.css">
     <link rel="stylesheet" href="http://localhost/Tourism_Management/public/css/carts.css"> 
+    <link rel="stylesheet" href="http://localhost/Tourism_Management/public/css/header.css"> 
     <meta name="viewport" content="width=device-width", initial-scale="1"> 
     <title>
         <?php echo "hello"; ?>

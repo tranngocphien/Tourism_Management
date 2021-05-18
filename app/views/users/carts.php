@@ -1,14 +1,27 @@
 <?php
 require_once ROOT . '/views/includes/header.php'; ?>
 <script>
-    var dcm = document.getElementById("conf").innerHTML;
-    if (dcm == 'TỪ CHỐI') {
-        document.getElementById("conf").style.background="red";
+    function load(id){
+
+        var status = document.getElementById(id).innerHTML;
+
+        console.log(status);
+
+        if (status == 'ĐÃ XÁC NHẬN'){
+            document.getElementById("conf").style.background = "green";
+        }
+        else if (status == "TỪ CHỐI" ){
+            document.getElementById("conf").style.background = "red";
+        }
+        else if (status == "ĐANG XỬ LÝ"){
+            document.getElementById("conf").style.background = "#ffc10";
+        }
+
     }
 </script>
 
 <body>
-    <div class="content-cart">
+    <div class="content-cart" >
         <div class="blog">
             <div class="col-1">
                 <div class="heading">
@@ -23,58 +36,40 @@ require_once ROOT . '/views/includes/header.php'; ?>
                         TRẠNG THÁI
                     </div>
                 </div>
-
-                <div class="panel">
+<?php   
+$length = count($data);
+for ($i = 0 ; $i < $length; $i++) {
+    echo '      <div class="panel">
+    <a style="text-decoration: none;" href ="http://localhost/Tourism_Management/Pages/tour_detail/' . $data[$i]["Tour"]["tour_id"] .'">
                     <div class="tour">
-                        <img src="<?php echo URL; ?>/public/img/hoian.jpg" class="image">
+                        <img src="' . $data[$i]["Places_image"]["image_path"] . '" class="image">
                         <div class="ct">
-                            <div class="title">Du Lịch Đồng Nai: Khám Phá Vườn Quốc Gia Nam Cát Tiên - KDL Suối Mơ</div>
+                            <div class="title">' . $data[$i]["Tour"]["tour_name"] . '</div>
                             <div class="info">
                                 <ul>
-                                    <li><strong>Thời gian: </strong>3 ngày, 2 đêm</li>
-                                    <li><strong>Phương tiện: </strong></li>
+                                    <li><strong>Thời gian: </strong>' . $data[$i]["Tour"]["tour_day"] . 'ngày,' .  $data[$i]["Tour"]["tour_night"] . 'đêm</li>
+                                    <li><strong>Phương tiện: </strong>' . $data[$i]["Tour"]["transport"] . '</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
+                    </a>
                     <div class="number">
                         <ul>
-                            <li><strong>Người lớn: </strong> 2 </li>
-                            <li><strong>Trẻ em: </strong> 0 </li>
+                            <li><strong>Số vé: </strong>' . $data[$i]["Booking"]["number_ticket"] . '</li>
+                            <li><strong>Tổng tiền: </strong>' . $data[$i]["Booking"]["money"] . '</li>
                         </ul>
                     </div>
 
                     <div class="status">
-                        <div class="xacnhan" id="conf"> THÀNH CÔNG </div>
+                        <div class="xacnhan" id="status">' . $data[$i]["Booking"]["status"] . '</div>
                     </div>
 
                 </div>
+                ';
+}
 
-                <div class="panel">
-                    <div class="tour">
-                        <img src="<?php echo URL; ?>/public/img/hoian.jpg" class="image">
-                        <div class="ct">
-                            <div class="title">Du Lịch Đồng Nai: Khám Phá Vườn Quốc Gia Nam Cát Tiên - KDL Suối Mơ</div>
-                            <div class="info">
-                                <ul>
-                                    <li><strong>Thời gian: </strong>3 ngày, 2 đêm</li>
-                                    <li><strong>Phương tiện: </strong></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="number">
-                        <ul>
-                            <li><strong>Người lớn: </strong> 2 </li>
-                            <li><strong>Trẻ em: </strong> 0 </li>
-                        </ul>
-                    </div>
-
-                    <div class="status">
-                        <div class="xacnhan" id="conf"> TỪ CHỐI </div>
-                    </div>
-
-                </div>
+?>
             </div>
             <div class="col-2">
 

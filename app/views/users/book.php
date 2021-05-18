@@ -19,6 +19,13 @@ require_once ROOT . '/views/includes/header.php'; ?>
         document.getElementById("personal").innerHTML=tongdon;
 
         var gr = parseInt(document.getElementById("gr").value);
+        if(gr < 5 && gr > 0) {
+            document.getElementById("tien").style.display="block";
+            gr= 0;
+        }
+        else{
+            document.getElementById("tien").style.display="none";
+        }
         console.log(gr);
         var group = document.getElementById("nhom").innerHTML;
         var tongnhom = gr*group;
@@ -118,9 +125,9 @@ require_once ROOT . '/views/includes/header.php'; ?>
                         <div class="input">
                             <div class="person">NHÓM</div>
                             <div class="number"><input type="number" min="0" value="0" id="gr" onchange="addTicket()"> x <span id="nhom"><?php  echo $data["tour"][0]["Tour"]["price_group"];?></span> =</div>
-
                             <div class="money"><p id="group">0</p></div>
                         </div>
+                        <p id="tien" style="color: red; display: none;"> * SỐ NGƯỜI TỐI THIỂU LÀ 5 </p>
                         <div class="total">
                             <div class="left">TỔNG</div>
                             <div class="right"><p id="total">0</p></div>
