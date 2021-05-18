@@ -29,6 +29,9 @@
                 <div>Phone number</div>
                 <input type="tel" name="tel" id="tel">
                 <br>
+                <div> Address </div>
+                <input type = "text" name ="address" id ="address">
+                <br>
                 <input class="btn" type="submit" value="Register">
             </form>
         </div>

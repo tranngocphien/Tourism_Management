@@ -15,7 +15,8 @@ class Users extends Controller {
             $email = $_POST['email'];
             $phone = $_POST['tel'];
             $fulname = $_POST['fullname'];
-            $this->userModel->register($username, $password, $email, $phone, $fulname) ;
+            $address = $_POST['address'];
+            $this->userModel->register($username, $password, $email, $phone, $fulname, $address) ;
             header("Location:" . URL . "/users/login");
             
         } else {
@@ -28,12 +29,12 @@ class Users extends Controller {
             $username = $_POST['username'];
             $password = $_POST['password'];
             $data = $this->userModel->login($username);
-            print_r($data);
-            /*if ( $data[]["User"]["password"] == $password) {
+            //print_r($data);
+            if ( $data[0]["User"]["password"] == $password) {
                 $header = header("Location:" . URL . "/pages/index");
             } else {
                 $this->view("users/login");
-            }*/
+            }
         } else {
             $this->view("users/login");
         }
