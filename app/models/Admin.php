@@ -52,6 +52,11 @@ class Admin {
         $query = "SELECT places.places_id FROM places ORDER BY places.places_id DESC LIMIT 1";
         return $this->db->query($query, 1);
     }
+    
+    public function getByTourName($tour_name){
+        $query = "SELECT tour.tour_id FROM tour WHERE tour.tour_name = '$tour_name'";
+        return $this->db->query($query);
+    }
 
     public function insertTour($data) {
 

@@ -54,44 +54,52 @@ class Admins extends Controller {
             $placesname = $_POST["places_name"];
             $placedescription = $_POST["places_description"];
 
-            $this->adminModel->insertPlaces($placesname, $placedescription);
+            $check = $this->adminModel->getByTourName($tourname);
+            if (!empty($check)) {
+                $data = ["error" => "Đã có tour này trong hệ thống "];
+                $this->view("admin/tour_new", $data);
+            } else {
 
-            $placesid = $this->adminModel->getMaxID();
+                $this->adminModel->insertPlaces($placesname, $placedescription);
 
-            $targetDir = "../public/img/";
-            $allowTypes = array('jpg', 'png', 'jpeg', 'gif');
-            $images_arr = array();
+                $placesid = $this->adminModel->getMaxID();
 
-            foreach ($_FILES['image']['name'] as $key => $value) {
-                $fileName = basename($_FILES['image']['name'][$key]);
-                $fileNameN = microtime(true) . $fileName;
-                $targetFilePath = $targetDir . $fileNameN;
-                ;
-                $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
-                $fileDb = "http://localhost/Tourism_Management/public/img/" . $fileNameN;
+                $targetDir = "../public/img/";
+                $allowTypes = array('jpg', 'png', 'jpeg', 'gif');
+                $images_arr = array();
 
-                if (in_array($fileType, $allowTypes)) {
-                    if (move_uploaded_file($_FILES["image"]["tmp_name"][$key], $targetFilePath)) {
-                        $images_arr[] = $targetFilePath;
-                        $this->adminModel->upImage($placesid["Place"]["places_id"], $fileDb);
+                foreach ($_FILES['image']['name'] as $key => $value) {
+                    $fileName = basename($_FILES['image']['name'][$key]);
+                    $fileNameN = microtime(true) . $fileName;
+                    $targetFilePath = $targetDir . $fileNameN;
+                    ;
+                    $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
+                    $fileDb = "http://localhost/Tourism_Management/public/img/" . $fileNameN;
+
+                    if (in_array($fileType, $allowTypes)) {
+                        if (move_uploaded_file($_FILES["image"]["tmp_name"][$key], $targetFilePath)) {
+                            $images_arr[] = $targetFilePath;
+                            $this->adminModel->upImage($placesid["Place"]["places_id"], $fileDb);
+                        }
                     }
                 }
+
+                $data = [
+                    'tourname' => $tourname,
+                    'tourday' => $tourday,
+                    'tournight' => $tournight,
+                    'transport' => $transport,
+                    'price' => $pricepersonal,
+                    'prices' => $pricegroup,
+                    'placesid' => $placesid["Place"]["places_id"]
+                ];
+
+                $this->adminModel->insertTour($data);
+                header("Location:" . URL . "/admins/tours");
             }
-
-            $data = [
-                'tourname' => $tourname,
-                'tourday' => $tourday,
-                'tournight' => $tournight,
-                'transport' => $transport,
-                'price' => $pricepersonal,
-                'prices' => $pricegroup,
-                'placesid' => $placesid["Place"]["places_id"]
-            ];
-
-            $this->adminModel->insertTour($data);
-            header("Location:" . URL . "/admins/tours");
         }
-        $this->view("admin/tour_new");
+        $data = ["error" => ""];
+        $this->view("admin/tour_new",$data);
     }
 
     public function test() {
@@ -115,8 +123,8 @@ class Admins extends Controller {
             $targetDir = "../public/img/";
             $allowTypes = array('jpg', 'png', 'jpeg', 'gif');
             $images_arr = array();
-            
-            if(isset($_FILES['image'])){
+
+            if (isset($_FILES['image'])) {
                 $this->adminModel->deleteImage($places_id);
             }
 
@@ -124,7 +132,7 @@ class Admins extends Controller {
                 $fileName = basename($_FILES['image']['name'][$key]);
                 $fileNameN = microtime(true) . $fileName;
                 $targetFilePath = $targetDir . $fileNameN;
-                
+
                 $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
                 $fileDb = "http://localhost/Tourism_Management/public/img/" . $fileNameN;
 

@@ -58,7 +58,7 @@
                 <form action="<?php echo URL; ?>/admins/tourdetail/<?php echo $data[0]["Tour"]["tour_id"]; ?>/<?php echo $data[0]["Place"]["places_id"]; ?>" method="post" enctype="multipart/form-data">
                     <div class="content_main m-flex">
                         <div class="m-flex-1 detail-left">
-                            <div class="m-flex m-center"><div class="label">Tên tour</div><input class="m-input" type="text" name="tour_name" value="<?php echo $data[0]["Tour"]["tour_name"]; ?>"></div>
+                            <div class="m-flex m-center"><div class="label">Tên tour</div><input class="m-input" type="text" name="tour_name" value="<?php echo $data[0]["Tour"]["tour_name"]; ?>" readonly></div>
                             <div class="m-flex m-center">
                                 <div class="m-flex-1 m-flex m-center"><div class="label">Số ngày</div><input class="m-input" type="text" name="tour_day" value="<?php echo $data[0]["Tour"]["tour_day"]; ?>""></div>
                                 <div class="m-flex-1 m-flex m-center"><div class="label">Số đêm</div><input class="m-input" type="text" name="tour_night" value="<?php echo $data[0]["Tour"]["tour_night"]; ?>"></div>
