@@ -39,7 +39,13 @@
 
         
         public function getTours(){
-            $query = "SELECT * from tour";
+
+            $query = "SELECT * FROM tour, places, places_image  
+            WHERE tour.places_id = places.places_id AND 
+            AND image_id = (
+                SELECT image_id FROM places_image 
+                WHERE places_image.places_id = places.places_id 
+                ORDER by image_id LIMIT 1)";
             return $this->db->query($query);
         }
 
@@ -65,6 +71,22 @@
                     (SELECT places_id FROM places WHERE places_name LIKE '%$word%' OR places_description LIKE '%$word%') 
                     OR tour_name LIKE '%$word%'";
             }
+        }
+
+        public function getToursBySearch($word , $day) {
+
+            $query = "SELECT * FROM tour, places, places_image  
+            WHERE tour.places_id = places.places_id AND tour.tour_day = $day
+            AND tour.tour_id IN (SELECT tour.tour_id FROM tour WHERE tour.tour_name LIKE '%$word%'
+                                UNION 
+                                SELECT tour.tour_id FROM tour, places WHERE tour.places_id = places.places_id AND places.places_name LIKE '%$word%' OR places.places_description LIKE '%$$word%')
+            AND image_id = (
+                SELECT image_id FROM places_image 
+                WHERE places_image.places_id = places.places_id 
+                ORDER by image_id LIMIT 1)";
+
+            return $this->db->query($query);
+
         }
 
 

@@ -65,7 +65,7 @@ body{
 
 .content_tours .row .col .title {
     width: 40%;
-    height: 50%;
+    height: 40%;
     color: rgb(3, 3, 100);
     font-size: 18px;
     margin-left: 52%;
@@ -76,6 +76,19 @@ body{
     text-transform: uppercase;
     position: absolute;
     top: 3%;
+}
+
+.content_tours .row .col .mota {
+    position: absolute;
+    width: 50%;
+    height: 30%;
+    left: 50%;
+    top: 40%;
+}
+
+.content_tours .row .col .mota li {
+    margin-top: 1em;
+    font-size: 17px;
 }
 
 .content_tours .row .col .bot {
