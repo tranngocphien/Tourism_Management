@@ -59,7 +59,7 @@ class Users extends Controller {
 
     public function carts($user_id){
         $data = $this->userModel->getCarts($user_id);
-
+//        print_r($data);
         $this->view('users/carts',$data);
     }
 

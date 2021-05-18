@@ -15,11 +15,6 @@
             }
         }
         
-        public function getTours(){
-            $query = "SELECT * from tour";
-            return $this->db->query($query);
-        }
-
         public function getImageByTourId($tour_id) {
             $query = "SELECT * from places_image where places_image.tour_id = $tour_id";
             return $this->db->query($query);
@@ -44,6 +39,17 @@
                          ORDER by image_id LIMIT 1)";
             return $this->db->query($query);
         }
+
+        public function getTours (){
+            $query = "SELECT * FROM tour, places, places_image  
+                     WHERE tour.places_id = places.places_id
+                     AND image_id = (
+                         SELECT image_id FROM places_image 
+                         WHERE places_image.places_id = places.places_id 
+                         ORDER by image_id LIMIT 1)";
+            return $this->db->query($query);
+        }
+
 
         public function getToursByName ($tour_name) {
             $query = "SELECT * from tour, places where tour_name like '%$tour_name%' and tour.places_id = places.places_id";

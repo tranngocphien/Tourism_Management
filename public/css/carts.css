@@ -4,7 +4,6 @@ body {
 
 .content-cart {
     width: 90%;
-    height: 50em;
     margin-left: 5%;
     top: 15%;
     position: absolute;
@@ -14,13 +13,11 @@ body {
 .content-cart .blog {
     top : 5em;
     width: 100%;
-    height: 30em;
     position: relative;
 }
 
 .content-cart .blog .col-1{
     width: 70%;
-    height: 40em;
     left: 15%;
     position: relative;
     background: #fff;
@@ -97,7 +94,6 @@ body {
 .content-cart .blog .col-1 .panel .tour {
     width: 60%;
     height: 15em;
-    background: azure;
     position: relative;
     border: none;
     border-radius: 6px;

@@ -1,0 +1,162 @@
+.header {
+    background-color: darkgreen;
+    width: 100%;
+    height: 15%;
+    left: 0%;
+    top: 0%;
+    position: absolute;
+}
+
+.header .phone {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 120%;
+    left: 5%;
+    position: absolute;    
+}
+
+.header .face {
+    height: 30%;
+    width: 3%;
+    background-position: center;
+    background-size: contain;
+    margin-left: 92%;
+    position: absolute;
+    background: white;
+}
+
+.header .top {
+    height: 35%;
+    background-color: darkgreen;
+    width: 100%;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header .bot {
+    height: 65%;
+    margin-top: 0px;
+    width: 100%;
+    background-color: green;
+    color: #fff;
+}
+
+.header .bot .left {
+    margin-left: 10%;
+    width: 40%;
+}
+.header .bot .left .logo {
+    width: 35%;
+    height: 80%;
+    position: absolute;
+    margin-left: 10%;
+}
+
+.header .bot .left .logo image{
+    display: block;
+    max-width: 50%;
+    max-height: 65%;
+    background-color: grey;
+    position: absolute;
+
+}
+
+.header .bot .left .name {
+    width: 15%;
+    font-size: 200%;
+    height: 65%;
+    margin-left: 0%;
+    text-align: right;
+    font-family: 'Courier New', Courier, monospace;
+    position: absolute;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.header .bot .right {
+    margin-left: 50%;
+    width: 40%;
+    height: 65%;
+    margin-right: 10%;
+}
+
+.header .bot .right .home {
+    height: 65%;
+    width: 10%;
+    font-size: 20px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.header .bot .right .home:hover {
+    background: rgb(200, 225, 200);
+    color: darkgreen;
+}
+
+.header .bot .right .infor {
+    margin-left: 10%;
+    height: 65%;
+    width: 10%;
+    font-size: 20px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.header .bot .right .infor:hover {
+    background: rgb(200, 225, 200);
+    color: darkgreen;
+}
+
+.header .bot .right .contact {
+    margin-left: 20%;
+    height: 65%;
+    width: 10%;
+    font-size: 20px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.header .bot .right .contact:hover {
+    background:rgb(200, 225, 200);
+    color: darkgreen;
+}
+
+.header .bot .right .market {
+    margin-left: 30%;
+    height: 65%;
+    width: 7%;
+    font-size: 20px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header .bot .right .market:hover {
+    background:rgb(200, 225, 200);
+    color: darkgreen;
+}
+
+.header .bot .right .market .icon {
+    width: 50%;
+    height: 50%;
+    background-position: center;
+    background-size: contain;
+}
