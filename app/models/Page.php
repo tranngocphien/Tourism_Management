@@ -19,7 +19,10 @@ class Page
 
     public function getImageByTourId($tour_id)
     {
-        $query = "SELECT * from places_image where places_image.tour_id = $tour_id";
+        $query = "SELECT places_image.* FROM places, tour, places_image 
+        WHERE tour.places_id = places.places_id 
+        AND places.places_id = places_image.places_id 
+        AND tour.tour_id = $tour_id";
         return $this->db->query($query);
     }
 
@@ -61,16 +64,21 @@ class Page
 
     public function getToursBySearchWord($word)
     {
-        $word_khong_dau = $this->stripunicode($word);
-        $query = "SELECT * FROM tour, places, places_image WHERE tour.places_id IN 
-                    (SELECT places_id FROM places WHERE places_name LIKE '%$word%' OR places_description LIKE '%$word%') 
-                    OR tour_name LIKE '%$word%'
-                    AND image_id = (
-                         SELECT image_id FROM places_image 
-                         WHERE places_image.places_id = places.places_id 
-                         ORDER by image_id LIMIT 1)";
+        $data = explode(",", $word);
+        $tours = array();
 
-        return $this->db->query($query);
+        foreach ($data as $w) {
+
+            $query = "SELECT * FROM places, tour, places_image 
+            WHERE tour.places_id = places.places_id 
+            AND places.places_id = places_image.places_id 
+            AND (places.places_name LIKE '%$w%'OR places.places_description LIKE '%$w%' OR tour.tour_name LIKE '%$w%' OR tour.transport LIKE '%$w%')
+            AND places_image.image_id = (SELECT places_image.image_id FROM places_image WHERE places_image.places_id = places.places_id LIMIT 1)";
+
+            $q = $this->db->query($query);
+            $tours = $tours + $q;
+        }
+        return $tours;
     }
 
     public function getToursBySearchDay($day)
@@ -86,15 +94,12 @@ class Page
 
     public function getToursBySearch($word, $day)
     {
-        $query = "SELECT * FROM tour, places, places_image  
-                    WHERE tour.places_id = places.places_id AND tour.tour_day = $day
-                    AND tour.tour_id IN (SELECT tour.tour_id FROM tour WHERE tour.tour_name LIKE '%$word%'
-                    UNION 
-                    SELECT tour.tour_id FROM tour, places WHERE tour.places_id = places.places_id AND places.places_name LIKE '%$word%' OR places.places_description LIKE '%$$word%')
-                    AND image_id = (
-                    SELECT image_id FROM places_image 
-                        WHERE places_image.places_id = places.places_id 
-                    ORDER by image_id LIMIT 1)";
+        $query = "SELECT * FROM places, tour, places_image 
+        WHERE tour.places_id = places.places_id 
+        AND places.places_id = places_image.places_id 
+        AND (places.places_name LIKE '%$word%'OR places.places_description LIKE '%$word%' OR tour.tour_name LIKE '%$word%')
+         AND tour.tour_day = $day 
+        AND places_image.image_id = (SELECT places_image.image_id FROM places_image WHERE places_image.places_id = places.places_id LIMIT 1)";
 
         return $this->db->query($query);
     }

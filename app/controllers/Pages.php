@@ -20,8 +20,8 @@ class Pages extends Controller
 
     public function tours()
     {
-
-        $this->view('pages/tours');
+        $data = $this->pageModel->getTours();
+        return $this->view('pages/tours', $data);
     }
 
     public function tour_detail($tour_id)
@@ -30,14 +30,19 @@ class Pages extends Controller
         $image = $this->pageModel->getImageByTourId($tour_id);
 
 
+        $word = $tour[0]["Tour"]["tour_name"];
+
+        $other = $this->pageModel->getToursBySearchWord($word);
+
+
         $data = array(
             "tour" => $tour,
-            "image" => $image
+            "image" => $image,
+            "other" =>$other
         );
 
-        print_r($data);
 
-        //$this->view("pages/tour_detail", $data);
+        $this->view("pages/tour_detail", $data);
     }
 
     public function search()
@@ -48,22 +53,22 @@ class Pages extends Controller
 
             if ($day > 0) {
                 $data = $this->pageModel->getToursBySearch($word, $day);
+                // print_r("TÌM CẢ NGÀY VÀ CHỮ\n");
+                // print_r($data);
                 return $this->view('pages/tours', $data);
-            } else {
-                $word = $_POST["key_word"];
-
+            } else if ($word != '') {
                 $data = $this->pageModel->getToursBySearchWord($word);
+                // print_r("TÌM CHỮ\n");
+                // print_r($data);
                 return $this->view('pages/tours', $data);
             }
-        } else if (isset($_POST["day"])) {
-            $day = $_POST["day"];
-            if ($day > 0) {
-                $data = $this->pageModel->getToursBySearchDay($day);
-                return $this->view('pages/tours', $data);
-            } else {
+            else{
                 $data = $this->pageModel->getTours();
+                // print_r("Không tìm gì cả\n");
+                // print_r($data);
                 return $this->view('pages/tours', $data);
             }
+
         }
     }
 

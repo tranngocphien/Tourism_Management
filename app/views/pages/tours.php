@@ -13,12 +13,12 @@ require_once ROOT . '/views/includes/header.php'; ?>
 <body>
     <img src="<?php echo URL; ?>/public/img/rong.jpg" class="image_head">
     <div class="intro">
-        <h1>Du lịch trong nước</h1>
+        <h1>Du lịch Việt Nam (VIETNAM TOURISM)</h1>
         <h4>Những cảnh đẹp ở Việt Nam luôn có sức hút mạnh liệt đối với du khách,
             mang đến cho mọi người những chuyến hành trình vô cùng thú vị.
             Mỗi một điểm đến sẽ giúp bạn khám phá thêm nhiều điều mới lạ về
             văn hóa cũng như nền ẩm thực phong phú của từng vùng miền trên khắp dải đất hình chữ S thân yêu.
-            Book ngay một chuyến du lịch trong nước cùng BenThanh Tourist
+            Book ngay một chuyến du lịch trong nước cùng TENGTENG Tourist
             và tận hưởng một kỳ nghỉ thật đáng nhớ! </h4>
     </div>
 
@@ -27,7 +27,7 @@ require_once ROOT . '/views/includes/header.php'; ?>
             TÌM TOUR
         </div>
         <form action="http://localhost/Tourism_Management/Pages/search" method="POST">
-            <input type="text" name="key_word" placeholder="Nhập tên, thành phố, địa danh..." class="input">
+            <input type="text" name="key_word" placeholder="Nhập tên, thành phố, địa danh, phương tiện,..." class="input">
             <input type="Number" name="day" class="input" placeholder="Chọn số lượng ngày" min="0">
             <button type="submit" name="search" class="button">Tìm kiếm</button>
     </form>

@@ -6,9 +6,9 @@
     <meta charset="UTF-8">
 
     <link rel="stylesheet" href="http://localhost/Tourism_Management/public/css/book.css">
-    <link rel="stylesheet" href="http://localhost/Tourism_Management/public/css/carts.css"> 
-    <link rel="stylesheet" href="http://localhost/Tourism_Management/public/css/header.css"> 
-    <meta name="viewport" content="width=device-width", initial-scale="1"> 
+    <link rel="stylesheet" href="http://localhost/Tourism_Management/public/css/carts.css">
+    <link rel="stylesheet" href="http://localhost/Tourism_Management/public/css/header.css">
+    <meta name="viewport" content="width=device-width" , initial-scale="1">
     <title>
         <?php echo "hello"; ?>
     </title>
@@ -28,19 +28,22 @@
                 </div>
             </div>
             <div class="right">
-                <div class="home">
-                    TRANG CHỦ
-                </div>
+                <a style="text-decoration: none;" href="http://localhost/Tourism_Management/">
+                    <div class="home">
+                        TRANG CHỦ
+                    </div>
+                </a>
                 <div class="infor">
                     GIỚI THIỆU
                 </div>
                 <div class="contact">
                     LIÊN HỆ
                 </div>
-                <div class="market">
-                    <img class="icon" src="<?php echo URL ?>/public/img/ic_market.png">
-                </div>
-                
+                <a href="http://localhost/Tourism_Management/Users/carts/20">
+                    <div class="market">
+                        <img class="icon" src="<?php echo URL ?>/public/img/ic_market.png">
+                    </div>
+                </a>
             </div>
         </div>
     </div>
