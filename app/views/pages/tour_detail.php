@@ -51,7 +51,7 @@
                                 <p>Phương tiện: ' . $data["tour"][0]["Tour"]["transport"] . '</p>
                             </div>
                         </div>
-                        <a style="text-decoration=none;" href = "http://localhost/Tourism_Management/Users/book/20/' . $data["tour"][0]["Tour"]["tour_id"] . '">
+                        <a style="text-decoration=none;" href = "http://localhost/Tourism_Management/Users/book/' . $data["tour"][0]["Tour"]["tour_id"] . '">
                         <div class="right">ĐẶT NGAY</div>
                         </a>
                     </div>
@@ -106,41 +106,7 @@
             </div>
 
             <div class="content">
-                <p><strong>GIÁ TOUR BAO GỒM</strong></p>
-                <ul>
-                    <li>Xe vận chuyển có máy lạnh (16,29,45 chỗ tùy lượng khách đăng ký tour) , đưa đón Quý khách theo chương trình tour&nbsp;&nbsp;</li>
-                    <li>Các bữa ăn theo chương trình,&nbsp; được đổi món thường xuyên theo ẩm thực địa phương.</li>
-                    <li>02 bữa sáng : 01 đơn vị thức ăn + 01 đơn vị nước</li>
-                    <li>03 bữa chính: 140,000đ/suất&nbsp;</li>
-                    <li>Khách sạn ở Vườn nam Cát Tiên / Resort Orchard&nbsp;: loại phòng tiêu chuẩn 02 khách/phòng. Khách lẻ nam/nữ ngủ ghép&nbsp;</li>
-                    <li>Vé tham quan theo chương trình&nbsp;</li>
-                    <li>Xe ô tô tham quan tại VQG Nam Cát Tiên</li>
-                    <li>HDV nhiệt tình, vui vẻ phục vụ đoàn</li>
-                    <li>Quà tặng nón du lịch.</li>
-                    <li>Khăn lạnh, nước uống trên đường (01 khăn, 02 chai/ ngày)</li>
-                    <li>Bảo hiểm mức bồi thường tối đa 100.000.000 vnđ/người.&nbsp; Bồi thường theo các nguyên tắc và tỉ lệ thương tật của công ty bảo hiểm Hàng Không</li>
-                    <li>Thuế VAT</li>
-                </ul>
-                <p><strong>GIÁ TOUR KHÔNG BAO GỒM</strong></p>
-                <ul>
-                    <li>Chi phí cá nhân: Tiền giặt ủi, điện thoại, đồ uống trong các bữa ăn</li>
-                    <li>Chi phí xem thú đêm tại VQG Nam Cát Tiên: 250,000đ/khách</li>
-                    <li>Chi phí vui chơi tại KDL Suối Mơ: Cá bú bình, nhà paho liên hoàn, ô tô nước, áo phao…..</li>
-                    <li>Chi phí vui chơi bên ngoài chương trình</li>
-                    <li>Phụ thu phòng đơn :
-                        <ul>
-                            <li><strong>Khách sạn Vườn nam Cát Tiên: </strong>300,000đ/khách<strong> </strong>dành cho khách ở 1 mình 1 phòng</li>
-                            <li><strong>Resort Orchard:</strong> 600,000đ/khách dành cho khách ở 1 mình 1 phòng</li>
-                        </ul>
-                    </li>
-                    <li>Tip dành cho tài xế và hướng dẫn viên&nbsp;</li>
-                </ul>
-                <p><strong>GIÁ TOUR TRẺ EM:&nbsp;</strong></p>
-                <ul>
-                    <li>Trẻ em từ 11 tuổi trở lên mua 01 vé như người lớn.&nbsp;</li>
-                    <li>Trẻ em từ 05 đến 10 tuổi mua 70% giá tour. Hai người lớn chỉ được kèm 01 trẻ em từ 5 tuổi đến 10 tuổi, từ em thứ 02 trở đi phải mua suất giường đơn (Tiêu chuẩn 1/2 vé: được 01 suất ăn + 01 ghế ngồi trên xe và ngủ ghép chung phòng với bố mẹ).</li>
-                    <li>Trẻ em dưới 05 tuổi : Không tính vé tour, gia đình tự lo cho bé. Nhưng 02 người lớn chỉ được kèm 01 trẻ em dưới 5 tuổi, từ em thứ 02 trở lên phải mua vé như qui định cho độ tuổi 05 – 10 tuổi</li>
-                </ul>
+               
                 <p><strong>MỘT SỐ ĐIỂM CẦN LƯU Ý:</strong></p>
                 <ul>
                     <li>Trước khi đăng ký tour xin Quý khách vui lòng đọc kỹ chương trình, giá tour, các khoản bao gồm và không bao gồm.</li>
@@ -256,7 +222,7 @@
                                 <div class="bottom">
                                     <img src="' . URL . '/public/img/dolar.png" class="ic-money">
                                     <div class="price">' . $data["other"][$i]["Tour"]["price_personal"] . ' vnđ</div>
-                                    <a style="text-decoration:none;" href = "http://localhost/Tourism_Management/Users/book/20/' . $data["other"][$i]["Tour"]["tour_id"] . '">
+                                    <a style="text-decoration:none;" href = "http://localhost/Tourism_Management/Users/book/' . $data["other"][$i]["Tour"]["tour_id"] . '">
                                         <div class="button">ĐẶT NGAY</div>
                                     </a>
                                 </div>

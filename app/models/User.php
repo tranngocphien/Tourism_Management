@@ -12,7 +12,7 @@
         }
         
         public function login($username) {
-            $query = "SELECT password FROM user WHERE username = '$username' ";
+            $query = "SELECT user_id ,password FROM user WHERE username = '$username' ";
             return $this->db->query($query);
         }
                
@@ -22,11 +22,16 @@
             return $this->db->query($query,1);
         }
 
+        public function getUserByUsername($username){
+            $query = "SELECT user.fullname, user.email, user.tel, user.address FROM user where user.username = $username";
+            return $this->db->query($query,1);
+        }
+
         public function getCarts($user_id) {
             $query = "SELECT * FROM tour, booking, places_image 
             WHERE tour.tour_id = booking.tour_id 
             AND tour.places_id = places_image.places_id 
-            AND booking.user_id = 20 AND places_image.image_id = 
+            AND booking.user_id = $user_id AND places_image.image_id = 
             (SELECT ip.image_id FROM places_image ip WHERE ip.places_id = tour.places_id ORDER BY ip.image_id LIMIT 1)";
             return $this->db->query($query);
         }

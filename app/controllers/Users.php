@@ -1,5 +1,6 @@
 <?php
 
+
 class Users extends Controller {
 
     private $userModel;
@@ -32,6 +33,7 @@ class Users extends Controller {
             //print_r($data);
             if ( $data[0]["User"]["password"] == $password) {
                 $_SESSION['username'] = $username;
+                $_SESSION['user_id'] = $data[0]["User"]["user_id"];
                 $header = header("Location:" . URL . "/pages/index");
             } else {
                 $this->view("users/register");
@@ -45,29 +47,38 @@ class Users extends Controller {
         $this->view("users/index");
     }
 
-    public function book($user_id, $tour_id){
-        try {
-        $user = $this->userModel->getUser($user_id);
-        $tour = $this->userModel->getTourById($tour_id);
-        $data = array (
-            "user" => $user,
-            "tour" => $tour
-        );
+    public function logout(){
+        unset($_SESSION['username']);
+        header("Location:" . URL . "/");
+    }
 
-
-        $this->view('users/book', $data);
-
-
-        }
-        catch(Exception $e){
-            $this->view('pages/index');
+    public function book($tour_id){
+        if (isset($_SESSION['username'])){
+            $username = $_SESSION['username'];
+            $user = $this->userModel->getUserByUsername($username);
+            $tour = $this->userModel->getTourById($tour_id);
+            $data = array (
+                "user" => $user,
+                "tour" => $tour
+            );
+            $this->view('users/book', $data);
+        }else {
+            $this->view('users/register');
         }
     }
 
-    public function carts($user_id){
-        $data = $this->userModel->getCarts($user_id);
-//        print_r($data);
-        $this->view('users/carts',$data);
+    public function carts(){
+
+        if (isset($_SESSION['username'])){
+            $user_id = $_SESSION['user_id'];
+            $data = $this->userModel->getCarts($user_id);
+
+            $this->view('users/carts',$data);
+        }else {
+            $this->view('users/register');
+        }
+
+
     }
 
 }

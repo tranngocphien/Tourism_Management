@@ -7,14 +7,14 @@ require_once ROOT . '/views/includes/header.php'; ?>
 
         console.log(status);
 
-        if (status == 'ĐÃ XÁC NHẬN'){
-            document.getElementById("conf").style.background = "green";
+        if (status == 'THÀNH CÔNG'){
+            document.getElementById(id).style.background = "green";
         }
         else if (status == "TỪ CHỐI" ){
-            document.getElementById("conf").style.background = "red";
+            document.getElementById(id).style.background = "red";
         }
         else if (status == "ĐANG XỬ LÝ"){
-            document.getElementById("conf").style.background = "#ffc10";
+            document.getElementById(id).style.background = "#ffc10";
         }
 
     }
@@ -62,7 +62,7 @@ for ($i = 0 ; $i < $length; $i++) {
                     </div>
 
                     <div class="status">
-                        <div class="xacnhan" id="status">' . $data[$i]["Booking"]["status"] . '</div>
+                        <div class="xacnhan" id="' . $data[$i]["Booking"]["booking_id"] .  '" onload = load(' . $data[$i]["Booking"]["booking_id"]. ')>' . $data[$i]["Booking"]["status"] . '</div>
                     </div>
 
                 </div>

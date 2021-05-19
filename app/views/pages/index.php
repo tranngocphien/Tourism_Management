@@ -77,7 +77,7 @@ require_once ROOT . '/views/includes/header.php'; ?>
                     <div class="bot1">
                         <img src="<?php echo URL ?>/public/img/dolar.png" class="logo">
                         <div class="price">' . $data[$i]["Tour"]["price_personal"] . '</div>
-                        <a href = "http://localhost/Tourism_Management/Users/book/20/'. $data[$i]["Tour"]["tour_id"] .'">
+                        <a href = "http://localhost/Tourism_Management/Users/book/'. $data[$i]["Tour"]["tour_id"] .'">
                         <div class="book">ĐẶT NGAY</div>
                         </a>
                     </div>
