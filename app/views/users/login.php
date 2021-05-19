@@ -15,10 +15,10 @@
             <form action="<?php echo URL ?>/users/login" method="post" name="registerForm">
                 <div class="title">Login Form</div>
                 <div>Username</div>
-                <input type="text" name="username" id="username">
+                <input type="text" name="username_login" id="username">
                 <br>
                 <div>Password</div>
-                <input type="password" name="password" id="password">
+                <input type="password" name="password_login" id="password">
                 <br>
                 <input class="btn" type="submit" value="Login">
             </form>

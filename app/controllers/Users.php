@@ -17,7 +17,7 @@ class Users extends Controller {
             $fulname = $_POST['fullname'];
             $address = $_POST['address'];
             $this->userModel->register($username, $password, $email, $phone, $fulname, $address) ;
-            header("Location:" . URL . "/users/login");
+            header("Location:" . URL . "/users/register");
             
         } else {
             $this->view("users/register");
@@ -25,19 +25,19 @@ class Users extends Controller {
     }
 
     public function login() {
-        if (isset($_POST['username'])) {
-            $username = $_POST['username'];
-            $password = $_POST['password'];
+        if (isset($_POST['username_login'])) {
+            $username = $_POST['username_login'];
+            $password = $_POST['password_login'];
             $data = $this->userModel->login($username);
             //print_r($data);
             if ( $data[0]["User"]["password"] == $password) {
                 $_SESSION['username'] = $username;
                 $header = header("Location:" . URL . "/pages/index");
             } else {
-                $this->view("users/login");
+                $this->view("users/register");
             }
         } else {
-            $this->view("users/login");
+            $this->view("users/register");
         }
     }
 
