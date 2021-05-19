@@ -23,12 +23,11 @@
         }
 
         public function getCarts($user_id) {
-            $query = "SELECT * FROM tour, places, places_image, booking 
-            WHERE tour.places_id = places.places_id 
-            AND tour.tour_id 
-                in (SELECT tour.tour_id WHERE booking.user_id = $user_id) 
-            AND places_image.image_id = 
-                (SELECT image_id FROM places_image WHERE places_image.places_id = places.places_id ORDER by image_id LIMIT 1)";
+            $query = "SELECT * FROM tour, booking, places_image 
+            WHERE tour.tour_id = booking.tour_id 
+            AND tour.places_id = places_image.places_id 
+            AND booking.user_id = 20 AND places_image.image_id = 
+            (SELECT ip.image_id FROM places_image ip WHERE ip.places_id = tour.places_id ORDER BY ip.image_id LIMIT 1)";
             return $this->db->query($query);
         }
 

@@ -240,7 +240,7 @@
                 for ($i = 0; $i < $length; $i++) {
                     echo '                
                             <div class="tour">
-                                <a style="text-decoration=none;" href = "http://localhost/Tourism_Management/Pages/tour_detail/' . $data["other"][$i]["Tour"]["tour_id"] . '">
+                                <a style="text-decoration:none;" href = "http://localhost/Tourism_Management/Pages/tour_detail/' . $data["other"][$i]["Tour"]["tour_id"] . '">
         
                                 <img class="image" src="' . $data["other"][$i]["Places_image"]["image_path"] . '">
                                 <div class="title">' . $data["other"][$i]["Tour"]["tour_name"] . '</div>
@@ -256,7 +256,7 @@
                                 <div class="bottom">
                                     <img src="' . URL . '/public/img/dolar.png" class="ic-money">
                                     <div class="price">' . $data["other"][$i]["Tour"]["price_personal"] . ' vnđ</div>
-                                    <a style="text-decoration=none;" href = "http://localhost/Tourism_Management/Users/book/20/' . $data["other"][$i]["Tour"]["tour_id"] . '">
+                                    <a style="text-decoration:none;" href = "http://localhost/Tourism_Management/Users/book/20/' . $data["other"][$i]["Tour"]["tour_id"] . '">
                                         <div class="button">ĐẶT NGAY</div>
                                     </a>
                                 </div>
