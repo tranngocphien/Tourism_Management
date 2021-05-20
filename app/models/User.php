@@ -15,6 +15,14 @@
             $query = "SELECT user_id ,password FROM user WHERE username = '$username' ";
             return $this->db->query($query);
         }
+
+
+        public function book($user_id, $tour_id, $ticket, $status, $date_start, $date_booking, $total){
+            $query = "INSERT INTO `booking`(`booking_id`, `user_id`, `tour_id`, `number_ticket`, `status`, `date_start`, `date_booking`, `money`) 
+                                        VALUES (0,'$user_id','$tour_id','$ticket','$status','$date_start','$date_booking','$total')";
+            return $this->db->query($query);
+        
+        }
                
         
         public function getUser($user_id){
@@ -23,7 +31,8 @@
         }
 
         public function getUserByUsername($username){
-            $query = "SELECT user.fullname, user.email, user.tel, user.address FROM user where user.username = $username";
+            $query = "SELECT user.fullname, user.email, user.tel, user.address FROM user where user.username = '$username'";
+        
             return $this->db->query($query,1);
         }
 

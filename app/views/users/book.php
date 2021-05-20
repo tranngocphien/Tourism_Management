@@ -3,37 +3,34 @@ require_once ROOT . '/views/includes/header.php'; ?>
 
 
 <script>
-    if (document.getElementById('r1').checked) {
-        document.getElementById('div-2').style.display = 'none';
-        document.getElementById('div-3').style.display = 'none';
-        document.getElementById('div-1').style.display = 'flex';
 
+    function click(){
+        var data = document.getElementsByName("thanhtoan");
+        if(data[0].checked){
+            console.log(data[1].value);
+        }
+;
     }
 
     function addTicket(){
-        var per = parseInt(document.getElementById("per").value);
-        console.log(per);
-        var personal = document.getElementById("don").innerHTML;
-        console.log(personal);
-        var tongdon = per*personal;
-        console.log(tongdon);
-        document.getElementById("personal").innerHTML=tongdon;
 
-        var gr = parseInt(document.getElementById("gr").value);
-        if(gr < 5 && gr > 0) {
-            document.getElementById("tien").style.display="block";
-            gr= 0;
-        }
-        else{
-            document.getElementById("tien").style.display="none";
-        }
-        console.log(gr);
-        var group = document.getElementById("nhom").innerHTML;
-        var tongnhom = gr*group;
-        document.getElementById("group").innerHTML=tongnhom;
 
-        var tongtien = tongdon + tongnhom;
-        document.getElementById("total").innerHTML=tongtien;
+        var ticket = parseInt(document.getElementById("ticket").value);
+
+        if (ticket < 5) {
+            document.getElementById("group").style.display="none";
+            document.getElementById("single").style.display="flex";
+            var price = document.getElementById("gia-don").innerHTML;
+            var total = price*ticket;
+            document.getElementById("total").innerHTML = total;
+        }
+        else {
+            document.getElementById("single").style.display="none";
+            document.getElementById("group").style.display="flex";
+            var price = document.getElementById("gia-nhom").innerHTML;
+            var total = price*ticket;
+            document.getElementById("total").innerHTML = total;
+        }
    }
 
    function validate(){
@@ -47,7 +44,7 @@ require_once ROOT . '/views/includes/header.php'; ?>
 
 
 <body>
-    <form method="POST" action="<?php echo URL; ?>/Users/carts/<?php echo $data["user"]['User']['user_id'] ?>/<?php echo $data["tour"][0]["Tour"]["tour_id"]; ?>" >
+    <form method="POST" action="<?php echo URL; ?>/Users/carts/" >
     <div class="content">
 
         <div class="book">
@@ -62,13 +59,13 @@ require_once ROOT . '/views/includes/header.php'; ?>
                         <input type="text" placeholder="Email" id="email" class="input" value="<?php  echo $data["user"]["User"]["email"];?>" readonly>
                         <input type="text" placeholder="Địa chỉ" id="address" class="input" value="<?php  echo $data["user"]["User"]["address"];?>" readonly>
                         <p style="margin-top: -1em;">Hãy chọn ngày khởi hành:</p>
-                        <input type="date" placeholder="Chọn ngày khởi hành" id="date" class="input" onchange="validate()">
+                        <input type="date" placeholder="Chọn ngày khởi hành" name="date" id="date" class="input" onchange="validate()">
                         <p id="note" style="color: red; display: none; margin-top: -2em; margin-bottom: 2em;">*Hãy chọn ngày sau ngày hiện tại!</p>
                     </div>
 
                     <div class="radio-button">
                         <div class="radio">
-                            <input type="radio" id="r1" name="thanhtoan" class="but" onkeypress="click('div-1')">
+                            <input type="radio" value="1" id="r1" name="thanhtoan" class="but" onchange="click()">
                             <label> Chuyển khoản ngân hàng </label></input>
                             <div id="div-1" class="detail">
                                 <p><strong><span style="font-size:13px">THÔNG TIN THANH TOÁN CHUYỂN KHOẢN</span></strong></p>
@@ -78,7 +75,7 @@ require_once ROOT . '/views/includes/header.php'; ?>
                             </div>
                         </div>
                         <div class="radio">
-                            <input type="radio" id="r2" name="thanhtoan" class="but" onclick="click('div-2')">
+                            <input type="radio" value="2" id="r2" name="thanhtoan" class="but" onchange="click()">
                             <label> Thanh toán tại văn phòng </label>
                             <div id="div-2" class="detail">
                                 <p><strong>CÔNG TY CỔ PHẦN DỊCH VỤ DU LỊCH TENG<br>(TENG TOURIST)<br></strong>
@@ -90,7 +87,7 @@ require_once ROOT . '/views/includes/header.php'; ?>
                             </div>
                         </div>
                         <div class="radio">
-                            <input type="radio" id="r3" name="thanhtoan" class="but" onclick="click('div-3')">
+                            <input type="radio" value="3" id="r3" name="thanhtoan" class="but" onchange="click()">
                             <label> Thanh toán online </label>
                             <div id="div-3" class="detail">
                                 <p><strong>CÔNG TY CỔ PHẦN DỊCH VỤ DU LỊCH TENG TRAVEL<br>(TENG TOURIST)<br></strong>
@@ -104,7 +101,7 @@ require_once ROOT . '/views/includes/header.php'; ?>
 
                     </div>
                     <button type="submit" class="pay">THANH TOÁN</button>
-                </form>
+            
             </div>
             <div class="col-2">
                 <div class="heading">
@@ -118,17 +115,21 @@ require_once ROOT . '/views/includes/header.php'; ?>
                         <?php  echo $data["tour"][0]["Tour"]["tour_name"];?>
                         </div>
                         <div class="input">
-                            <div class="person">ĐƠN</div>
-                            <div class="number"><input type="number" value="0" min="0" id="per" onchange="addTicket()"> x <span id="don"><?php  echo $data["tour"][0]["Tour"]["price_personal"];?></span> =</div>
+                            <div class="person">SỐ VÉ: </div>
+                            <div class="number"><input type="number" name="ticket" value="0" min="0" id="ticket" onchange="addTicket()"> </div>
+                        </div>
 
-                            <div class="money"><p id="personal">0</p></div>
+                        <div class="input" id="single" >
+                            <div class="person">GIÁ ĐƠN: </div>
+                            <div class="number"> x <span id="gia-don"><?php  echo $data["tour"][0]["Tour"]["price_personal"];?></span></div>
+        
                         </div>
-                        <div class="input">
-                            <div class="person">NHÓM</div>
-                            <div class="number"><input type="number" min="0" value="0" id="gr" onchange="addTicket()"> x <span id="nhom"><?php  echo $data["tour"][0]["Tour"]["price_group"];?></span> =</div>
-                            <div class="money"><p id="group">0</p></div>
+
+                        <div class="input"  id="group" style="display: none;">
+                            <div class="person">GIÁ NHÓM: </div>
+                            <div class="number"> x <span id="gia-nhom"><?php  echo $data["tour"][0]["Tour"]["price_group"];?></span></div>
                         </div>
-                        <p id="tien" style="color: red; display: none;"> * SỐ NGƯỜI TỐI THIỂU LÀ 5 </p>
+                        <p style="color: red;" >*Giá nhóm được áp dụng từ 5 vé trở lên.</p>
                         <div class="total">
                             <div class="left">TỔNG</div>
                             <div class="right"><p id="total">0</p></div>

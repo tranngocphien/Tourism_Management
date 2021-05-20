@@ -34,7 +34,16 @@ class Users extends Controller {
             if ( $data[0]["User"]["password"] == $password) {
                 $_SESSION['username'] = $username;
                 $_SESSION['user_id'] = $data[0]["User"]["user_id"];
-                $header = header("Location:" . URL . "/pages/index");
+                if (isset($_SESSION['link'])){
+                    $link = $_SESSION['link'];
+                    unset($_SESSION['link']);
+                    header("location:" . $link);
+                   
+                }
+                else {
+                    $header = header("Location:" . URL . "/pages/index");
+                }
+                
             } else {
                 $this->view("users/register");
             }
@@ -55,15 +64,20 @@ class Users extends Controller {
     public function book($tour_id){
         if (isset($_SESSION['username'])){
             $username = $_SESSION['username'];
+            $_SESSION['tour_id'] = $tour_id;
             $user = $this->userModel->getUserByUsername($username);
             $tour = $this->userModel->getTourById($tour_id);
             $data = array (
                 "user" => $user,
                 "tour" => $tour
             );
+
             $this->view('users/book', $data);
         }else {
+            $_SESSION['link'] = "http://localhost/Tourism_Management/Users/book/$tour_id";
             $this->view('users/register');
+
+            //print_r($_SESSION['link']);
         }
     }
 
@@ -71,11 +85,38 @@ class Users extends Controller {
 
         if (isset($_SESSION['username'])){
             $user_id = $_SESSION['user_id'];
+
+            if(isset($_POST['date']) && isset($_POST['ticket'])){
+                
+                $tour_id = $_SESSION['tour_id'];
+                $ticket = $_POST['ticket'];
+                $status = "đang xác nhận";
+                $date_start = $_POST['date'];
+                $date_booking = date("Y-m-d");
+
+                $tour = $this->userModel->getTourById($tour_id);
+                $price = 0;
+                if ($ticket < 5 && $ticket > 0){
+                    $price = $tour[0]["Tour"]["price_personal"];
+                
+                } else if ($ticket >= 5) {
+                    $price = $tour[0]["Tour"]["price_group"];
+                }
+
+                $total = $price * $ticket;
+
+                $this->userModel->book($user_id, $tour_id, $ticket, $status, $date_start, $date_booking, $total);
+                unset($_SESSION['tour_id']);       
+
+            }
+
             $data = $this->userModel->getCarts($user_id);
 
             $this->view('users/carts',$data);
         }else {
-            $this->view('users/register');
+            $_SESSION['link']="http://localhost/Tourism_Management/Users/carts";
+           $this->view('users/register');
+           //print_r($_SESSION['link']);
         }
 
 

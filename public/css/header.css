@@ -100,8 +100,7 @@
 }
 
 .header .bot .right .home:hover {
-    background: #fff;
-    color: darkgreen;
+    background: rgb(13, 41, 13);
 }
 
 .header .bot .right .infor {
@@ -114,11 +113,11 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    color: #fff;
 }
 
 .header .bot .right .infor:hover {
-    background: #fff;
-    color: darkgreen;
+    background: rgb(13, 41, 13);
 }
 
 .header .bot .right .contact {
@@ -131,11 +130,11 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    color: #fff;
 }
 
 .header .bot .right .contact:hover {
-    background: #fff;
-    color: darkgreen;
+    background: rgb(13, 41, 13);
 }
 
 .header .bot .right .market {
@@ -151,7 +150,7 @@
 }
 
 .header .bot .right .market:hover {
-    background: rgb(11, 32, 11);
+    background: rgb(13, 41, 13);
     color: green;
 }
 
@@ -173,9 +172,10 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    color: #fff;
 }
 
 .header .bot .right .login:hover {
-    background: #fff;
-    color: darkgreen;
+    background: rgb(13, 41, 13);
+    
 }

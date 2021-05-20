@@ -77,9 +77,9 @@
             </div>
         </div>
 
-    </div>
+        </div>
 
-    <div class="tour-plan">
+        <div class="tour-plan">
         <div class="panel-heading">
             <img class="logo" src="<?php echo URL ?>/public/img/ic_list.png">
             <div class="title">CHƯƠNG TRÌNH TOUR</div>
@@ -106,7 +106,7 @@
             </div>
 
             <div class="content">
-               
+
                 <p><strong>MỘT SỐ ĐIỂM CẦN LƯU Ý:</strong></p>
                 <ul>
                     <li>Trước khi đăng ký tour xin Quý khách vui lòng đọc kỹ chương trình, giá tour, các khoản bao gồm và không bao gồm.</li>
@@ -170,9 +170,9 @@
             </div>
         </div>
 
-    </div>
-    </div>
-    <div class="col2">
+        </div>
+        </div>
+        <div class="col2">
         <div class="tour-info">
             <div class="panel-heading">
                 <img src="<?php echo URL ?>/public/img/ic_info.png" class="logo">
@@ -188,7 +188,7 @@
                                 <ul>
                             </div>' ?>
             </div>
-            <div class="panel-footer">19001123</div>
+            <div class="panel-footer"><a style="text-decoration: none; color: #fff;" href="tel:0358260822">19001123</a></div>
 
         </div>
 
@@ -233,10 +233,11 @@
 
             </div>
         </div>
-    </div>
-    </div>
+        </div>
+        </div>
 
-    </section>
+        </section>
+
     </div>
 </body>
 

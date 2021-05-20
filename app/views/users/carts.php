@@ -77,5 +77,10 @@ for ($i = 0 ; $i < $length; $i++) {
 
         </div>
 
+        <div class="footer">
+        
+
+        </div>
+
     </div>
 </body>

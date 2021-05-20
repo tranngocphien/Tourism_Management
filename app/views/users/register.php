@@ -23,7 +23,7 @@
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Password</label>
-                                        <input id="pass" type="password" class="input" data-type="password" name="password_login">
+                    <input id="pass" type="password" class="input" data-type="password" name="password_login">
 				</div>
 				
 				<div class="group">
