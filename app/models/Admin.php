@@ -145,12 +145,12 @@ class Admin {
     }
 
     public function getRevenue() {
-        $query = "SELECT SUM(booking.money)AS revenue FROM booking WHERE booking.status = 'Đã xác nhận'";
+        $query = "SELECT SUM(booking.money)AS revenue FROM booking WHERE booking.status = 'Thành công'";
         return $this->db->query($query);
     }
 
     public function getNumberTicketAndRevenue() {
-        $query = "SELECT tour.tour_name, SUM(booking.number_ticket) AS numberticket, SUM(booking.money) as money FROM tour, booking WHERE tour.tour_id = booking.tour_id AND booking.status = 'Đã xác nhận' GROUP BY tour.tour_name";
+        $query = "SELECT tour.tour_name, SUM(booking.number_ticket) AS numberticket, SUM(booking.money) as money FROM tour, booking WHERE tour.tour_id = booking.tour_id AND booking.status = 'Thành công' GROUP BY tour.tour_name";
         return $this->db->query($query);
     }
 

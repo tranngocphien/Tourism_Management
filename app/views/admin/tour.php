@@ -5,16 +5,22 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="http://localhost/Tourism_Management/public/css/style.css">
+        <link rel="stylesheet" href="http://localhost/Tourism_Management/public/css/dialog.css">
 
         <script type="text/javascript">
             function clickDelete() {
-                var checkbox = document.getElementById("delete");
-                var notice = document.getElementById("notice_delete");
-                if (checkbox.checked == true) {
-                    notice.style.display = "block";
-                } else {
-                    notice.style.display = "none";
-                }
+                var dialog = document.getElementById("dialog");
+                var modal = document.getElementById("modal-opacity");
+                modal.style.display = "block";
+                dialog.style.display = "block";
+                
+            }
+            
+            function clickCancel() {
+                var dialog = document.getElementById("dialog");
+                var modal = document.getElementById("modal-opacity");
+                modal.style.display = "none";
+                dialog.style.display = "none";
             }
 
         </script>
@@ -48,7 +54,7 @@
                                 <option value="price_group">Giá nhóm</option>
                             </select>
                             <input type="submit" class="btn-search" value="Search" name="search"> 
-                            <input class="btn-delete" type="submit" value="Xóa"><div class="btn-add"><a href="<?php echo URL; ?>/admins/tournew">Thêm tour</a></div>
+                            <input class="btn-delete" type="button" value="Xóa" onclick="clickDelete()"><div class="btn-add"><a href="<?php echo URL; ?>/admins/tournew">Thêm tour</a></div>
                         </div>
                         <div class="grid"> 
                             <table>
@@ -70,19 +76,19 @@
                                         <td><?php echo $user["Tour"]["price_group"] ?></td>
                                         <td><?php echo $user["Tour"]["transport"] ?></td>
                                         <td><a href="<?php echo URL; ?>/admins/tourdetail/<?php echo $user["Tour"]['tour_id'] ?>/<?php echo $user["Place"]['places_id'] ?>">Xem</a></td>
-                                        <td><input id="delete" onclick="clickDelete()" type="checkbox" name="delete[]" value="<?php echo $user["Tour"]["tour_id"] ?>"></td>
+                                        <td><input id="delete" type="checkbox" name="delete[]" value="<?php echo $user["Tour"]["tour_id"] ?>"></td>
 
                                     </tr>
                                 <?php endforeach ?>
-                                <tr>
-                                    <td>tranngocphien</td>
-                                    <td>tranngocphien</td>
-                                    <td>tranngocphien</td>
-                                    <td>tranngocphien</td>
-                                    <td>tranngocphien</td>
-                                </tr>
 
                             </table></div>
+                        <div class="modal-opacity" id="modal-opacity" style="display: none"></div>
+                        <div class="dialog" id="dialog" style="display: none">
+                            <div class="dialog-header m-flex m-center"><div class="icon-warning"></div><div class="warning">Warning</div></div>
+                            <div class="dialog-content m-flex m-center">Xóa tour sẽ xóa thông tin về các vé đã đặt</div>
+                            <div class="dialog-footer m-flex"><input type="button" class="btn-cancel" value="Thoát" onclick="clickCancel()"><input name="submit_delete" class="btn-del" type="submit" value="Xóa"></div>
+
+                        </div>
 
                     </div>
                 </form>

@@ -5,8 +5,16 @@
         <group>
             <file>file:/C:/xampp/htdocs/Tourism_Management/app/controllers/Pages.php</file>
             <file>file:/C:/xampp/htdocs/Tourism_Management/app/models/Page.php</file>
+            <file>file:/C:/xampp/htdocs/Tourism_Management/app/require.php</file>
             <file>file:/C:/xampp/htdocs/Tourism_Management/app/models/Admin.php</file>
+            <file>file:/C:/xampp/htdocs/Tourism_Management/public/index.php</file>
+            <file>file:/C:/xampp/htdocs/Tourism_Management/app/views/users/register.php</file>
+            <file>file:/C:/xampp/htdocs/Tourism_Management/app/helpers/session_helper.php</file>
+            <file>file:/C:/xampp/htdocs/Tourism_Management/app/views/users/login.php</file>
+            <file>file:/C:/xampp/htdocs/Tourism_Management/app/models/User.php</file>
+            <file>file:/C:/xampp/htdocs/Tourism_Management/app/controllers/Admins.php</file>
             <file>file:/C:/xampp/htdocs/Tourism_Management/app/controllers/Users.php</file>
+            <file>file:/C:/xampp/htdocs/Tourism_Management/app/views/includes/header.php</file>
         </group>
     </open-files>
 </project-private>

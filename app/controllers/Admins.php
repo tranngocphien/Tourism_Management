@@ -20,7 +20,7 @@ class Admins extends Controller {
     }
 
     public function tours() {
-        if (isset($_POST['delete'])) {
+        if (isset($_POST['submit_delete']) && isset($_POST['delete'])) {
             $delete = $_POST['delete'];
             foreach ($delete as $item) {
                 $this->adminModel->deleteBooking($item);
@@ -169,13 +169,13 @@ class Admins extends Controller {
         if (isset($_POST['confirm'])) {
             $confirm = $_POST['confirm'];
             foreach ($confirm as $item) {
-                $this->adminModel->setBookingStatus($item, "Đã xác nhận");
+                $this->adminModel->setBookingStatus($item, "Thành công");
             }
         }
         if (isset($_POST['notconfirm'])) {
             $notconfirm = $_POST['notconfirm'];
             foreach ($notconfirm as $item) {
-                $this->adminModel->setBookingStatus($item, "Chưa xác nhận");
+                $this->adminModel->setBookingStatus($item, "Từ chối");
             }
         }
         if (isset($_POST['search'])) {
@@ -222,6 +222,7 @@ class Admins extends Controller {
     }
 
     public function index() {
+        echo $_SESSION['username'];
         $this->users();
     }
 
