@@ -44,7 +44,7 @@ class Admins extends Controller {
     }
 
     public function tournew() {
-        if (isset($_POST['submit'])) {
+        if (isset($_POST['tour_name'])) {
             $tourname = $_POST["tour_name"];
             $tourday = $_POST["tour_day"];
             $tournight = $_POST["tour_night"];
@@ -99,6 +99,7 @@ class Admins extends Controller {
             }
         }
         $data = ["error" => ""];
+        print_r($data); 
         $this->view("admin/tour_new",$data);
     }
 

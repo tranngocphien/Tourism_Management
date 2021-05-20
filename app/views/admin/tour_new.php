@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="http://localhost/Tourism_Management/public/css/style.css">
+        <link rel="stylesheet" href="http://localhost/Tourism_Management/public/css/dialog.css">
 
         <script language="javascript" type="text/javascript">
             window.onload = function () {
@@ -48,51 +49,77 @@
                 }
             }
 
+            function clickCancel() {
+                var dialog = document.getElementById("dialog");
+                var modal = document.getElementById("modal-opacity");
+                modal.style.display = "none";
+                dialog.style.display = "none";
+            }
+
+            function clickCancelv() {
+                var dialog = document.getElementById("dialog_v");
+                var modal = document.getElementById("modal-opacity_v");
+                modal.style.display = "none";
+                dialog.style.display = "none";
+            }
+
+
             function validate() {
                 var btn = document.getElementById("save");
-                var tourname = document.getElementById('tourname').value;
-                var tourday = document.getElementById('tourday').value;
-                var tournight = document.getElementById('tournight').value;
-                var price = document.getElementById('price').value;
-                var prices = document.getElementById('prices').value;
-                var transport = document.getElementById('transport').value;
-                var places = document.getElementById('places').value;
-                var description = document.getElementById('description').value;
+                var tourname = document.getElementById('tourname');
+                var tourday = document.getElementById('tourday');
+                var tournight = document.getElementById('tournight');
+                var price = document.getElementById('price');
+                var prices = document.getElementById('prices');
+                var transport = document.getElementById('transport');
+                var places = document.getElementById('places');
+                var description = document.getElementById('description');
 
                 var notification = "";
-                if (tourname == '') {
+                if (tourname.value == '') {
                     notification += "Không được phép để trống Tourname\n";
+                    tourname.style.borderColor = "red";
                 }
-                if (tourday == '') {
-                    notification += "Không được phép để trống số ngày\n"
-                }
-
-                if (tournight == '') {
-                    notification += "Không được phép để trống số đêm\n"
+                if (tourday.value == '') {
+                    notification += "Không được phép để trống số ngày\n";
+                    tourday.style.borderColor = "red";
                 }
 
-                if (price == '') {
-                    notification += "Không được phép để trống giá đơn\n"
-                }
-                if (prices == '') {
-                    notification += "Không được phép để trống giá nhóm\n"
-                }
-                if (transport == '') {
-                    notification += "Không được phép để trống phương tiện\n"
-                }
-                if (places == '') {
-                    notification += "Không được phép để trống tỉnh\n"
-                }
-                if (description == '') {
-                    notification += "Không được phép để trống mô tả\n"
+                if (tournight.value == '') {
+                    notification += "Không được phép để trống số đêm\n";
+                    tournight.style.borderColor = "red";
                 }
 
+                if (price.value == '') {
+                    notification += "Không được phép để trống giá đơn\n";
+                    price.style.borderColor = "red";
+                }
+                if (prices.value == '') {
+                    notification += "Không được phép để trống giá nhóm\n";
+                    prices.style.borderColor = "red";
+                }
+                if (transport.value == '') {
+                    notification += "Không được phép để trống phương tiện\n";
+                    transport.style.borderColor = "red";
+                }
+                if (places.value == '') {
+                    notification += "Không được phép để trống tỉnh\n";
+                    places.style.borderColor = "red";
+                }
+                if (description.value == '') {
+                    notification += "Không được phép để trống mô tả\n";
+                    description.style.borderColor = "red";
+                }
+
+                var dialog = document.getElementById("dialog_v");
+                var modal = document.getElementById("modal-opacity_v");
                 if (notification == "") {
-                    btn.style.display = "block";
-                    return true;
+                    modal.style.display = "none";
+                    dialog.style.display = "none";
+                    document.getElementById("addform").submit();
                 } else {
-                    alert(notification);
-                    return false;
+                    modal.style.display = "block";
+                    dialog.style.display = "block";
                 }
 
             }
@@ -117,10 +144,9 @@
             <div class="content_right">
 
                 <div class="title">Thêm tour</div>
-                <form action="<?php echo URL; ?>/admins/tournew" method="post" enctype="multipart/form-data">
+                    <form id="addform" name="submit" action="<?php echo URL; ?>/admins/tournew" method="post" enctype="multipart/form-data">
                     <div class="content_main m-flex">
                         <div class="m-flex-1 detail-left">
-                            <div style="color: red"><?php echo $data["error"]; ?></div>
                             <div class="m-flex m-center"><div class="label">Tên tour</div><input id="tourname" class="m-input" type="text" name="tour_name"></div>
                             <div class="m-flex m-center">
                                 <div class="m-flex-1 m-flex m-center"><div class="label">Số ngày</div><input id="tourday" class="m-input" type="text" name="tour_day"></div>
@@ -145,8 +171,40 @@
                         <div class="m-flex-1 detail-right">
                             <div>Mô tả chi tiết</div>
                             <textarea id="description" class="m-input__description"type="text" name="places_description"></textarea>
-                            <input type="button" class="btn-add" value="Check" onclick="validate()"><input type="submit" name="submit" class="btn-save" value="Lưu" id="save" style="display: none" >
+                            <input type="button" class="btn-save" value="Lưu" id="save" onclick="validate()">
                         </div>
+
+                    </div>
+                    <div class="modal-opacity" id="modal-opacity_v" style="display: none"></div>
+                    <div class="dialog" id="dialog_v" style="display: none">
+                        <div class="dialog-header m-flex m-center"><div class="icon-warning"></div><div class="warning">Warning</div></div>
+                        <div class="dialog-content m-flex m-center">Thiếu dữ liệu rồi bạn nhé</div>
+                        <div class="dialog-footer m-flex"><input type="button" class="btn-cancel" value="Thoát" onclick="clickCancelv()"></div>
+
+                    </div>
+
+
+
+
+                    <div class="modal-opacity" id="modal-opacity" style="display:
+                    <?php
+                    if (empty($data["error"])) {
+                        echo 'none';
+                    } else {
+                        echo 'block';
+                    }
+                    ?>"></div>
+                    <div class="dialog" id="dialog" style="display:
+                    <?php
+                    if (empty($data["error"])) {
+                        echo 'none';
+                    } else {
+                        echo 'block';
+                    }
+                    ?>">
+                        <div class="dialog-header m-flex m-center"><div class="icon-warning"></div><div class="warning">Warning</div></div>
+                        <div class="dialog-content m-flex m-center">Tour này đã có trong hệ thống</div>
+                        <div class="dialog-footer m-flex"><input type="button" class="btn-cancel" value="Thoát" onclick="clickCancel()"></div>
 
                     </div>
                 </form>
