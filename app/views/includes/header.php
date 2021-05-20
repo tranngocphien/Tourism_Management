@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 
+<?php
+session_start();
+?>
+
 <head>
     <title>Register Form</title>
     <meta charset="UTF-8">
@@ -39,11 +43,28 @@
                 <div class="contact">
                     LIÊN HỆ
                 </div>
-                <a href="http://localhost/Tourism_Management/Users/carts/20">
+                <a href="http://localhost/Tourism_Management/Users/carts">
                     <div class="market">
                         <img class="icon" src="<?php echo URL ?>/public/img/ic_market.png">
                     </div>
                 </a>
+             <?php 
+             if (isset($_SESSION['username'])){
+                echo '
+                <a href="http://localhost/Tourism_Management/users/logout"  style="text-decoration: none;" >
+                    <div class="login">
+                        ĐĂNG XUẤT
+                    </div></a> ';
+
+             }else {
+                echo ' 
+                <a href="http://localhost/Tourism_Management/users/login"  style="text-decoration: none;" >
+                <div class="login">
+                    ĐĂNG NHẬP
+                </div>
+                </a>
+                ';}?>
+
             </div>
         </div>
     </div>

@@ -20,7 +20,57 @@ class Pages extends Controller
 
     public function tours()
     {
-        $data = $this->pageModel->getTours();
+        $data = array();
+        if(isset($_POST["search"])){
+            $word = $_POST["search"];
+            if($word != ""){
+                $data = $this->pageModel->getToursBySearchWord($word);
+            }
+        }
+        else{
+          $data = $this->pageModel->getTours();
+        }
+        return $this->view('pages/tours', $data);
+    }
+
+
+    public function tour($word){
+        $data = array();
+        if($word== 'da-lat'){
+            $data = $this->pageModel->getToursBySearchWord("đà lạt");
+        }
+        if($word== 'hue'){
+            $data = $this->pageModel->getToursBySearchWord("huế");
+        }
+        if($word== 'phu-quoc'){
+            $data = $this->pageModel->getToursBySearchWord("phú quốc");
+        }
+        if($word== 'sa-pa'){
+            $data = $this->pageModel->getToursBySearchWord("sa pa");
+        }
+        if($word== 'ha-long'){
+            $data = $this->pageModel->getToursBySearchWord("hạ long");
+        }
+        if($word== 'ha-noi'){
+            $data = $this->pageModel->getToursBySearchWord("hà nội");
+        }
+        if($word== 'ho-chi-minh'){
+            $data = $this->pageModel->getToursBySearchWord("hồ chí minh");
+        }
+        if($word== 'da-nang'){
+            $data = $this->pageModel->getToursBySearchWord("đà nẵng");
+        }
+        if($word== 'mien-bac'){
+            $data = $this->pageModel->getToursBySearchWord("miền bắc");
+        }
+        if($word== 'mien-trung'){
+            $data = $this->pageModel->getToursBySearchWord("miền trung");
+        }
+        if($word== 'mien-nam'){
+            $data = $this->pageModel->getToursBySearchWord("miền nam");
+        }
+        
+        
         return $this->view('pages/tours', $data);
     }
 

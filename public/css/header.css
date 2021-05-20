@@ -96,10 +96,11 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
+    color: #fff;
 }
 
 .header .bot .right .home:hover {
-    background: rgb(200, 225, 200);
+    background: #fff;
     color: darkgreen;
 }
 
@@ -116,7 +117,7 @@
 }
 
 .header .bot .right .infor:hover {
-    background: rgb(200, 225, 200);
+    background: #fff;
     color: darkgreen;
 }
 
@@ -133,7 +134,7 @@
 }
 
 .header .bot .right .contact:hover {
-    background:rgb(200, 225, 200);
+    background: #fff;
     color: darkgreen;
 }
 
@@ -150,8 +151,8 @@
 }
 
 .header .bot .right .market:hover {
-    background:rgb(200, 225, 200);
-    color: darkgreen;
+    background: rgb(11, 32, 11);
+    color: green;
 }
 
 .header .bot .right .market .icon {
@@ -159,4 +160,22 @@
     height: 50%;
     background-position: center;
     background-size: contain;
+}
+
+
+.header .bot .right .login {
+    margin-left: 37%;
+    height: 65%;
+    width: 10%;
+    font-size: 20px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.header .bot .right .login:hover {
+    background: #fff;
+    color: darkgreen;
 }

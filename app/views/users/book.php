@@ -1,6 +1,7 @@
 <?php
 require_once ROOT . '/views/includes/header.php'; ?>
 
+
 <script>
     if (document.getElementById('r1').checked) {
         document.getElementById('div-2').style.display = 'none';

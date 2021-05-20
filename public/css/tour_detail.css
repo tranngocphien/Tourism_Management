@@ -2,9 +2,6 @@ body {
     background-color: #f5f5f5;
 }
 
-a {
-    text-decoration: none;
-}
 
 .main-content {
     width: 100%;
@@ -473,6 +470,7 @@ a {
     box-shadow: 1px 1px 5px 0 #999;
     border: none;
 }
+
 
 .main-content .product-page .row .col2 .panel .panel-footer .tour .image {
     position: relative;

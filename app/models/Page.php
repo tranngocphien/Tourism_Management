@@ -56,6 +56,7 @@ class Page
     }
 
 
+
     public function getToursByName($tour_name)
     {
         $query = "SELECT * from tour, places, p where tour_name like '%$tour_name%' and tour.places_id = places.places_id";
@@ -103,6 +104,8 @@ class Page
 
         return $this->db->query($query);
     }
+
+
 
 
 
