@@ -99,7 +99,6 @@ class Admins extends Controller {
             }
         }
         $data = ["error" => ""];
-        print_r($data); 
         $this->view("admin/tour_new",$data);
     }
 

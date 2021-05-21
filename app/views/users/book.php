@@ -1,5 +1,4 @@
-<?php
-require_once ROOT . '/views/includes/header.php'; ?>
+<?php require_once ROOT . '/views/includes/header.php'; ?>
 
 <link rel="stylesheet" href="http://localhost/Tourism_Management/public/css/dialog.css">
 
@@ -8,7 +7,8 @@ require_once ROOT . '/views/includes/header.php'; ?>
         var data = document.getElementsByName("thanhtoan");
         if (data[0].checked) {
             console.log(data[1].value);
-        };
+        }
+        ;
     }
 
     function addTicket() {
@@ -44,66 +44,71 @@ require_once ROOT . '/views/includes/header.php'; ?>
         console.log("to day : ");
         console.log(y + "-" + m + "-" + d);
 
-        if (arr[0] <= y){
-            if(arr[0] < y) {
+        if (arr[0] <= y) {
+            if (arr[0] < y) {
                 document.getElementById("note").style.display = "block";
                 return false;
-            }else{
-                if(arr[1] <=m ){
-                    if (arr[1] < m){
+            } else {
+                if (arr[1] <= m) {
+                    if (arr[1] < m) {
                         document.getElementById("note").style.display = "block";
                         return false;
-                    }
-                    else{
-                        if(arr[2] <= d){
+                    } else {
+                        if (arr[2] <= d) {
                             document.getElementById("note").style.display = "block";
                             return false;
-                        }
-                        else{
+                        } else {
                             document.getElementById("note").style.display = "none";
                             return true;
                         }
                     }
-                }
-                else{
+                } else {
                     document.getElementById("note").style.display = "none";
                     return true;
                 }
             }
-        }
-        else{
+        } else {
             document.getElementById("note").style.display = "none";
             return true;
         }
 
         return false;
-        
+
     }
 
 
     function book() {
         var checkDate = validate();
-         var ticket = document.getElementById("ticket").value;
-
+        var ticket = document.getElementById("ticket").value;
+        var dialog = document.getElementById("dialog");
+        var modal = document.getElementById("modal-opacity");
         console.log(checkDate);
 
         console.log(ticket);
 
-         if(checkDate && ticket > 0){
+        if (checkDate && ticket > 0) {
             modal.style.display = "none";
             dialog.style.display = "none";
-            //document.getElementById("book_tour").submit();
-         }else{
+            document.getElementById("book_tour").submit();
+        } else {
             modal.style.display = "block";
             dialog.style.display = "block";
-         }
+        }
 
     }
+
+    function clickCancel() {
+        var dialog = document.getElementById("dialog");
+        var modal = document.getElementById("modal-opacity");
+        modal.style.display = "none";
+        dialog.style.display = "none";
+    }
+    
 </script>
 
 
 <body>
-    <form method="POST" id="book_tour" action="<?php echo URL; ?>/Users/carts/">
+    <form name="submit" method="POST" id="book_tour" action="<?php echo URL; ?>/Users/carts/">
         <div class="content">
 
             <div class="book">
@@ -159,7 +164,7 @@ require_once ROOT . '/views/includes/header.php'; ?>
                         </div>
 
                     </div>
-                    <button class="pay" onclick="book()">THANH TOÁN</button>
+                    <input type="button" class="pay" onclick="book()" value="THANH TOÁN">
 
                 </div>
                 <div class="col-2">
@@ -202,17 +207,11 @@ require_once ROOT . '/views/includes/header.php'; ?>
                 </div>
             </div>
 
-            <div class="dialog" id="dialog" style="display:
-                    <?php
-                    if (empty($data["error"])) {
-                        echo 'none';
-                    } else {
-                        echo 'block';
-                    }
-                    ?>">
-                        <div class="dialog-header m-flex m-center"><div class="icon-warning"></div><div class="warning">Warning</div></div>
-                        <div class="dialog-content m-flex m-center">Tour này đã có trong hệ thống</div>
-                        <div class="dialog-footer m-flex"><input type="button" class="btn-cancel" value="Thoát" onclick="clickCancel()"></div>
+            <div class="modal-opacity" id="modal-opacity" style="display: none"></div>
+            <div class="dialog" id="dialog" style="display: none">
+                <div class="dialog-header m-flex m-center"><div class="icon-warning"></div><div class="warning">Warning</div></div>
+                <div class="dialog-content m-flex m-center">Chưa chọn số vé hoặc ngày đi</div>
+                <div class="dialog-footer m-flex"><input type="button" class="btn-cancel" value="Thoát" onclick="clickCancel()"></div>
 
             </div>
         </div>

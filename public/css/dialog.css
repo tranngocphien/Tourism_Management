@@ -88,3 +88,10 @@
     align-items: center;
 }
 
+.m-flex {
+    display: flex;
+}
+
+.m-center {
+    align-items: center;        
+}
