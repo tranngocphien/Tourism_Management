@@ -5,8 +5,8 @@ body {
 
 .main-content {
     width: 100%;
-    top: 15%;
-    position: absolute;
+    /* top: 12em; */
+    position: relative;
     left: 0%;
     font-family: roboto,sans-serif;
 }

@@ -4,8 +4,8 @@ body {
 
 .content {
     width: 100%;
-    top: 20%;
-    position: absolute;
+    top: 1em;
+    position: relative;
     left: 0%;
     font-family: roboto,sans-serif;
 }
@@ -23,7 +23,7 @@ body {
 
 .content .book {
     width: 90%;
-    height: 80em;
+    /* height: 80em; */
     position: relative;
     top: 3%;
     margin-left: 5%;

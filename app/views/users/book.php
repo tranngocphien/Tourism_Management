@@ -3,13 +3,6 @@
 <link rel="stylesheet" href="http://localhost/Tourism_Management/public/css/dialog.css">
 
 <script>
-    function click() {
-        var data = document.getElementsByName("thanhtoan");
-        if (data[0].checked) {
-            console.log(data[1].value);
-        }
-        ;
-    }
 
     function addTicket() {
 
@@ -29,6 +22,21 @@
             var total = price * ticket;
             document.getElementById("total").innerHTML = total;
         }
+    }
+
+    function checkRadio(){
+        var radios = document.getElementsByName("thanhtoan");
+        if(radios[0].checked === true){
+            document.getElementById("div-1").style.display = "block";
+            document.getElementById("div-2").style.display = "none";
+            return true;
+        }
+        if(radios[1].checked === true) {
+            document.getElementById("div-2").style.display = "block";
+            document.getElementById("div-1").style.display = "none";
+            return true;
+        }
+        return false;
     }
 
     function validate() {
@@ -79,20 +87,39 @@
 
     function book() {
         var checkDate = validate();
+        var Radio = checkRadio();
         var ticket = document.getElementById("ticket").value;
         var dialog = document.getElementById("dialog");
         var modal = document.getElementById("modal-opacity");
-        console.log(checkDate);
+        var payment = document.getElementsByName("thantoan").values;
+        // console.log(checkDate);
 
-        console.log(ticket);
+        // console.log(ticket);
 
-        if (checkDate && ticket > 0) {
+
+
+        console.log("Thanh toán : "+payment);
+
+        if (checkDate && ticket > 0 && Radio ) {
             modal.style.display = "none";
             dialog.style.display = "none";
             document.getElementById("book_tour").submit();
         } else {
+            var noti="";
+            if(!checkDate){
+                noti = noti + " - Vui lòng chọn đúng ngày<br>"
+            }
+            if(ticket < 1) {
+                noti = noti + " - Số lượng vé nhỏ nhất là 1 <br>"
+            }
+            if (!Radio){
+                noti = noti + " - Vui lòng chọn phương thức thanh toán"
+            }
+        
             modal.style.display = "block";
             dialog.style.display = "block";
+            dialog.style.textAlign = "left"
+            document.getElementById("notice").innerHTML = noti;
         }
 
     }
@@ -128,18 +155,19 @@
                     </div>
 
                     <div class="radio-button">
+                    <h5 style="color: red; display: none;" id="payment-error">*Vui lòng chọn hình thức thanh toán</h5>
                         <div class="radio">
-                            <input type="radio" value="1" id="r1" name="thanhtoan" class="but" onchange="click()">
+                            <input type="radio" value="1" id="r1" name="thanhtoan" class="but" onclick="checkRadio()">
                             <label> Chuyển khoản ngân hàng </label></input>
                             <div id="div-1" class="detail">
                                 <p><strong><span style="font-size:13px">THÔNG TIN THANH TOÁN CHUYỂN KHOẢN</span></strong></p>
                                 <p>- Ngân hàng Thương mại cổ phần Công Thương Việt Nam - CN TP.HN (VCB)</p>
                                 <p>- Tên đơn vị hưởng: CÔNG TY CỔ PHẦN DỊCH VỤ DU LỊCH TENG</p>
-                                <p>- Số tài khoản VNĐ: 1018 6895 8007</p>
+                                <p>- Số tài khoản VietinBank: 1018 6895 8007</p>
                             </div>
                         </div>
                         <div class="radio">
-                            <input type="radio" value="2" id="r2" name="thanhtoan" class="but" onchange="click()">
+                            <input type="radio" value="2" id="r2" name="thanhtoan" class="but" onclick="checkRadio()">
                             <label> Thanh toán tại văn phòng </label>
                             <div id="div-2" class="detail">
                                 <p><strong>CÔNG TY CỔ PHẦN DỊCH VỤ DU LỊCH TENG<br>(TENG TOURIST)<br></strong>
@@ -147,18 +175,6 @@
                                     <strong>Điện thoại:</strong> <a href="tel:0358.260.822">0358.260.822</a><br>
                                     <strong>Tổng đài:</strong> <a href="tell:1900 6668">1900 6668</a> <br>
                                     <strong>Fax:</strong> 028.3829 5060<br><strong>Email:</strong> <a href="mailto:tengtourist@gmail.com">tengtourist@gmail.com</a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="radio">
-                            <input type="radio" value="3" id="r3" name="thanhtoan" class="but" onchange="click()">
-                            <label> Thanh toán online </label>
-                            <div id="div-3" class="detail">
-                                <p><strong>CÔNG TY CỔ PHẦN DỊCH VỤ DU LỊCH TENG TRAVEL<br>(TENG TOURIST)<br></strong>
-                                    <strong>Trụ sở:</strong> 71, Giải Phỏng, Quận Hai Bà Trưng, Tp.Hà Nội<br>
-                                    <strong>Điện thoại:</strong> <a href="tel:0358.260.822">0358.260.822</a><br>
-                                    <strong>Fax:</strong> 028.3829 5060<br><strong>Email:</strong>
-                                    <a href="mailto:tengtourist@gmail.com">tengtourist@gmail.com</a>
                                 </p>
                             </div>
                         </div>
@@ -202,7 +218,6 @@
                             </div>
 
                         </div>
-                        <div class="footer"></div>
                     </div>
                 </div>
             </div>
@@ -210,10 +225,12 @@
             <div class="modal-opacity" id="modal-opacity" style="display: none"></div>
             <div class="dialog" id="dialog" style="display: none">
                 <div class="dialog-header m-flex m-center"><div class="icon-warning"></div><div class="warning">Warning</div></div>
-                <div class="dialog-content m-flex m-center">Chưa chọn số vé hoặc ngày đi</div>
+                <div class="dialog-content m-flex m-center" id="notice">Chưa chọn số vé hoặc ngày đi</div>
                 <div class="dialog-footer m-flex"><input type="button" class="btn-cancel" value="Thoát" onclick="clickCancel()"></div>
 
             </div>
         </div>
     </form>
 </body>
+
+<?php require_once ROOT . '/views/includes/footer.php' ?>

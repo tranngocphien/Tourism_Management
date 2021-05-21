@@ -3,12 +3,12 @@ body{
 }
 
 .image_head {
-    height:40%;
+    height: 40%;
     width: 100%;
     top: 16%;
     background-position: center;
     background-size: contain;
-    position: absolute;
+    position: relative;
 }
 
 .intro {
@@ -16,38 +16,36 @@ body{
     font-weight: bold;
     color: darkblue;
     width: 50%;
-    top: 62%;
+    top: 5em;
     left: 40%;
     margin-right: 15%;
     font-family: 'Courier New', Courier, monospace;
-    position: absolute;
+    position: relative;
     text-align: left;
     padding-left: 10px;
 }
 
 .content_tours {
-    top: 90%;
+    top: 7em;
     width: 50%;
-    height: 200%;
-    position: absolute;
+    position: relative;
     margin-left: 40%;
     margin-right: 15%;
 }
 
 .content_tours .row {
-    margin-top: 0%;
-    height: 15%;
     width: 100%;
     display: flex;
     flex-direction: column;
-    position: absolute;
+    position: relative;
+    margin-bottom: 10em;
 
 }
 
 .content_tours .row .col{
     border-radius: 5px;
     width: 100%;
-    height: 100%;
+    height: 17em;
     border: none;
     box-shadow: 1px 1px 5px 0 #999;
     margin: 10px;
@@ -150,12 +148,12 @@ body{
 
 
 .content_left_tours {
-    top: 65%;
     width: 25%;
     margin-left: 10%;
     height: 100%;
     position: absolute;
     background: #fff;
+    top: 30em;
 }
 
 .content_left_tours .title_search {

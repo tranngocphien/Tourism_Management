@@ -26,7 +26,7 @@ class Users extends Controller {
     }
 
     public function login() {
-        if (isset($_POST['username_login'])) {
+        if (isset($_POST['username_login']) && $_POST['username_login']!='') {
             $username = $_POST['username_login'];
             $password = $_POST['password_login'];
             $data = $this->userModel->login($username);
@@ -86,13 +86,14 @@ class Users extends Controller {
         if (isset($_SESSION['username'])){
             $user_id = $_SESSION['user_id'];
 
-            if(isset($_POST['date']) && isset($_POST['ticket'])){
+            if(isset($_POST['date']) && isset($_POST['ticket']) && isset($_POST['thanhtoan'])){
                 
                 $tour_id = $_SESSION['tour_id'];
                 $ticket = $_POST['ticket'];
                 $status = "đang xác nhận";
                 $date_start = $_POST['date'];
                 $date_booking = date("Y-m-d");
+                $payment = $_POST['thanhtoan'];
 
                 $tour = $this->userModel->getTourById($tour_id);
                 $price = 0;
@@ -105,7 +106,7 @@ class Users extends Controller {
 
                 $total = $price * $ticket;
 
-                $this->userModel->book($user_id, $tour_id, $ticket, $status, $date_start, $date_booking, $total);
+                $this->userModel->book($user_id, $tour_id, $ticket, $status, $date_start, $date_booking, $total, $payment);
                 unset($_SESSION['tour_id']);       
 
             }

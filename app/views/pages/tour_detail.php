@@ -242,3 +242,6 @@
 </body>
 
 </html>
+
+
+<?php require_once ROOT . '/views/includes/footer.php' ?>

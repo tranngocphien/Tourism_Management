@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="http://localhost/Tourism_Management/public/css/book.css">
     <link rel="stylesheet" href="http://localhost/Tourism_Management/public/css/carts.css">
     <link rel="stylesheet" href="http://localhost/Tourism_Management/public/css/header.css">
+
     <meta name="viewport" content="width=device-width" , initial-scale="1">
     <title>
         <?php echo "hello"; ?>
@@ -23,9 +24,9 @@
         </div>
         <div class="bot">
             <div class="left">
-                <div class="logo">
-                    <img src="<?php echo URL ?>/public/img/ic_logo.png" class="logo">
-                </div>
+            <a style="text-decoration: none;" href="http://localhost/Tourism_Management/">
+                <img src="<?php echo URL ?>/public/img/ic_logo.png" class="logo">
+            </a>
             </div>
             <div class="right">
                 <a style="text-decoration: none;" href="http://localhost/Tourism_Management/">
@@ -34,10 +35,10 @@
                     </div>
                 </a>
                 <div class="infor">
-                    GIỚI THIỆU
+                    KHÁCH SẠN
                 </div>
                 <div class="contact">
-                    LIÊN HỆ
+                    ĐẶT VÉ MÁY BAY
                 </div>
                 <a href="http://localhost/Tourism_Management/Users/carts">
                     <div class="market">

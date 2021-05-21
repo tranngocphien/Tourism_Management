@@ -51,7 +51,7 @@ require_once ROOT . '/views/includes/header.php'; ?>
 
     </div>
 
-    <section class="content">
+    <div class="content">
         <div class="row1">
             <div class="intro">
                 <h4>Chúng tôi giới thiệu đến bạn</h4>
@@ -60,7 +60,9 @@ require_once ROOT . '/views/includes/header.php'; ?>
             <div class="tours">
 
             <?php 
-            for ($i = 0; $i < 1; $i++){
+            $sz = count($data);
+            if($sz > 6) $sz = 6;
+            for ($i = 0; $i < $sz; $i++){
             
             echo '
                 <div class="col1">
@@ -176,8 +178,8 @@ require_once ROOT . '/views/includes/header.php'; ?>
             <div class="button"> XEM TẤT CẢ</div>
             </a>
         </div>
-        
-        <div class="footer"></div>
+    
 
-    </section>
+    </div>
 </body>
+<?php require_once ROOT . '/views/includes/footer.php' ?>

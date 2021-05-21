@@ -17,9 +17,9 @@
         }
 
 
-        public function book($user_id, $tour_id, $ticket, $status, $date_start, $date_booking, $total){
-            $query = "INSERT INTO `booking`(`booking_id`, `user_id`, `tour_id`, `number_ticket`, `status`, `date_start`, `date_booking`, `money`) 
-                                        VALUES (0,'$user_id','$tour_id','$ticket','$status','$date_start','$date_booking','$total')";
+        public function book($user_id, $tour_id, $ticket, $status, $date_start, $date_booking, $total, $payment){
+            $query = "INSERT INTO `booking`(`booking_id`, `user_id`, `tour_id`, `number_ticket`, `status`, `date_start`, `date_booking`, `money`, `payment`) 
+                                        VALUES (0,'$user_id','$tour_id','$ticket','$status','$date_start','$date_booking','$total', '$payment')";
             return $this->db->query($query);
         
         }

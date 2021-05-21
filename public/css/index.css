@@ -3,9 +3,8 @@ body {
 }
 
 .img_head {
-    position: absolute;
-    top: 16%;
-    height: 65%;
+    position: relative;
+    height: 28em;
     width: 100%;
     left: 0px;
     background: blue;
@@ -60,11 +59,11 @@ body {
 }
 
 .menu {
-    position: absolute;
+    position: relative;
     top: 81%;
     width: 100%;
-    height: 9%;
-    background-color:rgb(12, 83, 12);
+    height: 5em;
+    background-color: rgb(12, 83, 12);
 }
 
 .menu .menu1 {
@@ -183,11 +182,11 @@ body {
 
 
 .content {
-    top: 90%;
     width: 76%;
-    position: absolute;
+    position: relative;
     left: 12%;
     right: 12%;
+    margin-bottom: 20%;
 }
 
 .content .intro {

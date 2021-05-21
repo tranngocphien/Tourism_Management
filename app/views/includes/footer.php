@@ -1,29 +1,6 @@
-<?php require_once ROOT . '/views/includes/header.php' ?>
-<link rel="stylesheet" href="http://localhost/Tourism_Management/public/css/images.css">
-<div class="img-container">
-    <div class="row-header"><h1>KHOẢNH KHẮC LỮ HÀNH</h1></div>
-    <div class="row-content">
-    <div class="img">
-    </div>
-    <div class="img">
-    </div>
-    <div class="img">
-    </div>
-    <div class="img">
-    </div>
-    <div class="img">
-    </div>
-    <div class="img">
-    </div>
-    <div class="img">
-    </div>
-    <div class="img">
-    </div>
-    <div class="img">
-    </div>
+<link rel="stylesheet" href="http://localhost/Tourism_Management/public/css/footer.css">
 
-    </div>
-    <div class="footer">
+<div class="footer">
         <div class="col-1">
             <h4>HÃY LIÊN HỆ VỚI CHÚNG TÔI</h4>
             
@@ -44,5 +21,4 @@
       
         <img src="<?php echo URL ?>/public/img/ic_logo.png" class="col-3">
     
-    </div>
 </div>
