@@ -63,6 +63,15 @@
                 dialog.style.display = "none";
             }
 
+            function onChangeInput(clicked_id) {
+                var element = document.getElementById(clicked_id);
+                if (element.value != "") {
+                    element.style.borderColor = "#bbbbbb";
+                }
+
+
+            }
+
 
             function validate() {
                 var btn = document.getElementById("save");
@@ -114,15 +123,41 @@
                 var dialog = document.getElementById("dialog_v");
                 var modal = document.getElementById("modal-opacity_v");
                 if (notification == "") {
-                    modal.style.display = "none";
-                    dialog.style.display = "none";
-                    document.getElementById("addform").submit();
+
+                    var checkNumber = new RegExp("[0-9]");
+
+                    if (checkNumber.test(price.value) && checkNumber.test(prices.value) && checkNumber.test(tourday) && checkNumber.test(tournight)) {
+                        document.getElementById("addform").submit();
+                        return true;
+
+                    } else {
+                        if (!checkNumber.test(price.value)) {
+                            price.style.borderColor = "red";
+                        }
+                        if (!checkNumber.test(prices.value)) {
+                            prices.style.borderColor = "red";
+                        }
+                        if (!checkNumber.test(tourday.value)) {
+                            tourday.style.borderColor = "red";
+                        }
+                        if (!checkNumber.test(tournight.value)) {
+                            tournight.style.borderColor = "red";
+                        }
+                        document.getElementById("dialog-content").innerHTML = "Nhập sai định dạng";
+                        modal.style.display = "block";
+                        dialog.style.display = "block";
+                        return false;
+                    }
+
                 } else {
+                    document.getElementById("dialog-content").innerHTML = "Nhập thiếu dữ liệu";
                     modal.style.display = "block";
                     dialog.style.display = "block";
+                    return false;
                 }
 
             }
+
 
 
 
@@ -144,22 +179,22 @@
             <div class="content_right">
 
                 <div class="title">Thêm tour</div>
-                    <form id="addform" name="submit" action="<?php echo URL; ?>/admins/tournew" method="post" enctype="multipart/form-data">
+                <form id="addform" name="submit" action="<?php echo URL; ?>/admins/tournew" method="post" enctype="multipart/form-data">
                     <div class="content_main m-flex">
                         <div class="m-flex-1 detail-left">
-                            <div class="m-flex m-center"><div class="label">Tên tour</div><input id="tourname" class="m-input" type="text" name="tour_name"></div>
+                            <div class="m-flex m-center"><div class="label">Tên tour</div><input id="tourname" class="m-input" type="text" name="tour_name" onchange="onChangeInput(this.id)"></div>
                             <div class="m-flex m-center">
-                                <div class="m-flex-1 m-flex m-center"><div class="label">Số ngày</div><input id="tourday" class="m-input" type="text" name="tour_day"></div>
-                                <div class="m-flex-1 m-flex m-center"><div class="label">Số đêm</div><input id="tournight" class="m-input" type="text" name="tour_night"></div>
+                                <div class="m-flex-1 m-flex m-center"><div class="label">Số ngày</div><input id="tourday" class="m-input" type="text" name="tour_day" onchange="onChangeInput(this.id)"></div>
+                                <div class="m-flex-1 m-flex m-center"><div class="label">Số đêm</div><input id="tournight" class="m-input" type="text" name="tour_night" onchange="onChangeInput(this.id)"></div>
 
                             </div>
-                            <div class="m-flex m-center"><div class="label">Phương tiện</div><input id="transport" class="m-input" type="text" name="transport"></div>
+                            <div class="m-flex m-center"><div class="label">Phương tiện</div><input id="transport" class="m-input" type="text" name="transport" onchange="onChangeInput(this.id)"></div>
                             <div class="m-flex m-center">
-                                <div class="m-flex-1 m-flex m-center"><div class="label">Giá đơn</div><input id="price" class="m-input" type="text" name="price_personal"></div>
-                                <div class="m-flex-1 m-flex m-center"><div class="label">Giá nhóm</div><input id="prices" class="m-input" type="text" name="price_group"></div>
+                                <div class="m-flex-1 m-flex m-center"><div class="label">Giá đơn</div><input id="price" class="m-input" type="text" name="price_personal" onchange="onChangeInput(this.id)"></div>
+                                <div class="m-flex-1 m-flex m-center"><div class="label">Giá nhóm</div><input id="prices" class="m-input" type="text" name="price_group" onchange="onChangeInput(this.id)"></div>
 
                             </div>
-                            <div class="m-flex m-center"><div class="label">Tỉnh</div><input id="places" class="m-input" type="text" name="places_name"></div>
+                            <div class="m-flex m-center"><div class="label">Tỉnh</div><input id="places" class="m-input" type="text" name="places_name" onchange="onChangeInput(this.id)"></div>
                             <div style="margin-top: 8px">
                                 <input id="files" type="file" name="image[]" multiple hidden>
                                 <label class="btn-image" for="files" style="cursor: pointer;">Chọn ảnh</label>
@@ -170,7 +205,7 @@
                         </div>
                         <div class="m-flex-1 detail-right">
                             <div>Mô tả chi tiết</div>
-                            <textarea id="description" class="m-input__description"type="text" name="places_description"></textarea>
+                            <textarea id="description" class="m-input__description"type="text" name="places_description" onchange="onChangeInput(this.id)"></textarea>
                             <input type="button" class="btn-save" value="Lưu" id="save" onclick="validate()">
                         </div>
 
@@ -178,7 +213,7 @@
                     <div class="modal-opacity" id="modal-opacity_v" style="display: none"></div>
                     <div class="dialog" id="dialog_v" style="display: none">
                         <div class="dialog-header m-flex m-center"><div class="icon-warning"></div><div class="warning">Warning</div></div>
-                        <div class="dialog-content m-flex m-center">Thiếu dữ liệu rồi bạn nhé</div>
+                        <div class="dialog-content m-flex m-center" id="dialog-content"></div>
                         <div class="dialog-footer m-flex"><input type="button" class="btn-cancel" value="Thoát" onclick="clickCancelv()"></div>
 
                     </div>

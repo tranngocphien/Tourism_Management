@@ -56,13 +56,7 @@
 
                                 </tr>
                             <?php endforeach ?>
-                            <tr>
-                                <td>tranngocphien</td>
-                                <td>tranngocphien</td>
-                                <td>tranngocphien</td>
-                                <td>tranngocphien</td>
 
-                            </tr>
 
                         </table></div>
 
