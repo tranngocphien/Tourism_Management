@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html>
 
-<?php
-session_start();
-?>
-
 <head>
     <title>Register Form</title>
     <meta charset="UTF-8">
