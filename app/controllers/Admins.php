@@ -72,15 +72,17 @@ class Admins extends Controller {
                     $fileName = basename($_FILES['image']['name'][$key]);
                     $fileNameN = microtime(true) . $fileName;
                     $targetFilePath = $targetDir . $fileNameN;
-                    ;
                     $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
                     $fileDb = "http://localhost/Tourism_Management/public/img/" . $fileNameN;
 
                     if (in_array($fileType, $allowTypes)) {
-                        if (move_uploaded_file($_FILES["image"]["tmp_name"][$key], $targetFilePath)) {
-                            $images_arr[] = $targetFilePath;
-                            $this->adminModel->upImage($placesid["Place"]["places_id"], $fileDb);
-                        }
+                        $data = file_get_contents($_FILES["image"]["tmp_name"][$key]);
+                        $base64 = 'data:image/' . $fileType . ';base64,' . base64_encode($data);
+                        $this->adminModel->upImageBase64($placesid["Place"]["places_id"], $base64);
+//                        if (move_uploaded_file($_FILES["image"]["tmp_name"][$key], $targetFilePath)) {
+//                            $images_arr[] = $targetFilePath;
+//                            $this->adminModel->upImage($placesid["Place"]["places_id"], $fileDb);
+//                        }
                     }
                 }
 
@@ -99,7 +101,7 @@ class Admins extends Controller {
             }
         }
         $data = ["error" => ""];
-        $this->view("admin/tour_new",$data);
+        $this->view("admin/tour_new", $data);
     }
 
     public function test() {
@@ -137,10 +139,9 @@ class Admins extends Controller {
                 $fileDb = "http://localhost/Tourism_Management/public/img/" . $fileNameN;
 
                 if (in_array($fileType, $allowTypes)) {
-                    if (move_uploaded_file($_FILES["image"]["tmp_name"][$key], $targetFilePath)) {
-                        $images_arr[] = $targetFilePath;
-                        $this->adminModel->upImage($places_id, $fileDb);
-                    }
+                    $data = file_get_contents($_FILES["image"]["tmp_name"][$key]);
+                    $base64 = 'data:image/' . $fileType . ';base64,' . base64_encode($data);
+                    $this->adminModel->upImageBase64($places_id, $base64);
                 }
             }
 

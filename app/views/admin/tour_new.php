@@ -124,9 +124,9 @@
                 var modal = document.getElementById("modal-opacity_v");
                 if (notification == "") {
 
-                    var checkNumber = new RegExp("[0-9]");
+                    var checkNumber = new RegExp("^[0-9]\d*");
 
-                    if (checkNumber.test(price.value) && checkNumber.test(prices.value) && checkNumber.test(tourday) && checkNumber.test(tournight)) {
+                    if (checkNumber.test(tourday.value) && checkNumber.test(tournight.value) && checkNumber.test(prices.value) && checkNumber.test(price.value)) {
                         document.getElementById("addform").submit();
                         return true;
 

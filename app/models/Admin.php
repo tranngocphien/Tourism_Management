@@ -158,6 +158,11 @@ class Admin {
         $query = "INSERT INTO `places_image`(`image_id`, `places_id`, `image_path`) VALUES ('0','$places_id','$imagepath')";
         return $this->db->query($query);
     }
+    
+    public function upImageBase64($places_id, $image) {
+        $query = "INSERT INTO `places_image`(`image_id`, `places_id`, `image_path`) VALUES ('0','$places_id','$image')";
+        return $this->db->query($query);
+    }
 
     public function getImage($places_id) {
         $query = "SELECT * FROM places_image WHERE places_id = $places_id";
