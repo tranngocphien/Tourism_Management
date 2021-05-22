@@ -223,7 +223,6 @@ class Admins extends Controller {
     }
 
     public function index() {
-        echo $_SESSION['username'];
         $this->users();
     }
 
