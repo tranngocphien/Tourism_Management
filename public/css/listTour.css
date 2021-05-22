@@ -201,4 +201,204 @@ body{
 }
 
 
+@media screen and (max-width:600px) {
+    .image_head {
+        height: 7em;
+        width: 100%;
+        top: 0em;
+        background-position: center;
+        background-size: contain;
+        position: relative;
+    }
+    
+    .intro {
+        height: 10%;
+        font-weight: bold;
+        color: darkblue;
+        width: 100%;
+        top: 0em;
+        left: 0px;
+        margin-right: 15%;
+        font-family: 'Courier New', Courier, monospace;
+        position: relative;
+        text-align: left;
+        padding-left: 0px;
+        font-size: 13px;
+    }
+    
+    .content_tours {
+        top: 1em;
+        width: 100%;
+        position: relative;
+        margin-left: 0px;
+        margin-right: 0px;
+        left: 0px;
+    }
+    
+    .content_tours .row {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin-bottom: 0px;
+    }
+    
+    .content_tours .row .col{
+        border-radius: 5px;
+        width: 100%;
+        height: 11em;
+        border: none;
+        box-shadow: 1px 1px 5px 0 #999;
+        margin: 0px;
+        background: #fff;
+        position: relative;
+        margin-bottom: 1em;
+    }
+    
+    .content_tours .row .col .image {
+        width: 50%;
+        height: 100%;
+        background-size: contain;
+        background-position: center;
+        background-color: #f40a0a
+    }
+    
+    .content_tours .row .col .title {
+        width: 40%;
+        height: 40%;
+        color: rgb(3, 3, 100);
+        font-size: 17px;
+        margin-left: 52%;
+        /* font-family: Arial, Helvetica, sans-serif; */
+        font-family: 'Courier New', Courier, monospace;
+        text-overflow: ellipsis;
+        font-weight: 900;
+        text-transform: uppercase;
+        position: absolute;
+        top: 3%;
+    }
+    
+    .content_tours .row .col .mota {
+        position: absolute;
+        width: 55%;
+        height: 30%;
+        left: 44%;
+        top: 40%;
+    }
+    
+    .content_tours .row .col .mota li {
+        font-size: 14px;
+        margin-top: 8px;
+    }
+    
+    .content_tours .row .col .bot {
+        background: rgb(240, 240, 240);
+        height: 20%;
+        width: 50%;
+        margin-left: 50%;
+        position: absolute;
+        top: 80%;   
+    }
+    
+    .content_tours .row .col .bot .logo {
+        background-position: center;
+        background-size: contain;
+        width: 35%;
+        height: 78%;
+        margin-left: 2%;
+        margin-top: 4%;    
+    }
+    
+    .content_tours .row .col .bot .price {
+        width: 50%;
+        height: 100%;
+        margin-left: 15%;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 0%;
+        color: red;
+        font-size: 17px;
+        font-weight: bold;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .content_tours .row .col .bot .book {
+        width: 40%;
+        height: 100%;
+        margin-left: 60%;
+        content: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0%;
+        background: rgb(255, 217, 0);
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+        text-transform: uppercase;
+        font-size: 13px;
+        font-weight: bold;
+    }
+    
+    .content_tours .row .col .bot .book:hover{
+        color: black;
+        background:rgb(226, 226, 13)
+    }
+    
+    
+    .content_left_tours {
+        width: 100%;
+        margin-left: 0px;
+        height: 16em;
+        position: relative;
+        background: #fff;
+        top: 0em;
+    }
+    
+    .content_left_tours .title_search {
+        height: 1.8em;
+        font-size: 150%;
+        width: 100%;
+        color: #fff;
+        background: darkgreen;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 3px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .content_left_tours .input {
+        width: 80%;
+        padding: 10px;
+        font-size: 14px;
+        margin-top: 20px;
+        margin-left: 7%;
+        border-radius: 5px;
+        text-overflow: ellipsis;
+        border: 1px solid rgb(221, 221, 221);
+    }
+    
+    .content_left_tours .button {
+        width: 80%;
+        padding: 6px;
+        font-size: 20px;
+        background: rgb(255, 217, 0);
+        color: #fff;
+        margin-top: 20px;
+        margin-left: 8%;
+        border: none;
+        border-radius: 3px;
+    }
+    
+    .content_left_tours .button:hover{
+        color: black;
+    }
+
+}
 

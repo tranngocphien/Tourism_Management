@@ -284,3 +284,297 @@ body {
 .content .col-2 .product .footer {
 
 }
+
+
+@media screen and (max-width:600px) {
+    .content {
+        width: 100%;
+        top: 1em;
+        position: relative;
+        left: 0%;
+        font-family: roboto,sans-serif;
+    }
+    
+    .content .image-head {
+        left: 0%;
+        width: 100%;
+        height: 19em;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: chartreuse;
+    }
+    
+    .content .book {
+        width: 90%;
+        /* height: 80em; */
+        position: relative;
+        top: 3%;
+        margin-left: 5%;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    
+    .content .col-1 {
+        width: 100%;
+        float: left;
+        position: relative;
+        background-color: #fff;
+        top: 2.5em;
+    }
+    
+    .content .col-1 .heading {
+        width: 100%;
+        position: relative;
+        height: 2.5em;
+        background: darkgreen;
+    
+    }
+    
+    .content .col-1 .heading .logo {
+        width: 8%;
+        height: 60%;
+        position: relative;
+        left: 1em;
+        top: 15%;
+        background: #fff;
+    
+    }
+    
+    .content .col-1 .heading .title {
+        color: white;
+        width: 80%;
+        height: 100%;
+        font-weight: 600;
+        font-size: 20px;
+        display: flex;
+        align-content: center;
+        position: relative;
+        top: -50%;
+        left: 2.5em;
+    }
+    
+    .content .col-1 .info {
+        position: relative;
+        width: 90%;
+        left: 5%;
+        top: 1em;
+    }
+    
+    .content .col-1 .info .input{
+        width: 90%;
+        height: 2em;
+        position: relative;
+        margin-bottom: 1em;
+        border-radius: 5px;
+        font-size: 18px;
+        padding-left: 20px;
+        border: 1px solid #999;
+    }
+    
+    .content .col-1 .radio-button {
+        width: 90%;
+        position: relative;
+        left: 5%;
+        top: 1em;
+    }
+    
+    .content .col-1 .radio-button .radio {
+        width: 100%;
+        margin-bottom: 1em;
+        font-size: 15px;
+        position: relative;
+    }
+    
+    .content .col-1 .radio-button .radio .but {
+        width: 10%;
+        height: 1em;
+        margin-bottom: 1em;
+        font-size: 15px;
+        position: relative;
+    }
+    
+    
+    .content .col-1 .radio-button .radio .detail{
+        width: 85%;
+        height: 12em;
+        background: #f5f5f5;
+        margin-bottom: 1em;
+        font-size: 13px;
+        left: 5%;
+        position: relative;
+        padding: 8px;
+        display: none;
+    }
+    
+    .content .col-1 .pay {
+        width: 80%;
+        left: 10%;
+        height: 2.5em;
+        background-color: rgb(255, 217, 0);
+        position: relative;
+        border-radius: 5px;
+        color: white;
+        margin-top: 1em;
+        font-size: 20px;
+        font-weight: 600;
+        box-shadow: 1px 1px 5px 0 #999;
+        border: none;
+    }
+    .content .col-1 .pay:hover {
+        color: #333;
+    }
+    
+    .content .col-2 {
+        width: 100%;
+        height: auto;
+        float: right;
+        position: relative;
+    }
+    
+    .content .col-2 .heading {
+        width: 100%;
+        height: 2.5em;
+        background: darkgreen;
+        color: white;
+        border-radius: 3px;
+        position: relative;
+    }
+    
+    .content .col-2 .heading .logo {
+        width: 5%;
+        height: 60%;
+        position: relative;
+        left: 5%;
+        top: 15%;
+    }
+    
+    .content .col-2 .heading .title {
+        color: white;
+        width: 80%;
+        height: 100%;
+        font-weight: 600;
+        font-size: 15px;
+        display: flex;
+        align-content: center;
+        position: relative;
+        top: -43%;
+        left: 12%;
+    }
+    
+    .content .col-2 .product {
+        width: 100%;
+        top: 1em;
+        position: relative;
+        background: #fff;
+        font-size: 13px;
+    }
+    
+    .content .col-2 .product .image {
+        width: 45%;
+        height: 15em;
+        position: relative;
+        background-size: contain;
+        background-position: center;
+    
+    }
+    
+    .content .col-2 .product .panel {
+        float: right;
+        width: 50%;
+        height: auto;
+        background: #fff;
+        margin-top: 5%;
+        position: relative;
+    }
+    
+    
+    
+    
+    .content .col-2 .product .panel .title {
+        width: 95%;
+        height: 4em;
+        font-size: 15px;
+        font-weight: 600;
+        color: #003e71;
+    }
+    
+    .content .col-2 .product .panel .input {
+        width: 100%;
+        height: 20%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+    
+    }
+    
+    
+    .content .col-2 .product .panel .input .person {
+        width: 40%;
+        font-size: 12px;
+        position: relative;
+    }
+    
+    .content .col-2 .product .panel .input .number {
+        position: relative;
+        width: 40%;
+        font-size: 15px;
+        left: 5%;
+        text-align: right;
+    }
+    
+    .content .col-2 .product .panel .input .number input {
+        width: 30px;
+        height: 17px;
+        color: #ffc10e;
+        font-size: 16px;
+        text-align: right;
+    }
+    
+    
+    .content .col-2 .product .panel .input .money {
+        font-size: 20px;
+        width: 25%;
+        position: relative;
+        text-align: right;
+    }
+    
+    
+    .content .col-2 .product .panel .total {
+        height: 2.5em;
+        width: 100%;
+        margin-top: 2em;
+        display: flex;
+        align-items: center;
+        border-top: #999 1px solid;
+    }
+    
+    .content .col-2 .product .panel .total .left {
+        float: left;
+        position: relative;
+        width: 35%;
+        font-weight: 500;
+        font-size: 20px;
+    }
+    
+    .content .col-2 .product .panel .total .right {
+        position: relative;
+        margin-right: 0px;
+        width: 53%;
+        text-align: right;
+        font-weight: 600;
+        font-size: 20px;
+        color: #ffc10e;
+        left: 3%;
+    }
+    .content .col-2 .product .panel .total::before {
+        border-top: 2px solid #999;
+    }
+    
+    .content .col-2 .product .footer {
+    
+    }
+
+}

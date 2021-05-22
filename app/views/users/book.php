@@ -118,7 +118,9 @@
         
             modal.style.display = "block";
             dialog.style.display = "block";
+            document.getElementById("payment-error").style.display = "block";
             dialog.style.textAlign = "left"
+
             document.getElementById("notice").innerHTML = noti;
         }
 
@@ -150,8 +152,9 @@
                         <input type="text" placeholder="Email" id="email" class="input" value="<?php echo $data["user"]["User"]["email"]; ?>" readonly>
                         <input type="text" placeholder="Địa chỉ" id="address" class="input" value="<?php echo $data["user"]["User"]["address"]; ?>" readonly>
                         <p style="margin-top: -1em;">Hãy chọn ngày khởi hành:</p>
+                        <p id="note" style="color: red; display: none;">*Hãy chọn ngày sau ngày hiện tại!</p>
                         <input type="date" placeholder="Chọn ngày khởi hành" name="date" id="date" class="input" onchange="validate()">
-                        <p id="note" style="color: red; display: none; margin-top: -2em; margin-bottom: 2em;">*Hãy chọn ngày sau ngày hiện tại!</p>
+
                     </div>
 
                     <div class="radio-button">
