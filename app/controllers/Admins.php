@@ -226,4 +226,28 @@ class Admins extends Controller {
         $this->users();
     }
 
+    public function memories() {
+        if (isset($_POST["submit"])) {
+            $allowTypes = array('jpg', 'png', 'jpeg', 'gif');
+            $images_arr = array();
+
+
+            foreach ($_FILES['image']['name'] as $key => $value) {
+                $fileName = basename($_FILES['image']['name'][$key]);
+                $fileNameN = microtime(true) . $fileName;
+                $targetFilePath =  $fileNameN;
+
+                $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
+
+                if (in_array($fileType, $allowTypes)) {
+                    $data = file_get_contents($_FILES["image"]["tmp_name"][$key]);
+                    $base64 = 'data:image/' . $fileType . ';base64,' . base64_encode($data);
+                    $this->adminModel->upMemories( $base64);
+                }
+            }
+        }
+        $data = $this->adminModel->getMemories();
+        $this->view("admin/memories", $data);
+    }
+
 }

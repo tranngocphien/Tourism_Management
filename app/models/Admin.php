@@ -182,5 +182,15 @@ class Admin {
         $query .= "SELECT SUM(booking.numer_ticket*tour.price_group) FROM booking, tour WHERE booking.tour_id = tour.tour_id";
         return $this->db->query($query);
     }
+    
+    public function upMemories($image) {
+        $query = "INSERT INTO `memories`(`id`, `image`) VALUES ('0','$image')";
+        return $this->db->query($query);
+    }
+    
+    public function getMemories() {
+        $query = "SELECT * FROM `memories`";
+        return $this->db->query($query);
+    }
 
 }
