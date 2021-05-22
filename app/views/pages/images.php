@@ -3,24 +3,12 @@
 <div class="img-container">
     <div class="row-header"><h1>KHOẢNH KHẮC LỮ HÀNH</h1></div>
     <div class="row-content">
-    <div class="img">
-    </div>
-    <div class="img">
-    </div>
-    <div class="img">
-    </div>
-    <div class="img">
-    </div>
-    <div class="img">
-    </div>
-    <div class="img">
-    </div>
-    <div class="img">
-    </div>
-    <div class="img">
-    </div>
-    <div class="img">
-    </div>
+        <?php 
+            for ($i = 0; $i < count($data); $i++){ 
+                echo '
+                <img src="' . $data[$i]["Memorie"]["image"] . '" class="img">';
+            }
+        ?>
 
     </div>
     <div class="footer">

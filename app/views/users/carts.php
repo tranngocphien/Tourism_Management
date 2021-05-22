@@ -58,6 +58,10 @@ for ($i = 0 ; $i < $length; $i++) {
                         <ul>
                             <li><strong>Số vé: </strong>' . $data[$i]["Booking"]["number_ticket"] . '</li>
                             <li><strong>Tổng tiền: </strong>' . $data[$i]["Booking"]["money"] . '</li>
+                            <li><strong>Thanh toán: </strong>'; if($data[$i]["Booking"]["payment"]=="1") echo 'Chuyển khoản';
+                                                                else echo 'Trực tiếp';
+                                                                echo '
+                            <li><strong>Ngày khởi hành: </strong>' . $data[$i]["Booking"]["date_start"] . '</li> 
                         </ul>
                     </div>
 
@@ -77,10 +81,6 @@ for ($i = 0 ; $i < $length; $i++) {
 
         </div>
 
-        <div class="footer">
-        
-
-        </div>
-
     </div>
 </body>
+<?php require_once ROOT . '/views/includes/footer.php' ?>

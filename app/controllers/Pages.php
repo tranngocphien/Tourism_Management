@@ -124,6 +124,8 @@ class Pages extends Controller
 
     public function khoanh_khac_lu_hanh()
     {
-        $this->view('pages/images');
+        $data = $this->pageModel->getMemories();
+        //print_r($data);
+        $this->view('pages/images', $data);
     }
 }

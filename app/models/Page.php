@@ -105,6 +105,11 @@ class Page
         return $this->db->query($query);
     }
 
+    public function getMemories(){
+        $query = "SELECT memories.image FROM memories";
+        return $this->db->query($query);
+    }
+
 
 
 
