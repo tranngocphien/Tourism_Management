@@ -192,11 +192,13 @@
                         <div class="title">THÔNG TIN VỀ SẢN PHẨM DỊCH VỤ</div>
                     </div>
                     <div class="product">
+                        <a style="text-decoration: none;" href="http://localhost/Tourism_Management/Pages/tour_detail/<?php echo $data["tour"][0]["Tour"]["tour_id"]; ?>">
                         <img src="<?php echo $data["tour"][0]["Places_image"]["image_path"]; ?>" class="image">
                         <div class="panel">
                             <div class="title">
                                 <?php echo $data["tour"][0]["Tour"]["tour_name"]; ?>
                             </div>
+                        </a>
                             <div class="input">
                                 <div class="person">SỐ VÉ: </div>
                                 <div class="number"><input type="number" name="ticket" value="0" min="0" id="ticket" onchange="addTicket()"> </div>

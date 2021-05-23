@@ -79,10 +79,23 @@ class Pages extends Controller
         $tour = $this->pageModel->getTourById($tour_id);
         $image = $this->pageModel->getImageByTourId($tour_id);
 
+        //print_r($tour);
 
-        $word = $tour[0]["Tour"]["tour_name"];
+
+        $word = $tour[0]["Place"]["places_name"];
 
         $other = $this->pageModel->getToursBySearchWord($word);
+
+        for ($i = 0; $i < count($other); $i++){
+            for($j=$i+1; $j < count($other); $j++){
+                if($other[$i]["Tour"]["tour_id"] == $other[$j]["Tour"]["tour_id"]){
+                    array_splice($other, $j, 1);
+                }
+            }
+            if($other[$i]["Tour"]["tour_id"] == $tour[0]["Tour"]["tour_id"]){
+                array_splice($other, $i, 1);
+            }
+        }
 
 
         $data = array(
