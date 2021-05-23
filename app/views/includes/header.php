@@ -34,12 +34,20 @@
                         TRANG CHỦ
                     </div>
                 </a>
+
+                <a href="http://muongthanh.com/" style="text-decoration: none;">
                 <div class="infor">
                     KHÁCH SẠN
                 </div>
+                </a>
+
+                <a href="https://www.vietnambooking.com/" style="text-decoration: none;">
                 <div class="contact">
                     ĐẶT VÉ MÁY BAY
                 </div>
+                </a>
+
+
                 <a href="http://localhost/Tourism_Management/Users/carts">
                     <div class="market">
                         <img class="icon" src="<?php echo URL ?>/public/img/ic_market.png">

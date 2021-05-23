@@ -723,7 +723,7 @@ body {
     
     .img_head {
         position: relative;
-        height: 28em;
+        height: 10em;
         width: 100%;
         left: 0px;
         background: blue;
@@ -742,14 +742,14 @@ body {
     .img_head .search {
         position: absolute;
         bottom: 5%;
-        width: 30%;
-        height: 13%;
+        width: 60%;
+        height: 26%;
         background-color: darkgreen;
         opacity: 0.7;
         display: flex;
         align-items: center;
         justify-items: center;
-        margin-left: 35%;
+        margin-left: 20%;
         border: 1px solid #ccc!important;
         border-radius: 10px;
     }
@@ -769,7 +769,7 @@ body {
         left: 65%;
         width: 30%;
         position: absolute;
-        font-size: 17px;
+        font-size: 10px;
         height: 60%;
         top: 23%;
         color: white;
@@ -781,7 +781,7 @@ body {
         position: relative;
         top: 81%;
         width: 100%;
-        height: 5em;
+        height: 4em;
         background-color: rgb(12, 83, 12);
     }
     
@@ -790,6 +790,7 @@ body {
         width: 14%;
         height: 100%;
         margin-left: 0%;
+        display: none;
         background-color: green;
     }
     
@@ -798,20 +799,21 @@ body {
         width: 14.2%;
         height: 100%;
         margin-left: 14.1%;
+        display: none;
         background-color: green;
     }
     
     .menu .menu3 {
         position: absolute;
-        width: 14.4%;
+        width: 25%;
         height: 100%;
-        margin-left: 28.4%;
+        margin-left: 10%;
         background-color: green;
         display: flex;
         align-items: center;
         justify-content: center;
         color: #fff;
-        font-size: 150%;
+        font-size: 100%;
         font-family: 'Courier New', Courier, monospace;
         font-weight: bold;
         text-align: center;
@@ -823,15 +825,15 @@ body {
     
     .menu .menu4 {
         position: absolute;
-        width: 14.4%;
+        width: 30%;
         height: 100%;
-        margin-left: 42.9%;
+        margin-left: 35.5%;
         background-color: green;
         display: flex;
         align-items: center;
         justify-content: center;
         color: #fff;
-        font-size: 150%;
+        font-size: 100%;
         font-family: 'Courier New', Courier, monospace;
         font-weight: bold;
         text-align: center;
@@ -843,15 +845,15 @@ body {
     
     .menu .menu5 {
         position: absolute;
-        width: 14.4%;
+        width: 25%;
         height: 100%;
-        margin-left: 57.4%;
+        margin-left: 66%;
         background-color: green;
         display: flex;
         align-items: center;
         justify-content: center;
         color: #fff;
-        font-size: 150%;
+        font-size: 100%;
         font-family: 'Courier New', Courier, monospace;
         font-weight: bold;
         text-align: center;
@@ -867,6 +869,7 @@ body {
         height: 100%;
         margin-left:71.9%;
         background-color: green;
+        display: none;
     }
     
     .menu .menu7 {
@@ -875,6 +878,7 @@ body {
         height: 100%;
         margin-left: 86%;
         background-color: green;
+        display: none;
     }
     
     
@@ -901,10 +905,10 @@ body {
     
     
     .content {
-        width: 76%;
+        width: 100%;
         position: relative;
-        left: 12%;
-        right: 12%;
+        left: 0px;
+        right: 0px;
         margin-bottom: 20%;
     }
     
@@ -916,6 +920,7 @@ body {
         font-family: 'Courier New', Courier, monospace;
         position: relative;
         text-align: center;
+        font-size: 13px;
     }
     
     .content .row1 {
@@ -933,8 +938,8 @@ body {
     
     .content .row1 .tours .col1{
         border-radius: 5px;
-        width: 30%;
-        height: 35em;
+        width: 100%;
+        height: 30em;
         border: none;
         box-shadow: 1px 1px 5px 0 #999;
         margin: 10px;
@@ -1033,11 +1038,11 @@ body {
     .content .row1 .button {
         background-color: rgb(6, 66, 6);
         color: #fff;
-        font-size: 25px;
+        font-size: 20px;
         border-radius: 5px;
         padding: 5px;
         top: 2em;
-        margin-left: 40%;
+        margin-left: 31%;
         position: relative;
     }
     
@@ -1050,10 +1055,9 @@ body {
     }
     
     .content .row-2 .heading {
-        
         color: #003e71;
         height: 3em;
-        font-size: 30px;
+        font-size: 21px;
         font-weight: 600;
         display: flex;
         top: -1em;
@@ -1069,8 +1073,8 @@ body {
     }
     
     .content .row-2 .images .img1 {
-        width: 62%;
-        height: 70%;
+        width: 49%;
+        height: 25%;
         position: relative;
         border: none;
         box-shadow: 1px 1px 5px 0 #999;
@@ -1091,8 +1095,8 @@ body {
         height: 2em;
         position: absolute;
         width: 8em;
-        top: 27em;
-        font-size: 15px;
+        top: 10em;
+        font-size: 13px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1104,11 +1108,11 @@ body {
     
     
     .content .row-2 .images .img2 {
-        width: 35%;
-        height: 35%;
+        width: 48%;
+        height: 25%;
         position: relative;
-        top: -70%;
-        left: 65%;
+        top: -25%;
+        left: 51%;
         border: none;
         box-shadow: 1px 1px 5px 0 #999;
     }
@@ -1128,8 +1132,8 @@ body {
         height: 2em;
         position: absolute;
         width: 8em;
-        top: 12em;
-        font-size: 15px;
+        top: 10em;
+        font-size: 13px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1142,11 +1146,11 @@ body {
     
     
     .content .row-2 .images .img3 {
-        width: 35%;
-        height: 34%;
+        width: 48%;
+        height: 25%;
         position: relative;
-        top: -69%;
-        left: 65%;
+        top: -23%;
+        left: 51%;
         border: none;
         box-shadow: 1px 1px 5px 0 #999;
     }
@@ -1166,8 +1170,8 @@ body {
         height: 2em;
         position: absolute;
         width: 8em;
-        top: 12em;
-        font-size: 15px;
+        top: 10em;
+        font-size: 13px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1180,10 +1184,10 @@ body {
     
     
     .content .row-2 .images .img4 {
-        width: 19%;
-        height: 27%;
+        width: 49%;
+        height: 25%;
         position: relative;
-        top: -66%;
+        top: -48%;
         border: none;
         box-shadow: 1px 1px 5px 0 #999;
     }
@@ -1203,8 +1207,8 @@ body {
         height: 2em;
         position: absolute;
         width: 8em;
-        top: 9em;
-        font-size: 15px;
+        top: 10em;
+        font-size: 13px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1216,11 +1220,11 @@ body {
     
     
     .content .row-2 .images .img5 {
-        width: 20%;
-        height: 27%;
+        width: 49%;
+        height: 25%;
         position: relative;
-        top: -93%;
-        left: 20%;
+        top: -46%;
+        left: 0%;
         border: none;
         box-shadow: 1px 1px 5px 0 #999;
     }
@@ -1240,8 +1244,8 @@ body {
         height: 2em;
         position: absolute;
         width: 8em;
-        top: 9em;
-        font-size: 15px;
+        top: 10em;
+        font-size: 13px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1255,11 +1259,11 @@ body {
     
     
     .content .row-2 .images .img6 {
-        width: 20%;
-        height: 27%;
+        width: 48%;
+        height: 25%;
         position: relative;
-        top: -120%;
-        left: 41%;
+        top: -71%;
+        left: 51%;
         border: none;
         box-shadow: 1px 1px 5px 0 #999;
     }
@@ -1279,8 +1283,8 @@ body {
         height: 2em;
         position: absolute;
         width: 8em;
-        top: 9em;
-        font-size: 15px;
+        top: 10em;
+        font-size: 13px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1292,11 +1296,11 @@ body {
     
     
     .content .row-2 .images .img7 {
-        width: 19%;
-        height: 27%;
+        width: 49%;
+        height: 25%;
         position: relative;
-        top: -147%;
-        left: 62%;
+        top: -69%;
+        left: 0%;
         border: none;
         box-shadow: 1px 1px 5px 0 #999;
     }
@@ -1316,8 +1320,8 @@ body {
         height: 2em;
         position: absolute;
         width: 8em;
-        top: 9em;
-        font-size: 15px;
+        top: 10em;
+        font-size: 13px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1329,11 +1333,11 @@ body {
     
     
     .content .row-2 .images .img8 {
-        width: 18%;
-        height: 27%;
+        width: 48%;
+        height: 25%;
         position: relative;
-        top: -174%;
-        left: 82%;
+        top: -94%;
+        left: 51%;
         border: none;
         box-shadow: 1px 1px 5px 0 #999;
     }
@@ -1353,8 +1357,8 @@ body {
         height: 2em;
         position: absolute;
         width: 8em;
-        top: 9em;
-        font-size: 15px;
+        top: 10em;
+        font-size: 13px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1370,13 +1374,14 @@ body {
         top: 15em;
         position: relative;
         text-align: center;
+        margin-bottom: 13em;
     }
     
     .content .row-3 .heading {
         
         color: #003e71;
         height: 3em;
-        font-size: 30px;
+        font-size: 22px;
         font-weight: 600;
         display: flex;
         align-items: center;
@@ -1399,28 +1404,29 @@ body {
     }
     
     .content .row-3 .images .img .anh {
-        width: 30%;
-        height: 15em;
+        width: 47%;
+        height: 8em;
         background: chocolate;
         position: relative;
         border: none;
         box-shadow: 1px 1px 5px 0 #999;
         border-radius: 8px;
-        margin-left: 2em;
-        margin-bottom: 1.5em;
+        margin-left: 0px;
+        margin-right: 3%;
+        margin-bottom: 1em;
     
     }
     
     .content .row-3 .button {
-        height: 4em;
-        width: 15%;
+        height: 2.5em;
+        width: 40%;
         top: 1em;
         display: flex;
         align-items: center;
         justify-content: center;
         color: #fff;
-        font-weight: 600;
-        margin-left: 45%;
+        font-weight: 550;
+        margin-left: 30%;
         background: darkgreen;
         position: relative;
         border: none;
