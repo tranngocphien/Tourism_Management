@@ -64,7 +64,7 @@
                     </div>
                     <div class="showImage" id="showImage">
                         <?php foreach ($data as $item): ?>
-                        <img src="<?php echo $item["Memorie"]["image"]; ?>" width="150px" height="180px"  style="padding: 8px" />
+                            <img src="<?php echo $item["Memorie"]["image"]; ?>" width="150px" height="180px"  style="padding: 8px" />
                         <?php endforeach ?>
 
                     </div>

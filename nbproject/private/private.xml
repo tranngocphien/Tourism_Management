@@ -3,9 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/Tourism_Management/app/models/Admin.php</file>
-            <file>file:/C:/xampp/htdocs/Tourism_Management/app/controllers/Admins.php</file>
+            <file>file:/C:/xampp/htdocs/Tourism_Management/public/css/style.css</file>
+            <file>file:/C:/xampp/htdocs/Tourism_Management/public/css/book.css</file>
+            <file>file:/C:/xampp/htdocs/Tourism_Management/app/views/admin/tour_detail.php</file>
+            <file>file:/C:/xampp/htdocs/Tourism_Management/app/views/admin/memories.php</file>
+            <file>file:/C:/xampp/htdocs/Tourism_Management/app/views/admin/booking.php</file>
             <file>file:/C:/xampp/htdocs/Tourism_Management/app/views/admin/tour.php</file>
+            <file>file:/C:/xampp/htdocs/Tourism_Management/public/css/mstyle.css</file>
         </group>
     </open-files>
 </project-private>

@@ -13,9 +13,9 @@
                 var modal = document.getElementById("modal-opacity");
                 modal.style.display = "block";
                 dialog.style.display = "block";
-                
+
             }
-            
+
             function clickCancel() {
                 var dialog = document.getElementById("dialog");
                 var modal = document.getElementById("modal-opacity");
@@ -37,7 +37,7 @@
                 <div class="menu_item"><div class="menu_icon tour_icon"></div><a href="<?php echo URL; ?>/admins/tours">Tour</a></div>
                 <div class="menu_item"><div class="menu_icon booking-icon"></div><a href="<?php echo URL; ?>/admins/bookings">Đặt vé</a></div>
                 <div class="menu_item"><div class="menu_icon statistic-icon"></div><a href="<?php echo URL; ?>/admins/statistic">Thống kê</a></div>
-                            <div class="menu_item"><div class="menu_icon tour_icon"></div><a href="<?php echo URL; ?>/admins/memories">Khoản khắc lữ hành</a></div>
+                <div class="menu_item"><div class="menu_icon tour_icon"></div><a href="<?php echo URL; ?>/admins/memories">Khoản khắc lữ hành</a></div>
 
             </div>
             <div class="content_right">

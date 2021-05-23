@@ -24,7 +24,7 @@
             <div class="content_right">
 
                 <div class="title">Thống kê</div>
-                <div class="content_main m-flex">
+                <div class="content_main m-flex statistic">
                     <div class="m-flex-1 statistic-left">
                         <div class="grid" style="height: 100%; overflow-y: scroll">
                             <table>

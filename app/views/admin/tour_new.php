@@ -182,7 +182,7 @@
 
                 <div class="title">Thêm tour</div>
                 <form id="addform" name="submit" action="<?php echo URL; ?>/admins/tournew" method="post" enctype="multipart/form-data">
-                    <div class="content_main m-flex">
+                    <div class="content_main m-flex tour_detail">
                         <div class="m-flex-1 detail-left">
                             <div class="m-flex m-center"><div class="label">Tên tour</div><input id="tourname" class="m-input" type="text" name="tour_name" onchange="onChangeInput(this.id)"></div>
                             <div class="m-flex m-center">
