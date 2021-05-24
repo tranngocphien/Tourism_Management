@@ -14,8 +14,10 @@ class Admin {
     }
 
     public function searchUser($title, $key) {
+        $key = mysqli_real_escape_string($this->db->dbHandle, $key);
 
-        $query = "SELECT * FROM user WHERE user.$title LIKE '%$key%'";
+        $query = "SELECT * FROM user WHERE user.$title LIKE '%%%s%%'";
+        $query = sprintf($query, $key);
         return $this->db->query($query);
     }
 
@@ -27,21 +29,26 @@ class Admin {
     public function getListTourFromPlacesName($key) {
         $key = mysqli_real_escape_string($this->db->dbHandle, $key);
 
-        $query = "SELECT * FROM tour, places WHERE tour.places_id = places.places_id AND places.places_name LIKE '%$key%'";
+        $query = "SELECT * FROM tour, places WHERE tour.places_id = places.places_id AND places.places_name LIKE '%%%s%%'";
+        $query = sprintf($query, $key);
+
         return $this->db->query($query);
     }
 
     public function getListTourByTourName($key) {
         $key = mysqli_real_escape_string($this->db->dbHandle, $key);
 
-        $query = "SELECT * FROM tour, places WHERE tour.places_id = places.places_id AND tour.tour_name LIKE '%$key%'";
+        $query = "SELECT * FROM tour, places WHERE tour.places_id = places.places_id AND tour.tour_name LIKE '%%%s%%'";
+        $query = sprintf($query, $key);
+
         return $this->db->query($query);
     }
 
     public function searchTour($title, $key) {
         $key = mysqli_real_escape_string($this->db->dbHandle, $key);
 
-        $query = "SELECT * FROM tour, places WHERE tour.places_id = places.places_id AND tour.$title = '$key'";
+        $query = "SELECT * FROM tour, places WHERE tour.places_id = places.places_id AND tour.$title = '%s'";
+        $query = sprintf($query, $key);
         return $this->db->query($query);
     }
 
@@ -49,7 +56,8 @@ class Admin {
         $places_name = mysqli_real_escape_string($this->db->dbHandle, $places_name);
         $places_description = mysqli_real_escape_string($this->db->dbHandle, $places_description);
 
-        $query = "INSERT INTO `places`(`places_id`, `places_name`, `places_description`) VALUES (0,'$places_name','$places_description')";
+        $query = "INSERT INTO `places`(`places_id`, `places_name`, `places_description`) VALUES (0,'%s','%s')";
+        $query = sprintf($query, $places_name, $places_description);
         return $this->db->query($query);
     }
 
@@ -58,7 +66,8 @@ class Admin {
         $places_name = mysqli_real_escape_string($this->db->dbHandle, $places_name);
         $places_description = mysqli_real_escape_string($this->db->dbHandle, $places_description);
 
-        $query = "UPDATE places SET places.places_name = '$places_name', places_description = '$places_description' WHERE places.places_id = $places_id  ";
+        $query = "UPDATE places SET places.places_name = '%s', places_description = '%s' WHERE places.places_id = %d  ";
+        $query = sprintf($query, $places_name, $places_description, $places_id);
         return $this->db->query($query);
     }
 
@@ -70,7 +79,8 @@ class Admin {
     public function getByTourName($tour_name) {
         $tour_name = mysqli_real_escape_string($this->db->dbHandle, $tour_name);
 
-        $query = "SELECT tour.tour_id FROM tour WHERE tour.tour_name = '$tour_name'";
+        $query = "SELECT tour.tour_id FROM tour WHERE tour.tour_name = '%s'";
+        $query = sprintf($query, $tour_name);
         return $this->db->query($query);
     }
 
@@ -83,7 +93,8 @@ class Admin {
         $pricepersonal = mysqli_real_escape_string($this->db->dbHandle, $data["price"]);
         $pricegroup = mysqli_real_escape_string($this->db->dbHandle, $data["prices"]);
         $placesid = mysqli_real_escape_string($this->db->dbHandle, $data["placesid"]);
-        $query = "INSERT INTO `tour`(`tour_id`, `tour_name`, `tour_day`, `tour_night`, `transport`, `price_personal`, `price_group`, `places_id`) VALUES (0,'$tourname','$tourday','$tournight','$transport','$pricepersonal','$pricegroup','$placesid')";
+        $query = "INSERT INTO `tour`(`tour_id`, `tour_name`, `tour_day`, `tour_night`, `transport`, `price_personal`, `price_group`, `places_id`) VALUES (0,'%s','%d','%d','%s','%d','%d','%d')";
+        $query = sprintf($query, $tourname, $tourday, $tournight, $transport, $pricepersonal, $pricegroup, $placesid);
         return $this->db->query($query);
     }
 
@@ -96,7 +107,8 @@ class Admin {
         $pricepersonal = mysqli_real_escape_string($this->db->dbHandle, $data["price"]);
         $pricegroup = mysqli_real_escape_string($this->db->dbHandle, $data["prices"]);
         $placesid = mysqli_real_escape_string($this->db->dbHandle, $data["placesid"]);
-        $query = "UPDATE tour SET tour.tour_name = '$tourname', tour.tour_day =$tourday , tour.tour_night = $tournight, tour.transport = '$transport', tour.price_personal = '$pricepersonal', tour.price_group = '$pricegroup' WHERE tour.tour_id = '$tourid'";
+        $query = "UPDATE tour SET tour.tour_name = '%s', tour.tour_day =%d , tour.tour_night = %d, tour.transport = '%s', tour.price_personal = '%d', tour.price_group = '%d' WHERE tour.tour_id = '%d'";
+        $query = sprintf($query, $tourname, $tourday, $tournight, $transport, $pricepersonal, $pricegroup, $tourid);
         return $this->db->query($query);
     }
 
@@ -123,28 +135,34 @@ class Admin {
     public function getListBookingByTourName($key) {
         $key = mysqli_real_escape_string($this->db->dbHandle, $key);
 
-        $query = "SELECT booking.booking_id, tour.tour_name,user.username,booking.number_ticket,booking.status, booking.date_start, booking.payment, booking.money FROM booking, tour, user WHERE tour.tour_id = booking.tour_id and booking.user_id = user.user_id and tour.tour_name LIKE '%$key%'";
+        $query = "SELECT booking.booking_id, tour.tour_name,user.username,booking.number_ticket,booking.status, booking.date_start, booking.payment, booking.money FROM booking, tour, user WHERE tour.tour_id = booking.tour_id and booking.user_id = user.user_id and tour.tour_name LIKE '%%%s%%'";
+        $query = sprintf($query, $key);
         return $this->db->query($query);
     }
 
     public function getListBookingByUserName($key) {
         $key = mysqli_real_escape_string($this->db->dbHandle, $key);
 
-        $query = "SELECT booking.booking_id, tour.tour_name,user.username,booking.number_ticket,booking.status, booking.date_start, booking.payment, booking.money FROM booking, tour, user WHERE tour.tour_id = booking.tour_id and booking.user_id = user.user_id and user.username LIKE '%$key%'";
+        $query = "SELECT booking.booking_id, tour.tour_name,user.username,booking.number_ticket,booking.status, booking.date_start, booking.payment, booking.money FROM booking, tour, user WHERE tour.tour_id = booking.tour_id and booking.user_id = user.user_id and user.username LIKE '%%%s%%'";
+        $query = sprintf($query, $key);
         return $this->db->query($query);
     }
 
     public function geListBookingByUserId($key) {
         $key = mysqli_real_escape_string($this->db->dbHandle, $key);
 
-        $query = "SELECT booking.booking_id, tour.tour_name,user.username,booking.number_ticket,booking.status, booking.date_start, booking.payment, booking.money FROM booking, tour, user WHERE tour.tour_id = booking.tour_id and booking.user_id = user.user_id and user.user_id = '$key'";
+        $query = "SELECT booking.booking_id, tour.tour_name,user.username,booking.number_ticket,booking.status, booking.date_start, booking.payment, booking.money FROM booking, tour, user WHERE tour.tour_id = booking.tour_id and booking.user_id = user.user_id and user.user_id = '%d'";
+        $query = sprintf($query, $key);
+
         return $this->db->query($query);
     }
 
     public function searchBooking($title, $key) {
         $key = mysqli_real_escape_string($this->db->dbHandle, $key);
 
-        $query = "SELECT booking.booking_id, tour.tour_name,user.username,booking.number_ticket,booking.status, booking.date_start, booking.payment, booking.money FROM booking, tour, user WHERE tour.tour_id = booking.tour_id and booking.user_id = user.user_id and booking.$title = '$key'";
+        $query = "SELECT booking.booking_id, tour.tour_name,user.username,booking.number_ticket,booking.status, booking.date_start, booking.payment, booking.money FROM booking, tour, user WHERE tour.tour_id = booking.tour_id and booking.user_id = user.user_id and booking.$title = '%s'";
+        $query = sprintf($query, $key);
+
         return $this->db->query($query);
     }
 
