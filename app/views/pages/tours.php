@@ -36,7 +36,8 @@ require_once ROOT . '/views/includes/header.php'; ?>
     <section class="content_tours">
         <div class="row">
             <?php 
-            for ($i = 0; $i < count($data); $i++){
+            $size = count($data);
+            for ($i = 0; $i < $size; $i++){
             echo '
             <div class="col">
             <a href = "http://localhost/Tourism_Management/Pages/tour_detail/'. $data[$i]["Tour"]["tour_id"] .'">

@@ -9,7 +9,16 @@ class Page
 
     public function register($username, $password, $email, $phone, $fullname)
     {
-        $query = "INSERT INTO `user`(`user_id`, `username`, `password`, `fullname`,`email`, `tel`) VALUES (0,'$username','$password','$fullname','$email','$phone')";
+        $username = mysqli_real_escape_string($this->db->dbHandle, $username);
+        $password = mysqli_real_escape_string($this->db->dbHandle, $password);
+        $email = mysqli_real_escape_string($this->db->dbHandle, $email);
+        $phone = mysqli_real_escape_string($this->db->dbHandle, $phone);
+        $fullname = mysqli_real_escape_string($this->db->dbHandle, $fullname);
+
+        $query = "INSERT INTO `user`(`user_id`, `username`, `password`, `fullname`,`email`, `tel`) VALUES (0,'%s','%s','%s','%s','%s')";
+
+        $query = sprintf($query, $username, $password, $email, $phone, $fullname);
+
         if ($this->db->query($query)) {
             return true;
         } else {
@@ -19,10 +28,12 @@ class Page
 
     public function getImageByTourId($tour_id)
     {
+        $tour_id = mysqli_real_escape_string($this->db->dbHandle, $tour_id);
         $query = "SELECT places_image.* FROM places, tour, places_image 
         WHERE tour.places_id = places.places_id 
         AND places.places_id = places_image.places_id 
         AND tour.tour_id = $tour_id";
+
         return $this->db->query($query);
     }
 
@@ -59,22 +70,28 @@ class Page
 
     public function getToursByName($tour_name)
     {
-        $query = "SELECT * from tour, places, p where tour_name like '%$tour_name%' and tour.places_id = places.places_id";
+        $tour_name = mysqli_real_escape_string($this->db->dbHandle, $tour_name);
+        $query = "SELECT * from tour, places, p where tour_name like '%%%s%%' and tour.places_id = places.places_id";
+        $query = sprintf($query, $tour_name);
         return $this->db->query($query);
     }
 
     public function getToursBySearchWord($word)
     {
+        
         $data = explode(",", $word);
         $tours = array();
 
         foreach ($data as $w) {
+            $w = mysqli_real_escape_string($this->db->dbHandle, $w);
 
             $query = "SELECT * FROM places, tour, places_image 
             WHERE tour.places_id = places.places_id 
             AND places.places_id = places_image.places_id 
-            AND (places.places_name LIKE '%$w%'OR places.places_description LIKE '%$w%' OR tour.tour_name LIKE '%$w%' OR tour.transport LIKE '%$w%')
+            AND (places.places_name LIKE '%%%s%%'OR places.places_description LIKE '%%%s%%' OR tour.tour_name LIKE '%%%s%%' OR tour.transport LIKE '%%%s%%')
             AND places_image.image_id = (SELECT places_image.image_id FROM places_image WHERE places_image.places_id = places.places_id LIMIT 1)";
+
+            $query = sprintf($query, $w, $w, $w, $w);
 
             $q = $this->db->query($query);
             $tours = $tours + $q;
@@ -95,13 +112,17 @@ class Page
 
     public function getToursBySearch($word, $day)
     {
+        $word = mysqli_real_escape_string($this->db->dbHandle, $word);
+
         $query = "SELECT * FROM places, tour, places_image 
         WHERE tour.places_id = places.places_id 
         AND places.places_id = places_image.places_id 
-        AND (places.places_name LIKE '%$word%'OR places.places_description LIKE '%$word%' OR tour.tour_name LIKE '%$word%')
+        AND (places.places_name LIKE '%%%s%%'OR places.places_description LIKE '%%%s%%' OR tour.tour_name LIKE '%%%s%%' OR tour.transport LIKE '%%%s%%' )
          AND tour.tour_day = $day 
         AND places_image.image_id = (SELECT places_image.image_id FROM places_image WHERE places_image.places_id = places.places_id LIMIT 1)";
 
+        $query = sprintf($query, $word, $word, $word , $word);
+        
         return $this->db->query($query);
     }
 

@@ -122,7 +122,7 @@ class Pages extends Controller
             } else if ($word != '') {
                 $data = $this->pageModel->getToursBySearchWord($word);
                 // print_r("TÌM CHỮ\n");
-                // print_r($data);
+                //print_r($data);
                 return $this->view('pages/tours', $data);
             }
             else{
