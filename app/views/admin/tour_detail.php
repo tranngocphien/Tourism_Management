@@ -43,6 +43,8 @@
         <div class="header">
             <div class="header-logo"></div>
             <div>Tourism Management</div>
+            <div><a class="logout" href="http://localhost/Tourism_Management/admins/logOut">Đăng xuất</a></div>
+
         </div>
         <div class="content">
             <div class="content_left">
@@ -54,7 +56,8 @@
 
             </div>
             <div class="content_right">
-                <?php $image = $data["image"]; $data = $data["info"] ?>
+                <?php $image = $data["image"];
+                $data = $data["info"] ?>
 
                 <div class="title">Chi tiết tour</div>
                 <form action="<?php echo URL; ?>/admins/tourdetail/<?php echo $data[0]["Tour"]["tour_id"]; ?>/<?php echo $data[0]["Place"]["places_id"]; ?>" method="post" enctype="multipart/form-data">

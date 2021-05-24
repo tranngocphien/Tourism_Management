@@ -44,6 +44,8 @@
         <div class="header">
             <div class="header-logo"></div>
             <div>Tourism Management</div>
+            <div><a class="logout" href="http://localhost/Tourism_Management/admins/logOut">Đăng xuất</a></div>
+
         </div>
         <div class="content">
             <div class="content_left">
