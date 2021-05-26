@@ -70,7 +70,7 @@
                           <a href="http://localhost/Tourism_Management/Users/profile">Tài khoản</a>
                         </li>
                         <li>
-                          <a href="javascript:void(0)">Đổi mật khẩu</a>
+                          <a href="http://localhost/Tourism_Management/users/changepass">Đổi mật khẩu</a>
                         </li>
                         <li>
                         <a href="http://localhost/Tourism_Management/users/logout"  style="text-decoration: none;" >Đăng xuất</a>

@@ -14,10 +14,11 @@ class User {
         $email = mysqli_real_escape_string($this->db->dbHandle, $email);
         $phone = mysqli_real_escape_string($this->db->dbHandle, $phone);
         $fullname = mysqli_real_escape_string($this->db->dbHandle, $fullname);
+        $address = mysqli_real_escape_string($this->db->dbHandle, $address);
 
-        $query = "INSERT INTO `user`(`user_id`, `username`, `password`, `fullname`,`email`, `tel`) VALUES (0,'%s','%s','%s','%s','%s')";
+        $query = "INSERT INTO `user`(`user_id`, `username`, `password`, `fullname`,`email`, `tel`, `address`) VALUES (0,'%s','%s','%s','%s','%s','%s')";
 
-        $query = sprintf($query, $username, $password, $email, $phone, $fullname);
+        $query = sprintf($query, $username, $password, $fullname, $email, $phone, $address);
         return $this->db->query($query);
             
     }
@@ -39,6 +40,21 @@ class User {
         
     }
 
+
+    public function updateAccount($user_id, $fullname, $email, $phone, $address){
+        $email = mysqli_real_escape_string($this->db->dbHandle, $email);
+        $phone = mysqli_real_escape_string($this->db->dbHandle, $phone);
+        $fullname = mysqli_real_escape_string($this->db->dbHandle, $fullname);
+        $address = mysqli_real_escape_string($this->db->dbHandle, $address);
+
+        $query = "UPDATE `user` SET `fullname`='%s',`email`='%s',`tel`='%s',`address`='%s' WHERE `user_id`='$user_id'";
+
+        $query = sprintf($query, $fullname, $email, $phone, $address);
+
+        return $this->db->query($query);
+        
+    }
+
         
         public function getUser($user_id){
         $query = "SELECT user.fullname, user.email, user.tel, user.address FROM user where user_id = $user_id";
@@ -46,7 +62,7 @@ class User {
     }
 
         public function getUserByUsername($username){
-        $query = "SELECT user.fullname, user.email, user.tel, user.address FROM user where user.username = '$username'";
+        $query = "SELECT  user.username ,user.fullname, user.email, user.tel, user.address FROM user where user.username = '$username'";
 
             return $this->db->query($query,1);
     }

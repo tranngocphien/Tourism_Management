@@ -11,13 +11,23 @@ class Users extends Controller {
     public function register() {
         if (isset($_POST['username'])) {
             $username = $_POST['username'];
-            $password = $_POST['password'];
-            $email = $_POST['email'];
-            $phone = $_POST['tel'];
-            $fulname = $_POST['fullname'];
-            $address = $_POST['address'];
-            $this->userModel->register($username, $password, $email, $phone, $fulname, $address);
-            header("Location:" . URL . "/users/register");
+            $user = $this->userModel->getUserByUsername($username);
+
+            if ($user['User']['username'] !=  $username){
+                $password = $_POST['password'];
+                $email = $_POST['email'];
+                $phone = $_POST['tel'];
+                $fulname = $_POST['fullname'];
+                $address = $_POST['address'];
+                
+
+                $this->userModel->register($username, $password, $email, $phone, $fulname, $address);
+                header("Location:" . URL . "/users/register");
+            }
+            else{
+                $this->view("users/register");
+            }
+
         } else {
             $this->view("users/register");
         }
@@ -127,9 +137,35 @@ class Users extends Controller {
     }
 
     public function profile() {
-        $user = $_SESSION["user_id"];
-        $data = $this->userModel->getProfile($user);
+        $user_id = $_SESSION["user_id"];
+        $data = $this->userModel->getProfile($user_id);
         $this->view("users/profile", $data);
+
+    }
+
+    public function updateAccount(){
+        if (isset($_SESSION['username'])){
+
+            $user_id = $_SESSION["user_id"];
+            $data = $this->userModel->getProfile($user_id);
+            $username = $_SESSION['username'];
+            $password = $data[0]["User"]["password"];
+            $fulname = $_POST['fullname-update'];
+            $email = $_POST['email-update'];
+            $phone = $_POST['phone-update'];
+            $address = $_POST['address-update'];
+    
+            if($fulname != '' && $email != '' && $phone != '' && $address != ''){
+                $this->userModel->updateAccount($user_id, $fulname, $email, $phone, $address);
+            }
+    
+            $data = $this->userModel->getProfile($user_id);
+            $this->view("users/profile", $data);
+
+        } else {
+            $_SESSION['link'] = "http://localhost/Tourism_Management/Users/profile";
+            $this->view('users/register');
+        }
     }
 
     public function changepass() {
