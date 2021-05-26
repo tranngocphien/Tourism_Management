@@ -1,18 +1,14 @@
 <?php
 
-
-class Users extends Controller
-{
+class Users extends Controller {
 
     private $userModel;
 
-    public function __construct()
-    {
+    public function __construct() {
         $this->userModel = $this->model('User');
     }
 
-    public function register()
-    {
+    public function register() {
         if (isset($_POST['username'])) {
             $username = $_POST['username'];
             $password = $_POST['password'];
@@ -27,8 +23,7 @@ class Users extends Controller
         }
     }
 
-    public function login()
-    {
+    public function login() {
         if (isset($_POST['username_login']) && $_POST['username_login'] != '') {
             $username = $_POST['username_login'];
             $password = $_POST['password_login'];
@@ -53,11 +48,9 @@ class Users extends Controller
                     } else {
                         $header = header("Location:" . URL . "/pages/index");
                     }
-                }
-                else {
+                } else {
                     $this->view("users/register");
                 }
-
             } else {
                 $this->view("users/register");
             }
@@ -66,19 +59,16 @@ class Users extends Controller
         }
     }
 
-    public function index()
-    {
+    public function index() {
         $this->view("users/index");
     }
 
-    public function logout()
-    {
+    public function logout() {
         unset($_SESSION['username']);
         header("Location:" . URL . "/");
     }
 
-    public function book($tour_id)
-    {
+    public function book($tour_id) {
         if (isset($_SESSION['username'])) {
             $username = $_SESSION['username'];
             $_SESSION['tour_id'] = $tour_id;
@@ -98,8 +88,7 @@ class Users extends Controller
         }
     }
 
-    public function carts()
-    {
+    public function carts() {
 
         if (isset($_SESSION['username'])) {
             $user_id = $_SESSION['user_id'];
@@ -136,9 +125,23 @@ class Users extends Controller
             //print_r($_SESSION['link']);
         }
     }
+
     public function profile() {
         $user = $_SESSION["user_id"];
         $data = $this->userModel->getProfile($user);
         $this->view("users/profile", $data);
     }
+
+    public function changepass() {
+        if (isset($_POST['password_new'])) {
+            $pn = $_POST['password_new'];
+            $user_id = $_SESSION["user_id"];
+            $this->userModel->changePassword($pn, $user_id);
+            header("Location:" . URL . "/");
+        }
+        $user = $_SESSION["user_id"];
+        $data = $this->userModel->getProfile($user);
+        $this->view("users/changepass", $data);
+    }
+
 }
