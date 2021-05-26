@@ -54,7 +54,7 @@ require_once ROOT . '/views/includes/header.php'; ?>
             </a>
 
                 <div class="bot">
-                    <img src="<?php echo URL?>/public/img/dolar.png" class="logo">
+                    <img src="'. URL .'/public/img/dolar.png" class="logo">
                     <div class="price">' . $data[$i]["Tour"]["price_personal"] .'</div>
                     <a style="text-decoration=none;" href = "http://localhost/Tourism_Management/Users/book/' . $data[$i]["Tour"]["tour_id"] . '">
                     <div class="book">ĐẶT NGAY</div>
