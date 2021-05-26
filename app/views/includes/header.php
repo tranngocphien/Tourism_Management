@@ -14,6 +14,7 @@
         <?php echo "hello"; ?>
     </title>
 
+ 
 </head>
 
 <body>
@@ -56,9 +57,27 @@
              <?php 
              if (isset($_SESSION['username'])){
                 echo '
-                <a href="http://localhost/Tourism_Management/users/logout"  style="text-decoration: none;" >
+                
                     <div class="login">
-                        ĐĂNG XUẤT
+                    <ul class="menu1">
+                    <li>
+                      <a href="javascript:void(0)">
+                        '. $_SESSION['username'] .'
+                        <span class="arrow arrow-down"></span>
+                      </a>
+                      <ul class="dropdown_menu">
+                        <li>
+                          <a href="http://localhost/Tourism_Management/Users/profile">Tài khoản</a>
+                        </li>
+                        <li>
+                          <a href="javascript:void(0)">Đổi mật khẩu</a>
+                        </li>
+                        <li>
+                        <a href="http://localhost/Tourism_Management/users/logout"  style="text-decoration: none;" >Đăng xuất</a>
+                        </li>
+                      </ul>
+                    </li>
+                </ul>
                     </div></a> ';
 
              }else {
