@@ -77,4 +77,5 @@
             $query = "SELECT * FROM user WHERE user.user_id = '$user_id'";
             return $this->db->query($query);
         }
+        
     }
