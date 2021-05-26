@@ -136,4 +136,9 @@ class Users extends Controller
             //print_r($_SESSION['link']);
         }
     }
+    public function profile() {
+        $user = $_SESSION["user_id"];
+        $data = $this->userModel->getProfile($user);
+        $this->view("users/profile", $data);
+    }
 }

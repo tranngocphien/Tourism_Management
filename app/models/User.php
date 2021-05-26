@@ -73,4 +73,8 @@
                 ORDER by image_id LIMIT 1)";
             return $this->db->query($query);
         }
+        public function getProfile($user_id){
+            $query = "SELECT * FROM user WHERE user.user_id = '$user_id'";
+            return $this->db->query($query);
+        }
     }
