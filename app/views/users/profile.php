@@ -26,7 +26,16 @@
 
     }
 
-    
+    .m-flex{
+        display: flex;
+    }
+    .m-center{
+        align-items: center;
+    }
+    .mitem{
+        margin-top: 8px;
+ 
+    }
 
 </style>
 <body>
