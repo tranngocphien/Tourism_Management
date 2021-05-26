@@ -144,7 +144,7 @@ class Admins extends Controller {
                 $images_arr = array();
 
                 if (isset($_FILES['image'])) {
-                    if (!empty($_FILES['image'])) {
+                    if (!empty($_FILES['image']["name"][0])) {
                         $this->adminModel->deleteImage($places_id);
                     }
                 }

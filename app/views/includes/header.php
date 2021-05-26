@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Register Form</title>
+    <title>TENGTENG</title>
     <meta charset="UTF-8">
 
     <link rel="stylesheet" href="http://localhost/Tourism_Management/public/css/book.css">
