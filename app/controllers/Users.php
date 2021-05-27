@@ -13,7 +13,7 @@ class Users extends Controller {
             $username = $_POST['username'];
             $user = $this->userModel->getUserByUsername($username);
 
-            if ($user['User']['username'] !=  $username){
+            if (empty($user)){
                 $password = $_POST['password'];
                 $email = $_POST['email'];
                 $phone = $_POST['tel'];
